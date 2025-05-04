@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - PT. Fauza Wisata Ihsani Pemalang</title>
+    <link rel="stylesheet" href="artikel2.css">
+    <script defer src="script.js"></script> <!-- Link ke JavaScript -->
+</head>
+<body>
+    <header class="header">
+        <img src="D:\HTML Website\Gambar\Logo1.jpg" alt="logo" class="logo-img"style="width: 150px; height: auto;">
+        <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
+        <div class="menu-icon" id="menu-icon">☰</div>
+        <nav class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="artikel.html">Artikel</a></li>
+                <li><a href="layanan.html">Layanan Kami</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        // Script untuk toggle menu nav
+        const menuIcon = document.getElementById('menu-icon');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuIcon.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Script untuk mengatur slider
+        let currentIndex = 0; // Indeks slide saat ini
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('show'); // Hapus kelas 'show' dari semua slide
+                if (i === index) {
+                    slide.classList.add('show'); // Tambahkan kelas 'show' untuk slide yang aktif
+                }
+            });
+        }
+</script>
+    <h1>Keutamaan Umrah</h1>
+    <p class="meta-info">Oleh Muhamad Yahya | Tanggal: 27 April 2025 | Kategori: Dakwah</p>
+</header>
+
+<main class="article-container">
+    <section class="article-content">
+        <img src="D:\HTML Website\Gambar\download.jpeg" alt="Gambar Artikel 1" class="article-image">
+        <p class="article-text">Umrah memiliki derajat dan keutamaan yang agung, di antaranya sebagai berikut :</p>
+        <p class="article-text">
+            Sesungguhnya Allah menyertakannya dengan haji, dan memerintahkan untuk menyempurnakan serta menunaikannya dengan cara paling sempurna dengan mengharap ridha-Nya. Allah SWT berfirman: {Dan sempurnakanlah haji dan umrah karena Allah}.
+
+            Umrah dapat menyucikan dari dosa-dosa, serta mengurangi kefakiran dan kebutuhan: Rasulullah -Shallallahu alaihi wasallam- bersabda: “Lanjutkanlah haji dengan umrah, karena keduanya (dapat) menghilangkan kefakiran dan dosa-dosa, sebagaimana api menghilangkan kotoran besi".
+            
+            Umrah bisa melebur dosa-dosa: Rasulullah -Shallallahu alaihi wasallam- bersabda: “Satu umrah sampai umrah lain merupakan pelebur dosa-dosa di antara keduanya".
+            
+            Langkah-langkah pada Thawaf dalam menambah kebaikan dan menghapus keburukan: Rasulullah (Shallallahu Alaihi Wasallam) bersabda perihal keutamaan Thawaf: “Barangsiapa yang mengerjakan Thawaf, ia belum mengangkat satu kakinya dan belum meletakkan satu kaki yang lain, kecuali Allah telah menuliskan satu kebaikan untuknya dan mengurangi satu kesalahannya, dan mengangkat satu derajat untuknya.
+            
+            Sa'i antara Shafa dan Marwah merupakan sarana syukur Allah kepada hamba-Nya dan pemberian pahala untuk hamba-Nya: Allah mengabarkan setelah menyebutkan Sa’i antara Shafa dan Marwah, bahwa Dia Dzat yang Maha Mengetahui terhadap perbuatan hamba-Nya, dan Dia akan bersyukur atas perbuatan baik hamba tersebut. Allah SWT berfirman: {Dan barangsiapa yang mengerjakan suatu kebaikan dengan kerelaan hati, maka sesungguhnya Allah Maha Mensyukuri kebaikan dan Maha Mengetahui}.</p>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>© 2025 PT Fauza Wisata Ihsani Pemalang. Semua Hak Dilindungi.</p>
+</footer>
+
+</body>
+</html>

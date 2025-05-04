@@ -1,0 +1,294 @@
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Font modern */
+    background-color: #f4f4f4; /* Warna latar belakang halaman */
+}
+
+.img {
+    max-width: 100%; /* Atur lebar gambar sesuai ukuran kontainer */
+    height: auto; /* Menjaga rasio aspek gambar */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #fefeff; /* Warna latar belakang header */
+    color: rgb(0, 0, 0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+    position: relative; /* Pastikan header memiliki konteks posisi */
+    z-index: 1000; /* Menetapkan tinggi z-index untuk header */
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.menu-icon {
+    font-size: 26px; /* Ukuran ikon titik tiga */
+    cursor: pointer;
+    display: none; /* Tersembunyi di tampilan besar */
+}
+
+.nav-menu {
+    display: none; /* Sembunyikan menu secara default */
+    position: absolute; /* Posisi absolut untuk mengapung di atas konten lainnya */
+    top: 70px; /* Jarak dari bagian atas */
+    right: 30px; /* Jarak dari sisi kanan */
+    background-color: #424242; /* Warna latar belakang menu */
+    border-radius: 8px; /* Sudut bulat menu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan */
+    z-index: 2000; /* Z-index tinggi agar menampilkan menu di atas konten lainnya */
+}
+
+.nav-menu.active {
+    display: block; /* Tampilkan menu saat aktif */
+}
+
+.nav-menu ul {
+    list-style: none; /* Menghilangkan bullet pada list */
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    padding: 12px 20px; /* Jarak dalam setiap item menu */
+}
+
+.nav-menu li a {
+    color: white; /* Warna teks */
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Animasi saat hover */
+}
+
+.nav-menu li a:hover {
+    background-color: #303f9f; /* Warna latar belakang saat hover */
+    border-radius: 8px; /* Sudut bulat saat hover */
+}
+
+/* Media query untuk menampilkan menu ikon pada perangkat kecil */
+@media (max-width: 770px) {
+    .menu-icon {
+        display: block; /* Tampilkan ikon titik tiga pada perangkat kecil */
+    }
+
+    .nav-menu {
+        width: 200px; /* Atur lebar menu dropdown */
+        margin-top: 10px; /* Jarak atas untuk tampilan yang lebih baik */
+        opacity: 0; /* Sembunyikan menu dengan efek transparansi */
+        visibility: hidden; /* Sembunyikan menu agar tidak menghalangi klik */
+        transition: opacity 0.3s ease, visibility 0.3s ease; /* Animasi transparansi */
+    }
+
+    .nav-menu.active {
+        opacity: 1; /* Tampilkan menu saat aktif */
+        visibility: visible; /* Mengizinkan menu untuk klik */
+    }
+
+    .nav-menu ul {
+        display: flex; /* Menu menggunakan flexbox */
+        flex-direction: column; /* Tiap item ditumpuk */
+    }
+
+    .nav-menu li {
+        text-align: center; /* Teks di tengah */
+    }
+}
+
+@media (min-width: 769px) {
+    .nav-menu {
+        display: flex; /* Tampilkan menu sebagai flex pada perangkat besar */
+        position: static; /* Menetapkan posisi statis untuk tata letak horizontal */
+    }
+
+    .nav-menu ul {
+        display: flex; /* Menu horizontal */
+    }
+
+    .menu-icon {
+        display: none; /* Sembunyikan ikon titik tiga pada perangkat besar */
+    }
+}
+
+.slider {
+    position: relative;
+    max-width: 800px; /* Lebar maksimum slider */
+    margin: auto; /* Pusatkan slider */
+    overflow: hidden; /* Sembunyikan bagian luar slider */
+    z-index: 1; /* Z-index lebih rendah agar slider di bawah menu */
+}
+
+.slides {
+    display: flex; /* Tampilkan slide secara horizontal */
+    transition: transform 0.5s ease-in-out; /* Animasi transisi */
+}
+
+.slide {
+    min-width: 100%; /* Setiap slide mengisi lebar penuh slider */
+    box-sizing: border-box; /* Menghindari padding yang menambah ukuran */
+}
+
+.slide img {
+    width: 100%; /* Gambar responsif */
+    height: auto; /* Menyesuaikan tinggi */
+}
+
+.prev, .next {
+    position: absolute; /* Posisi absolut untuk tombol navigasi */
+    top: 50%; /* Pusatkan tombol di tengah */
+    transform: translateY(-50%); /* Koreksi posisi tombol */
+    color: white; /* Warna teks tombol */
+    font-size: 18px; /* Ukuran font tombol */
+    padding: 16px; /* Padding tombol */
+    cursor: pointer; /* Pointer saat hover */
+    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang transparan */
+    border: none; /* Hapus border */
+    border-radius: 3px; /* Sudut bulat tombol */
+}
+
+.prev {
+    left: 10px; /* Jarak dari sisi kiri */
+}
+
+.next {
+    right: 10px; /* Jarak dari sisi kanan */
+}
+
+.fade {
+    display: none; /* Sembunyikan semua slide secara default */
+}
+
+.fade.show {
+    display: block; /* Tampilkan slide saat aktif */
+}
+body {
+            background-image: url('path/to/your/image.jpg'); /* Ganti dengan URL gambar Anda */
+            background-size: cover; /* Gambar menutupi seluruh area */
+            background-position: center; /* Memposisikan gambar di tengah */
+            background-repeat: no-repeat; /* Tidak mengulang gambar */
+            font-family: Arial, sans-serif; /* Menetapkan font untuk teks */
+        }
+
+        .content {
+            color: white; /* Warna teks agar kontras dengan latar belakang */
+            padding: 20px; /* Memberikan ruang di dalam konten */
+            text-align: center; /* Memusatkan teks */
+        }
+/* Hero Section */
+.hero {
+    background: url('hero-image.jpg') no-repeat center center/cover;
+    height: 150vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+.illustration-container {
+    text-align: center;
+    margin: 20px 0; /* Ruang di atas dan bawah */
+}
+
+.illustration-container img {
+    width: 100%; /* Gambar mengikuti lebar kontainer */
+    max-width: 600px; /* Lebar maksimum gambar */
+    border-radius: 10px; /* Sudut bulat pada gambar */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan halus */
+}
+
+/* Highlight Layanan */
+
+.services-highlight {
+    display: flex; /* Mengatur flexbox untuk tata letak */
+    justify-content: space-around; /* Ruang antar elemen */
+    margin: 20px 0; /* Ruang di atas dan bawah */
+}
+video {
+    max-width: 100%; /* Membuat video responsif */
+    height: auto; /* Mempertahankan rasio aspek */
+}
+.service {
+    text-align: center;
+    max-width: 150px; /* Lebar maksimum setiap layanan */
+}
+
+.service img {
+    width: 100%; /* Gambar mengikuti lebar kontainer */
+    border-radius: 10px; /* Sudut bulat pada gambar */
+    margin-bottom: 10px; /* Ruang di bawah gambar */
+}
+
+/* Gaya Kutipan */
+.quote-section {
+    background-color: rgba(255, 255, 255, 0.9); /* Latar belakang kutipan */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center; /* Pusatkan teks */
+    margin-top: 20px; /* Ruang di atas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan halus pada kutipan */
+}
+
+.quote-section p {
+    margin: 5px 0; /* Ruang di atas dan bawah setiap paragraf */
+    font-style: italic; /* Miringkan teks kutipan */
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .services-highlight {
+        flex-direction: column; /* Mengatur menjadi kolom untuk perangkat kecil */
+        align-items: center; /* Pusatkan konten */
+    }
+}
+.cta-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+}
+
+/* Features Section */
+.features {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.features h2 {
+    margin-bottom: 20px;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.feature {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+}

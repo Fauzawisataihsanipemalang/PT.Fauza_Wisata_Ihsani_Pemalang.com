@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - PT. Fauza Wisata Ihsani Pemalang</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+    <header class="header">
+        <img src="D:\HTML Website\Gambar\Logo1.jpg" alt="logo" class="logo-img" style="width: 150px; height: auto;">
+        <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
+        <div class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></div>
+        <nav class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="artikel.html">Artikel</a></li>
+                <li><a href="layanan.html">Layanan Kami</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        // Script untuk toggle menu nav
+        const menuIcon = document.getElementById('menu-icon');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuIcon.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        }); 
+    </script>
+    <main class="container">
+        <section class="features">
+            <h2>Layanan Kami</h2>
+            <div class="feature-grid">
+                <div class="feature feature-large">
+                    <div class="animation-container">
+                        <i class="fas fa-kaaba animated-icon"></i>
+                    </div>
+                    <h3>Umrah</h3>
+                    <p>Kami menyediakan paket Umrah dengan layanan lengkap dan aman, membantu Anda dalam melakukan ibadah dengan nyaman.</p>
+                </div>
+                <div class="feature">
+                    <div class="animation-container">
+                        <i class="fas fa-plane-departure animated-icon"></i>
+                    </div>
+                    <h3>Haji Furada</h3>
+                    <p>Paket Haji Furada dengan layanan personal dan eksklusif, membuat perjalanan Anda ke Tanah Suci lebih berarti.</p>
+                </div>
+                <div class="feature">
+                    <div class="animation-container">
+                        <i class="fas fa-piggy-bank animated-icon"></i>
+                    </div>
+                    <h3>Tabungan Umrah</h3>
+                    <p>Program tabungan umrah yang terjangkau dan layak untuk membantu Anda mempersiapkan perjalanan spiritual.</p>
+                </div>
+                <div class="feature">
+                    <div class="animation-container">
+                        <i class="fas fa-headset animated-icon"></i>
+                    </div>
+                    <h3>Pelayanan 24/7</h3>
+                    <p>Tanya atau butuh bantuan kapan saja? Tim kami siap membantu Anda 24 jam sehari, 7 hari seminggu.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 PT. Fauza Wisata Ihsani Pemalang. All rights reserved.</p>
+    </footer>
+</body>
+</html>

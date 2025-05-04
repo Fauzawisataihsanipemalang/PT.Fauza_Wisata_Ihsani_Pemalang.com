@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - PT. Fauza Wisata Ihsani Pemalang</title>
+    <link rel="stylesheet" href="contact.css">
+    <script defer src="script.js"></script> <!-- Link ke JavaScript -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" /> <!-- FontAwesome icons -->
+</head>
+<body>
+    <header class="header">
+        <img src="D:\HTML Website\Gambar\Logo1.jpg" alt="logo" class="logo-img" style="width: 150px; height: auto;">
+        <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
+        <div class="menu-icon" id="menu-icon">☰</div>
+        <nav class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="artikel.html">Artikel</a></li>
+                <li><a href="layanan.html">Layanan Kami</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="contact">
+            <h2>Contact Us</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h3>WhatsApp</h3>
+                        <p><a href="https://wa.me/6287711616792" target="_blank">0877-1161-6792</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-instagram"></i>
+                    <div>
+                        <h3>Instagram</h3>
+                        <p><a href="https://instagram.com/fauzawisataihsani" target="_blank">@fauzawisataihsani</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <h3>Our Office</h3>
+                        <p>JL. Kolonel Sugiono No.123, depan RSI Al Ikhlas, Taman, Pemalang</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Script untuk toggle menu nav
+        const menuIcon = document.getElementById('menu-icon');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuIcon.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    </script>
+
+    <footer class="footer">
+        <p>© 2025 PT. Fauza Wisata Ihsani Pemalang. All rights reserved.</p>
+    </footer>
+</body>
+</html>

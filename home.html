@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - PT. Fauza Wisata Ihsani Pemalang</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+    <header class="header">
+        <img src="D:\HTML Website\Gambar\Logo1.jpg" alt="logo" class="logo-img" style="width: 150px; height: auto;">
+        <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
+        <div class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></div>
+        <nav class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="artikel.html">Artikel</a></li>
+                <li><a href="layanan.html">Layanan Kami</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        // Script untuk toggle menu nav
+        const menuIcon = document.getElementById('menu-icon');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuIcon.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        }); </script>
+    <main class="container">
+        <section class="features">
+            <h2>PT. Fauza Wisata Ihsani Pemalang</h2>
+            <div class="feature-grid">
+                <div class="feature feature-large">
+                    <div class="animation-container">
+                        <i class="fas fa-user-shield animated-icon"></i>
+                    </div>
+                    <h3>Keamanan Terjamin</h3>
+                    <p>Kami menjamin keamanan dan kenyamanan dalam setiap perjalanan Anda ke tanah suci, mulai dari keberangkatan hingga kepulangan.</p>
+                </div>
+                <div class="feature">
+                    <div class="animation-container">
+                        <i class="fas fa-clock animated-icon"></i>
+                    </div>
+                    <h3>Waktu Fleksibel</h3>
+                    <p>Pilih waktu perjalanan yang sesuai dengan jadwal Anda. Kami siap membantu melakukan penyesuaian untuk kenyamanan Anda.</p>
+                </div>
+                <div class="feature">
+                    <div class="animation-container">
+                        <i class="fas fa-flag animated-icon"></i>
+                    </div>
+                    <h3>Paket Lengkap</h3>
+                    <p>Dari akomodasi, transportasi, hingga layanan selama perjalanan, kami menyediakan semua yang Anda butuhkan.</p>
+                </div>
+                <div class="feature">
+                    <div class="animation-container">
+                        <i class="fas fa-comments animated-icon"></i>
+                    </div>
+                    <h3>Dukungan 24/7</h3>
+                    <p>Tim kami siap membantu Anda kapan saja. Kami selalu siap menjawab pertanyaan dan kebutuhan Anda.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>© 2025 PT. Fauza Wisata Ihsani Pemalang. All rights reserved.</p>
+    </footer>
+</body>
+</html>

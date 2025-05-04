@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - PT. Fauza Wisata Ihsani Pemalang</title>
+    <link rel="stylesheet" href="artikel3.css">
+    <script defer src="script.js"></script> <!-- Link ke JavaScript -->
+</head>
+<body>
+    <header class="header">
+        <img src="D:\HTML Website\Gambar\Logo1.jpg" alt="logo" class="logo-img"style="width: 150px; height: auto;">
+        <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
+        <div class="menu-icon" id="menu-icon">☰</div>
+        <nav class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="artikel.html">Artikel</a></li>
+                <li><a href="layanan.html">Layanan Kami</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        // Script untuk toggle menu nav
+        const menuIcon = document.getElementById('menu-icon');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuIcon.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Script untuk mengatur slider
+        let currentIndex = 0; // Indeks slide saat ini
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('show'); // Hapus kelas 'show' dari semua slide
+                if (i === index) {
+                    slide.classList.add('show'); // Tambahkan kelas 'show' untuk slide yang aktif
+                }
+            });
+        }
+</script>
+    <h1>Mengapa Harus Memilih Fauza Wisata Ihsani Pemalang?</h1>
+    <p class="meta-info">Oleh Muhamad Yahya | Tanggal: 30 April 2025 | Kategori: Dakwah</p>
+</header>
+
+<main class="article-container">
+    <section class="article-content">
+        <img src="D:\HTML Website\Gambar\makkah4.jpeg" alt="Gambar Artikel 1" class="article-image">
+        <p class="article-text">Mengapa Harus Memilih Fauza Wisata Ihsani Pemalang?
+            Setiap umat Muslim tentu merindukan untuk dapat beribadah umroh dan mengunjungi tanah suci, mekah, dan madinah.Tapi anda tentu tahu bahwa merencanakan perjalanan umroh memerlukan perhitungan matang dalam menentukan jadwal keberangkatan, mengurus visa, dan berbagai kebutuhan lainnya.
+            Karena tentu anda ingin mendapatkan pengalaman umroh yang nyaman sehingga dapat meningkatkan kekhusyukan dalam beribadah.Jangan sampai niat kita beribadah ke tanah suci terkendala dengan ketidakpastian dalam perencanaan perjalanan umroh.
+            Oleh karena itu, Kementerian agama menghimbau calon jamaah umroh untuk mengetahui 5 pasti: pasti travelnya, berizin, pasti, jadwalnya, pasti terbangnya, pasti hotelnya, pasti visanya.
+            Inilah mengapa anda perlu menggunakan travel umroh yang mampu membantu anda merencanakan semua kebutuhan umroh anda, dan yang terpenting, sesuai standar 5 pasti dari Kementerian agama.
+            Kami telah memiliki pengalaman dan jam terbang yang tinggi dalam melayani jamaah umroh untuk menikmati perjalanan ibadah ke tanah suci, mekah, dan madinah.
+            Kami membantu anda memastikan perjalanan umroh anda berjalan lancar, termasuk pengurusan visa, hotel, makanan, rencana perjalanan serta kebutuhan beribadah seperti baju ihram seragam untuk setiap jamaah, koper, buku panduan, dan tidak lupa air zamzam untuk dibawa pulang.
+            Kabar terbaiknya, dengan pelayanan dan fasilitas prima yang kami tawarkan, tidak membuat biaya perjalanan umroh menjadi membengkak.
+            Simak penawaran paket umroh hemat kami.Jadi tunggu apalagi, hubungi kami sekarang dan izinkan kami untuk mewujudkan impian ibadah umroh yang nyaman untuk anda. </p>
+    </section>
+</main>
+<footer class="footer">
+    <p>© 2025 PT Fauza Wisata Ihsani Pemalang. Semua Hak Dilindungi.</p>
+</footer>
+
+</body>
+</html>

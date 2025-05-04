@@ -1,0 +1,186 @@
+body {
+    margin: 0;
+    font-family: 'Helvetica Neue', Arial, sans-serif; /* Font modern */
+    background-color: #f4f4f4; /* Warna latar belakang halaman */
+}
+
+.img {
+    max-width: 100%; /* Atur lebar gambar sesuai ukuran kontainer */
+    height: auto; /* Menjaga rasio aspek gambar */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background-color: #fefeff; /* Warna latar belakang header */
+    color: rgb(0, 0, 0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+    position: relative; /* Pastikan header memiliki konteks posisi */
+    z-index: 1000; /* Menetapkan tinggi z-index untuk header */
+}
+
+.logo {
+    font-size: 1.8em;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.menu-icon {
+    font-size: 26px; /* Ukuran ikon titik tiga */
+    cursor: pointer;
+    display: none; /* Tersembunyi di tampilan besar */
+}
+
+.nav-menu {
+    display: none; /* Sembunyikan menu secara default */
+    position: absolute; /* Posisi absolut untuk mengapung di atas konten lainnya */
+    top: 70px; /* Jarak dari bagian atas */
+    right: 30px; /* Jarak dari sisi kanan */
+    background-color: #424242; /* Warna latar belakang menu */
+    border-radius: 8px; /* Sudut bulat menu */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan */
+    z-index: 2000; /* Z-index tinggi agar menampilkan menu di atas konten lainnya */
+}
+
+.nav-menu.active {
+    display: block; /* Tampilkan menu saat aktif */
+}
+
+.nav-menu ul {
+    list-style: none; /* Menghilangkan bullet pada list */
+    padding: 0;
+    margin: 0;
+}
+
+.nav-menu li {
+    padding: 12px 20px; /* Jarak dalam setiap item menu */
+}
+
+.nav-menu li a {
+    color: white; /* Warna teks */
+    text-decoration: none;
+    transition: background-color 0.3s ease; /* Animasi saat hover */
+}
+
+.nav-menu li a:hover {
+    background-color: #303f9f; /* Warna latar belakang saat hover */
+    border-radius: 8px; /* Sudut bulat saat hover */
+}
+
+/* Media query untuk menampilkan menu ikon pada perangkat kecil */
+@media (max-width: 770px) {
+    .menu-icon {
+        display: block; /* Tampilkan ikon titik tiga pada perangkat kecil */
+    }
+
+    .nav-menu {
+        width: 200px; /* Atur lebar menu dropdown */
+        margin-top: 10px; /* Jarak atas untuk tampilan yang lebih baik */
+        opacity: 0; /* Sembunyikan menu dengan efek transparansi */
+        visibility: hidden; /* Sembunyikan menu agar tidak menghalangi klik */
+        transition: opacity 0.3s ease, visibility 0.3s ease; /* Animasi transparansi */
+    }
+
+    .nav-menu.active {
+        opacity: 1; /* Tampilkan menu saat aktif */
+        visibility: visible; /* Mengizinkan menu untuk klik */
+    }
+
+    .nav-menu ul {
+        display: flex; /* Menu menggunakan flexbox */
+        flex-direction: column; /* Tiap item ditumpuk */
+    }
+
+    .nav-menu li {
+        text-align: center; /* Teks di tengah */
+    }
+}
+
+@media (min-width: 769px) {
+    .nav-menu {
+        display: flex; /* Tampilkan menu sebagai flex pada perangkat besar */
+        position: static; /* Menetapkan posisi statis untuk tata letak horizontal */
+    }
+
+    .nav-menu ul {
+        display: flex; /* Menu horizontal */
+    }
+
+    .menu-icon {
+        display: none; /* Sembunyikan ikon titik tiga pada perangkat besar */
+    }
+}
+
+/* Reset beberapa default browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+}
+
+.header {
+    background-color: #f4f4f5; /* Warna biru */
+    color: rgb(15, 15, 15);
+    padding: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    font-size: 2.5em;
+    margin-bottom: 15px;
+    width: 5px;
+}
+
+.meta-info {
+    font-size: 0.9em;
+    margin-bottom: 15px;
+}
+
+.article-container {
+    max-width: 800px; /* Lebar maksimum untuk konten */
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.article-content {
+    margin-bottom: 20px;
+}
+
+.article-image {
+    width: 100%; /* Gambar responsif */
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.article-text {
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+.section-title {
+    font-size: 1.8em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #007BFF; /* Menggunakan warna yang konsisten */
+}
+
+/* Footer */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #ffffff;
+}

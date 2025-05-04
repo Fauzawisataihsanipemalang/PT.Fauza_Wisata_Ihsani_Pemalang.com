@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - PT. Fauza Wisata Ihsani Pemalang</title>
+    <link rel="stylesheet" href="artikel01.css">
+    <script defer src="script.js"></script> <!-- Link ke JavaScript -->
+</head>
+<body>
+    <header class="header">
+        <img src="D:\HTML Website\Gambar\Logo1.jpg" alt="logo" class="logo-img"style="width: 150px; height: auto;">
+        <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
+        <div class="menu-icon" id="menu-icon">☰</div>
+        <nav class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="artikel.html">Artikel</a></li>
+                <li><a href="layanan.html">Layanan Kami</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        // Script untuk toggle menu nav
+        const menuIcon = document.getElementById('menu-icon');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuIcon.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Script untuk mengatur slider
+        let currentIndex = 0; // Indeks slide saat ini
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('show'); // Hapus kelas 'show' dari semua slide
+                if (i === index) {
+                    slide.classList.add('show'); // Tambahkan kelas 'show' untuk slide yang aktif
+                }
+            });
+        }
+</script>
+    <h1>Petunjuk Singkat Umrah</h1>
+    <p class="meta-info">Oleh Muhamad Yahya | Tanggal: 27 April 2025 | Kategori: Dakwah</p>
+</header>
+
+<main class="article-container">
+    <section class="article-content">
+        <img src="D:\HTML Website\Gambar\download.jpeg" alt="Gambar Artikel 1" class="article-image">
+        <p class="article-text"> Apa itu Umrah?
+             Umrah adalah beribadah karena Allah dengan Ihram, Thawaf di Baitullah, Sa'i antara Shafa dan Marwah, dan mencukur atau memendekkan rambut.</p>
+        <h2 class="section-title">Bagaimana cara berihram?</h2>
+        <p class="article-text">
+            Orang muslim berihram dari tempat yang telah ditentukan oleh syariat. individu/jama'ah terhalang dari hal-hal terlarang yang tidak boleh dilakukan pada saat Ihram.
+            individu/jama'ah bertalbiyah dengan mengucapkan “Labbaika Allahumma Labbaik, Labbaika La Syarika Laka Labbaik, Inna Al-Hamda wa An-Ni'mata Laka wa Al-Mulk La Syarika Laka”</p>
+        <h2 class="section-title">Thawaf</h2>
+        <p class="article-text">individu/jama'ah menuju ke Masjidil Haram, lalu mengelilingi Ka'bah sebanyak tujuh kali dengan posisi Ka'bah di sebelah kirinya. Ia memulai dan mengakhirinya dari Hajar Aswad
+            Setelah tujuh putaran selesai, ia mengerjakan shalat dua rakaat di tempat yang mungkin digunakan untuk shalat</p>
+        <h2 class="section-title">Sa'i</h2>
+        <p class="article-text">individu/jama'ah menuju ke Shafa, dan dari situlah ia memulai Sa'i menuju ke Marwah. Apabila ia sudah sampai ke Marwah, maka sempurnalah satu putaran. Kemudian ia kembali ke Shafa untuk menyempurnakan putaran kedua,
+            demikian hingga ia menyempurnakan tujuh putaran yang berakhir di Marwah.</p>
+        <h2 class="section-title">Tahallul (mencukur/memendekkan rambut)</h2>
+        <p class="article-text">Setelah selesai Sa'i, individu/jama'ah menuju ke tempat-tempat cukur rambut, lalu hendaknya individu/jama'ah mencukur atau memendekkan rambutnya
+            Perempuan menggenggam rambutnya lalu memotong ujung-ujungnya sekitar satu ruas jari (1-2 cm)
+            Dengan begitu, Umrah telah selesai dan ia sudah keluar dari Ihramnya</p>
+        <h2 class="section-title">Kesimpulan</h2>
+        <p class="article-text">Umrah adalah beribadah kepada Allah dengan melakukan Ihram, Thawaf di Kaaba, Sa'i antara Shafa dan Marwah, Ialu mencukur atau memotong rambut.</p>
+    </section>
+</main>
+
+<footer class="footer">
+    <p>© 2025 PT Fauza Wisata Ihsani Pemalang. Semua Hak Dilindungi.</p>
+</footer>
+
+</body>
+</html>
