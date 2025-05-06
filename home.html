@@ -173,7 +173,10 @@
             </div>
         </div>
     </footer>
- // Script untuk toggle menu nav
+
+                    }
+    <!-- Link ke script.js di akhir body -->
+    <script src="script.js">  // Script untuk toggle menu nav
         const menuIcon = document.getElementById('menu-icon');
         const navMenu = document.getElementById('nav-menu');
 
@@ -192,10 +195,7 @@
                         // observer.unobserve(entry.target); // Berhenti mengamati setelah terlihat (opsional)
                     } else {
                          // Opsional: Hapus kelas is-visible saat elemen keluar dari viewport jika ingin animasi berulang
-                         // entry.target.classList.remove('is-visible');
-                    }
-    <!-- Link ke script.js di akhir body -->
-    <script src="script.js"></script>
+                         // entry.target.classList.remove('is-visible');</script>
 
 </body>
 </html>
