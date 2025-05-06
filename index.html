@@ -3,13 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Header PT. Fauza Wisata Ihsani Pemalang</title>
+    <title>PT. Fauza Wisata Ihsani Pemalang</title> <!-- Judul yang lebih ringkas -->
     <link rel="stylesheet" href="style.css">
+    <!-- Sertakan font Poppins dari Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Sertakan Font Awesome jika Anda menggunakannya untuk ikon -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
 </head>
 <body>
     <header class="header">
-        <img src="Logo1.jpg" alt="logo" style="width: 150px; height: auto;">
-        <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
+        <div class="logo-container"> <!-- Kontainer untuk logo dan teks PT -->
+             <img src="Logo1.jpg" alt="logo"> <!-- Hapus style="width: 150px; height: auto;" dari sini, atur di CSS -->
+             <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
+        </div>
         <div class="menu-icon" id="menu-icon">☰</div>
         <nav class="nav-menu" id="nav-menu">
             <ul>
@@ -21,68 +27,70 @@
             </ul>
         </nav>
     </header>
-    
-    <div class="slider">
-        <div class="slides">
-            <div class="slide fade">
-                <img src="WhatsApp Image 2025-04-09 at 07.49.36.jpeg" alt="Slide 1" width="1000" height="600">
-            </div>
-            <div class="slide fade">
-                <img src="makkah1.jpg" alt="Slide 2" width="100" height="600">
-            </div>
-            <div class="slide fade">
-                <img src="madinah.jpeg" alt="Slide 5" width="100" height="600">
-            </div>
-            <div class="slide fade">
-                <img src="madinah 2.jpeg" alt="Slide 6" width="100" height="600">
-            </div>
-        </div>
-    </div>
-        <a class="prev" onclick="changeSlide(-1)">❮</a>
-        <a class="next" onclick="changeSlide(1)">❯</a>
-    </div>
 
-    <main id="hero-content">
-        <section class="home">
+    <!-- Area untuk Tampilan Mozaik Gambar -->
+    <div class="mosaic-gallery">
+        <img src="WhatsApp Image 2025-04-09 at 07.49.36.jpeg" alt="Gambar Mozaik 1">
+        <img src="madinah.jpeg" alt="Gambar Mozaik 2">
+        <img src="madinah 2.jpeg" alt="Gambar Mozaik 3">
+        <img src="makkah3.jpg" alt="Gambar Mozaik 4">
+        <img src="Makkah_Sanctuary_cedd16422b.jpeg" alt="Gambar Mozaik 5">
+        <img src="muslim-people-with-photorealistic-animals-prepared-eid-al-adha-offering_23-2151431618.jpg" alt="Gambar Mozaik 6">
+        <!-- Tambahkan gambar-gambar lain yang ingin Anda tampilkan dalam mozaik di sini -->
+    </div>
+    <!-- Hapus seluruh div class="slider" dan isinya jika Anda hanya ingin mozaik -->
+    <!-- <div class="slider"> ... </div> -->
+
+
+    <main> <!-- Pertahankan tag main -->
+        <section class="home"> <!-- Ini akan menjadi section hero -->
             <div class="home-content">
                 <h1>Welcome to PT. Fauza Wisata Ihsani Pemalang</h1>
                 <p>Umrah dan Haji Ke Baitullah.</p>
             </div>
         </section>
-    </main>
-    
-    <div class="illustration-container">
-        <video controls>
-            <source src="Conten 13.mp4" type="video/mp4">
-            Browser Anda tidak mendukung elemen video.
-        </video>
-    </div>
-    
-    <div class="services-highlight fade-in">
-        <div class="service">
-            <img src="makkah3.jpg" alt="Tour Package">
-            <h3>Tour Packages</h3>
-            <p>Paket wisata menarik selama umrah dan haji.</p>
+
+        <div class="illustration-container"> <!-- Kontainer untuk video -->
+            <video controls>
+                <source src="Conten 13.mp4" type="video/mp4">
+                Browser Anda tidak mendukung elemen video.
+            </video>
         </div>
-        <div class="service">
-            <img src="Makkah_Sanctuary_cedd16422b.jpeg" alt="Guided Tours">
-            <h3>Guided Tours</h3>
-            <p>Pemandu berpengalaman untuk perjalanan Anda.</p>
+
+        <div class="services-highlight fade-in">
+            <div class="service">
+                <img src="makkah3.jpg" alt="Tour Package">
+                <h3>Tour Packages</h3>
+                <p>Paket wisata menarik selama umrah dan haji.</p>
+            </div>
+            <div class="service">
+                <img src="Makkah_Sanctuary_cedd16422b.jpeg" alt="Guided Tours">
+                <h3>Guided Tours</h3>
+                <p>Pemandu berpengalaman untuk perjalanan Anda.</p>
+            </div>
+            <div class="service">
+                <img src="muslim-people-with-photorealistic-animals-prepared-eid-al-adha-offering_23-2151431618.jpg" alt="Accommodation">
+                <h3>Comfortable Accommodation</h3>
+                <p>Tersedia fasilitas akomodasi nyaman.</p>
+            </div>
         </div>
-        <div class="service">
-            <img src="muslim-people-with-photorealistic-animals-prepared-eid-al-adha-offering_23-2151431618.jpg" alt="Accommodation">
-            <h3>Comfortable Accommodation</h3>
-            <p>Tersedia fasilitas akomodasi nyaman.</p>
+
+        <div class="quote-section fade-in">
+            <p>"Bersama kami, perjalanan ibadah Anda akan menjadi lebih berarti."</p>
+            <p>PT. Fauza Wisata Ihsani Pemalang</p>
         </div>
+
+        <!-- Pindahkan tombol CTA ke dalam main atau section yang relevan jika diinginkan -->
+        <!-- <a href="home.html" class="cta-button">Explore Now</a> -->
+
+    </main> <!-- Tutup tag main -->
+
+    <!-- Jika tombol CTA tetap di luar main, pastikan ada div atau section yang membungkusnya -->
+    <div style="text-align: center; margin-top: 20px; margin-bottom: 40px;">
+         <a href="home.html" class="cta-button">Explore Now</a>
     </div>
 
-    <div class="quote-section fade-in">
-        <p>"Bersama kami, perjalanan ibadah Anda akan menjadi lebih berarti."</p>
-        <p>PT. Fauza Wisata Ihsani Pemalang</p>
-    </div>
-    <a href="home.html" class="cta-button">Explore Now</a>
-</section>
-</main>
+
     <script>
         // Script untuk toggle menu nav
         const menuIcon = document.getElementById('menu-icon');
@@ -92,31 +100,16 @@
             navMenu.classList.toggle('active');
         });
 
-        // Script untuk mengatur slider
-        let currentIndex = 0; // Indeks slide saat ini
+        // Script slider tidak lagi diperlukan jika Anda menggunakan mozaik statis
+        // Hapus script ini jika Anda tidak menggunakan slider lagi
+        /*
+        let currentIndex = 0;
         const slides = document.querySelectorAll('.slide');
-
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('show'); // Hapus kelas 'show' dari semua slide
-                if (i === index) {
-                    slide.classList.add('show'); // Tambahkan kelas 'show' untuk slide yang aktif
-                }
-            });
-        }
-
-        function changeSlide(n) {
-            currentIndex = (currentIndex + n + slides.length) % slides.length; // Menghitung indeks slide berikutnya
-            showSlide(currentIndex); // Tampilkan slide baru
-        }
-
-        // Tampilkan slide pertama
+        function showSlide(index) { ... }
+        function changeSlide(n) { ... }
         showSlide(currentIndex);
-
-        // Tambahkan interval otomatis jika diinginkan
-        setInterval(() => {
-            changeSlide(1);
-        }, 3000); // Ganti slide setiap 3 detik
+        setInterval(() => { ... }, 3000);
+        */
     </script>
 
     <footer class="footer">
