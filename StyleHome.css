@@ -1,23 +1,24 @@
 /* ====================================
-   Import Font (Poppins)
-   ==================================== */
-/* Pastikan Anda sudah menambahkan link ke Google Fonts di tag <head> HTML */
-/* <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> */
-
-/* ====================================
-   Variabel CSS (Opsional tapi disarankan)
+   CSS Variables
    ==================================== */
 :root {
-    --primary-color: #0056b3; /* Warna biru utama */
-    --secondary-color: #004085; /* Warna biru sekunder (lebih gelap) */
+    --primary-color: #007bff; /* Warna biru utama, lebih umum */
+    --secondary-color: #0056b3; /* Warna biru sekunder (lebih gelap) */
     --accent-color: #ffc107; /* Warna aksen (kuning/emas) */
     --text-color: #333; /* Warna teks umum */
+    --text-color-light: #555; /* Warna teks lebih terang */
     --light-bg: #f8f9fa; /* Background terang */
     --dark-bg: #343a40; /* Background gelap */
     --white: #fff; /* Warna putih */
     --border-radius: 8px; /* Radius sudut elemen */
+    --border-radius-small: 5px; /* Radius sudut yang lebih kecil */
     --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan standar */
     --transition-speed: 0.3s; /* Kecepatan transisi standar */
+    --section-padding: 80px 0;
+    --section-padding-mobile: 40px 0;
+    --gap-small: 15px;
+    --gap-medium: 20px;
+    --gap-large: 30px;
 }
 
 /* ====================================
@@ -34,12 +35,20 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--light-bg);
-    overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
+    overflow-x: hidden;
+    position: relative; /* Diperlukan untuk overlay menu mobile */
+    padding-top: 70px; /* Sesuaikan dengan tinggi header fixed */
 }
+
+/* Atur padding-top body saat header fixed */
+.header.fixed {
+    padding-top: 70px; /* Tinggi header */
+}
+
 
 a {
     text-decoration: none;
-    color: var(--primary-color);
+    color: var(--primary-color); /* Warna link default */
     transition: color var(--transition-speed) ease;
 }
 
@@ -54,31 +63,43 @@ ul {
 img {
     max-width: 100%;
     height: auto;
-    display: block; /* Menghilangkan margin bawah default pada gambar */
+    display: block;
 }
 
 /* ====================================
    Layout Helper Classes
    ==================================== */
 .container {
-    max-width: 1200px; /* Lebar maksimum konten */
-    margin: 0 auto; /* Pusatkan container */
-    padding: 0 20px; /* Padding kiri dan kanan */
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .section {
-    padding: 80px 0; /* Padding atas dan bawah untuk setiap section */
+    padding: var(--section-padding);
 }
 
 .section h2 {
     text-align: center;
-    margin-bottom: 40px;
+    margin-bottom: 40px; /* Tetapkan angka langsung jika ini standar judul */
     font-size: 2.5em;
     color: var(--secondary-color);
+    font-weight: 700;
 }
 
+.section-description { /* Tambahkan jika ada deskripsi section */
+     text-align: center;
+     margin-bottom: 40px;
+     font-size: 1.1em;
+     color: var(--text-color-light);
+     max-width: 800px;
+     margin-left: auto;
+     margin-right: auto;
+}
+
+
 /* ====================================
-   Header Styling
+   Header & Navigation
    ==================================== */
 .header {
     background-color: var(--white);
@@ -88,14 +109,14 @@ img {
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 1000; /* Memastikan header berada di atas elemen lain */
+    z-index: 1000;
 }
 
 .header .container {
      display: flex;
      justify-content: space-between;
      align-items: center;
-     flex-wrap: wrap; /* Agar logo dan menu bisa ke baris baru di mobile */
+     /* flex-wrap: wrap; REMOVED: Menggunakan Flexbox order di mobile */
 }
 
 .logo-container {
@@ -104,8 +125,10 @@ img {
 }
 
 .logo-img {
-    height: 50px; /* Tinggi logo */
-    margin-right: 15px;
+    height: 50px;
+    margin-right: var(--gap-small);
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .logo {
@@ -115,43 +138,83 @@ img {
 }
 
 .nav-menu ul {
-    display: flex; /* Menu item berdampingan */
+    display: flex;
+    align-items: center;
 }
 
 .nav-menu ul li {
-    margin-left: 30px; /* Jarak antar menu item */
+    margin-left: var(--gap-large);
 }
 
 .nav-menu ul li a {
     color: var(--text-color);
     font-weight: 500;
-    padding: 5px 0;
-    position: relative; /* Untuk efek underline */
+    padding: 8px 0; /* Padding vertikal lebih banyak */
+    position: relative;
+    transition: color var(--transition-speed) ease;
 }
 
 /* Efek underline pada hover */
 .nav-menu ul li a::after {
     content: '';
     position: absolute;
-    left: 0;
-    bottom: -5px;
+    left: 50%;
+    bottom: -8px;
     width: 0;
     height: 2px;
     background-color: var(--primary-color);
-    transition: width var(--transition-speed) ease;
+    transition: width var(--transition-speed) ease, left var(--transition-speed) ease;
+    transform: translateX(-50%);
+}
+
+.nav-menu ul li a:hover {
+     color: var(--primary-color);
 }
 
 .nav-menu ul li a:hover::after,
-.nav-menu ul li a.active::after { /* Tambahkan kelas active jika perlu menandai halaman saat ini */
+.nav-menu ul li a.active::after {
     width: 100%;
+    left: 0;
+    transform: translateX(0);
 }
 
-/* Menu Icon (untuk mobile) */
+.nav-menu ul li a.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
 .menu-icon {
-    display: none; /* Sembunyikan secara default di desktop */
+    display: none; /* Icon menu disembunyikan di desktop */
     font-size: 2em;
     cursor: pointer;
     color: var(--text-color);
+    padding: 10px;
+    z-index: 1001; /* Pastikan ikon di atas menu overlay */
+    transition: color var(--transition-speed) ease;
+}
+
+.menu-icon:hover {
+     color: var(--primary-color);
+}
+
+
+/* Overlay untuk menu mobile */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-speed) ease, visibility var(--transition-speed) ease;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
 }
 
 
@@ -159,18 +222,35 @@ img {
    Hero Section Styling
    ==================================== */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-background.jpg') no-repeat center center/cover; /* Ganti 'hero-background.jpg' */
+    /* background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-background.jpg') no-repeat center center/cover; */
+    /* Gunakan kelas spesifik jika background berbeda per halaman */
+    position: relative; /* Diperlukan untuk overlay */
     color: var(--white);
     text-align: center;
-    padding: 150px 20px 100px; /* Sesuaikan padding untuk jarak dari header tetap */
+    padding: 150px 20px 100px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 60vh; /* Tinggi minimum hero */
+    min-height: 60vh;
+    /* Hapus padding-top 70px di sini karena sudah di body */
+    margin-top: -70px; /* Kompensasi padding-top di body */
+}
+
+.hero::before { /* Overlay gelap */
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.5);
+     z-index: 1;
 }
 
 .hero .container {
-    max-width: 800px; /* Lebar maksimum konten hero */
+    max-width: 800px;
+    position: relative; /* Konten di atas overlay */
+    z-index: 2;
 }
 
 .hero-subtitle {
@@ -181,13 +261,13 @@ img {
 
 .hero-title {
     font-size: 3em;
-    margin-bottom: 20px;
+    margin-bottom: var(--gap-medium);
     font-weight: 700;
 }
 
 .hero-description {
     font-size: 1.1em;
-    margin-bottom: 30px;
+    margin-bottom: var(--gap-large);
 }
 
 .cta-button {
@@ -195,29 +275,51 @@ img {
     background-color: var(--accent-color);
     color: var(--text-color);
     padding: 15px 30px;
-    border-radius: 5px;
+    border-radius: var(--border-radius-small);
     font-size: 1.1em;
     font-weight: 600;
     transition: background-color var(--transition-speed) ease;
 }
 
 .cta-button:hover {
-    background-color: #e0a800; /* Warna aksen lebih gelap saat hover */
-    color: var(--text-color); /* Pastikan warna teks tetap kontras */
+    background-color: #e0a800;
+    color: var(--text-color);
 }
 
+/* Specific Hero Backgrounds (Contoh) */
+.hero-home {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('background 2 (3).jpeg') no-repeat center center/cover;
+}
+
+.hero-about {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('about-hero-background.jpg') no-repeat center center/cover; /* Ganti dengan gambar Anda */
+}
+
+.hero-artikel {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('artikel-hero-background.jpg') no-repeat center center/cover; /* Ganti dengan gambar Anda */
+}
+
+.hero-layanan {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('layanan-hero-background.jpg') no-repeat center center/cover; /* Ganti dengan gambar Anda */
+}
+
+.hero-contact {
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('contact-hero-background.jpg') no-repeat center center/cover; /* Ganti dengan gambar Anda */
+}
+
+
 /* ====================================
-   Why Choose Us Section Styling (Menggantikan .features)
+   Why Choose Us Section Styling
    ==================================== */
 .why-choose-us-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Layout responsif grid */
-    gap: 30px; /* Jarak antar item grid */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--gap-large);
 }
 
 .why-item {
     background-color: var(--white);
-    padding: 30px;
+    padding: var(--gap-large);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     text-align: center;
@@ -225,35 +327,36 @@ img {
 }
 
 .why-item:hover {
-    transform: translateY(-10px); /* Efek angkat saat hover */
+    transform: translateY(-10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
 .why-item i {
     font-size: 3em;
     color: var(--primary-color);
-    margin-bottom: 20px;
+    margin-bottom: var(--gap-medium);
 }
 
 .why-item h3 {
     font-size: 1.5em;
-    margin-bottom: 15px;
+    margin-bottom: var(--gap-small);
     color: var(--secondary-color);
 }
 
 /* ====================================
-   Mosaic Gallery Styling (Jika diaktifkan)
+   Mosaic Gallery Styling
    ==================================== */
 .mosaic-gallery {
      display: grid;
-     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Grid dasar */
-     gap: 10px;
+     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+     gap: 10px; /* Atur gap secara spesifik jika perlu */
+     margin-top: var(--gap-large); /* Atur jarak dari section di atasnya */
 }
 
 .mosaic-gallery img {
      width: 100%;
-     height: 200px; /* Tinggi standar, bisa disesuaikan atau dibuat auto */
-     object-fit: cover; /* Pastikan gambar mengisi area tanpa distorsi */
+     height: 200px;
+     object-fit: cover;
      border-radius: var(--border-radius);
      box-shadow: var(--box-shadow);
 }
@@ -270,7 +373,7 @@ img {
    ==================================== */
 .illustration-container video {
     width: 100%;
-    max-width: 800px; /* Lebar maksimum video */
+    max-width: 800px;
     display: block;
     margin: 0 auto;
     border-radius: var(--border-radius);
@@ -283,39 +386,57 @@ img {
 .services-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    gap: var(--gap-large);
 }
 
-.service {
+.service-card { /* Mengganti .service */
     background-color: var(--white);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
-    overflow: hidden; /* Pastikan gambar tidak keluar dari border-radius */
+    overflow: hidden;
     transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    display: flex;
+    flex-direction: column;
 }
 
-.service:hover {
+.service-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-.service img {
+.service-card img {
     width: 100%;
-    height: 200px; /* Tinggi gambar layanan */
+    height: 200px;
     object-fit: cover;
 }
 
-.service h3 {
+.service-card .content { /* Bungkus teks dalam div */
+    padding: var(--gap-small);
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.service-card h3 {
     font-size: 1.4em;
-    margin: 15px 15px 10px;
+    margin-top: 0; /* Hapus margin top dari h3 jika di dalam content */
+    margin-bottom: var(--gap-small);
     color: var(--secondary-color);
 }
 
-.service p {
-    padding: 0 15px 20px;
+.service-card p {
+    margin-bottom: var(--gap-small);
     font-size: 0.95em;
-    color: #555;
+    color: var(--text-color-light);
+    flex-grow: 1; /* Paragraf mengisi ruang sisa */
 }
+
+.service-card .btn { /* Jika ada tombol di dalam card */
+     align-self: flex-start;
+     margin-top: auto; /* Dorong tombol ke bawah */
+}
+
 
 /* ====================================
    Testimonials Section Styling
@@ -323,21 +444,28 @@ img {
 .testimonial-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    gap: var(--gap-large);
 }
 
 .testimonial-item {
     background-color: var(--white);
     padding: 30px;
-    border-left: 5px solid var(--primary-color); /* Garis aksen */
+    border-left: 5px solid var(--primary-color);
     border-radius: var(--border-radius);
     box-shadow: var(--box-shadow);
     font-style: italic;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
+.testimonial-item:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+
 .testimonial-item p {
-    margin-bottom: 15px;
-    color: #555;
+    margin-bottom: var(--gap-small);
+    color: var(--text-color-light);
 }
 
 .testimonial-author {
@@ -353,20 +481,21 @@ img {
      background-color: var(--primary-color);
      color: var(--white);
      text-align: center;
+     padding: var(--section-padding); /* Gunakan padding section */
 }
 
 .quote-section blockquote {
      font-size: 1.8em;
-     margin-bottom: 20px;
+     margin: 0 auto var(--gap-medium); /* Pusatkan dan beri margin bawah */
      line-height: 1.5;
      font-style: italic;
+     max-width: 800px; /* Batasi lebar */
 }
 
 .quote-section footer {
      font-size: 1.1em;
      font-weight: 500;
 }
-
 
 /* ====================================
    Footer Styling
@@ -376,7 +505,7 @@ img {
     color: var(--white);
     text-align: center;
     padding: 30px 0;
-    margin-top: 40px; /* Jarak dari konten terakhir */
+    margin-top: var(--section-padding-mobile); /* Jarak dari konten terakhir */
 }
 
 .footer .container {
@@ -386,7 +515,8 @@ img {
 }
 
 .footer p {
-    margin-bottom: 20px;
+    margin-bottom: var(--gap-medium);
+    font-size: 0.9em;
 }
 
 .social-icons a {
@@ -397,7 +527,30 @@ img {
 }
 
 .social-icons a:hover {
-    color: var(--primary-color); /* Ubah warna saat hover */
+    color: var(--primary-color);
+}
+
+
+/* ====================================
+   Scroll Reveal Animation Styling
+   ==================================== */
+
+.animate-on-scroll,
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible,
+.fade-in.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Menggunakan data-delay untuk menunda animasi */
+.animate-on-scroll[data-delay] {
+    transition-delay: var(--delay, 0s);
 }
 
 
@@ -407,6 +560,17 @@ img {
 
 /* Untuk tablet dan layar yang lebih kecil */
 @media (max-width: 992px) {
+    body {
+        padding-top: 60px; /* Sesuaikan padding-top body */
+    }
+
+    .hero {
+        margin-top: -60px; /* Kompensasi */
+        padding: 120px 20px 80px;
+        min-height: 50vh;
+    }
+
+
     .section {
         padding: 60px 0;
     }
@@ -414,11 +578,6 @@ img {
     .section h2 {
         font-size: 2em;
         margin-bottom: 30px;
-    }
-
-    .hero {
-        padding: 120px 20px 80px;
-        min-height: 50vh;
     }
 
     .hero-title {
@@ -432,62 +591,127 @@ img {
     .why-choose-us-grid,
     .services-grid,
     .testimonial-list {
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Sesuaikan minmax */
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--gap-medium);
     }
+
+    .why-item, .service-card, .testimonial-item {
+        padding: var(--gap-medium);
+    }
+
+    .why-item i {
+        font-size: 2.5em;
+        margin-bottom: var(--gap-small);
+    }
+
+    .why-item h3 {
+        font-size: 1.3em;
+        margin-bottom: var(--gap-small);
+    }
+
+     .quote-section blockquote {
+          font-size: 1.5em;
+     }
+
+     .footer p {
+          margin-bottom: var(--gap-small);
+     }
+
+     .social-icons a {
+          font-size: 1.3em;
+          margin: 0 8px;
+     }
 }
 
 /* Untuk mobile */
 @media (max-width: 768px) {
+    body {
+        padding-top: 60px; /* Sesuaikan padding-top body */
+    }
+
     .header .container {
-        flex-direction: row; /* Tetapkan arah baris */
-        justify-content: space-between; /* Pusatkan item di tengah */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center; /* Pastikan sejajar */
+        flex-wrap: nowrap; /* Hindari wrap di baris header utama */
+    }
+
+    /* Mengatur urutan elemen di dalam container header untuk mobile */
+    .menu-icon {
+        order: 1; /* Ikon menu di kiri */
+        display: block; /* Tampilkan ikon menu */
     }
 
     .logo-container {
-        margin-bottom: 0; /* Hapus margin bawah di mobile */
+        order: 2; /* Logo di tengah */
+        flex-grow: 1; /* Biarkan logo container tumbuh */
+        justify-content: center; /* Pusatkan logo di tengah */
+        display: flex; /* Aktifkan flexbox */
+        align-items: center;
+        margin-bottom: 0;
+        padding-left: 20px; /* Tambahkan padding kiri agar tidak terlalu dekat ikon menu */
     }
 
     .nav-menu {
+        order: 3; /* Menu di kanan (disembunyikan) */
         position: absolute;
-        top: 100%; /* Muncul di bawah header */
+        top: 100%;
         left: 0;
         right: 0;
         background-color: var(--white);
         box-shadow: var(--box-shadow);
         padding: 10px 20px;
         border-top: 1px solid #eee;
-        display: none; /* Sembunyikan secara default */
-        flex-direction: column; /* Menu item vertikal */
-        width: 100%; /* Lebar penuh */
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        z-index: 999; /* Pastikan di atas konten, di bawah header */
     }
 
     .nav-menu.active {
-        display: flex; /* Tampilkan saat kelas 'active' ada */
+        display: flex;
     }
 
     .nav-menu ul {
-        flex-direction: column; /* Menu item vertikal */
+        flex-direction: column;
         width: 100%;
     }
 
     .nav-menu ul li {
-        margin: 10px 0; /* Jarak vertikal antar item */
+        margin: 10px 0;
         width: 100%;
     }
 
      .nav-menu ul li a {
-          display: block; /* Buat link mengisi lebar penuh */
+          display: block;
           padding: 10px 0;
           text-align: center;
+          font-size: 1.1em;
+          color: var(--text-color);
+          font-weight: 500;
+          transition: background-color 0.2s ease, color 0.2s ease;
      }
 
-    .menu-icon {
-        display: block; /* Tampilkan ikon menu di mobile */
+    .nav-menu ul li a:hover {
+         background-color: var(--light-bg);
+         color: var(--primary-color);
     }
 
+    /* Hapus underline animasi di mobile menu */
+     .nav-menu ul li a::after {
+          display: none;
+     }
+
+     /* Tambahkan border bawah opsional pada link mobile */
+     .nav-menu ul li:not(:last-child) {
+          border-bottom: 1px solid var(--border-color);
+          padding-bottom: 10px;
+          margin-bottom: 10px;
+     }
+
+
     .section {
-        padding: 40px 0;
+        padding: var(--section-padding-mobile);
     }
 
     .section h2 {
@@ -496,6 +720,7 @@ img {
     }
 
     .hero {
+        margin-top: -60px; /* Kompensasi */
         padding: 100px 20px 60px;
         min-height: 40vh;
     }
@@ -516,22 +741,22 @@ img {
     .why-choose-us-grid,
     .services-grid,
     .testimonial-list {
-        grid-template-columns: 1fr; /* Satu kolom di mobile */
-        gap: 20px;
+        grid-template-columns: 1fr;
+        gap: var(--gap-medium);
     }
 
-    .why-item, .service, .testimonial-item {
-        padding: 20px;
+    .why-item, .service-card, .testimonial-item {
+        padding: var(--gap-medium);
     }
 
     .why-item i {
         font-size: 2.5em;
-        margin-bottom: 15px;
+        margin-bottom: var(--gap-small);
     }
 
     .why-item h3 {
         font-size: 1.3em;
-        margin-bottom: 10px;
+        margin-bottom: var(--gap-small);
     }
 
      .quote-section blockquote {
@@ -539,7 +764,7 @@ img {
      }
 
      .footer p {
-          margin-bottom: 15px;
+          margin-bottom: var(--gap-small);
      }
 
      .social-icons a {
@@ -548,44 +773,77 @@ img {
      }
 }
 
-/* ====================================
-   Scroll Reveal Animation Styling
-   ==================================== */
+/* Untuk smartphone */
+@media (max-width: 480px) {
+     .logo-img {
+          height: 40px; /* Lebih kecil di layar sangat kecil */
+          margin-right: 8px;
+     }
+     .logo {
+          font-size: 1.2em;
+          line-height: 1.2;
+     }
 
-/* Styling dasar untuk elemen yang akan dianimasikan */
-.animate-on-scroll,
-.fade-in {
-    opacity: 0; /* Mulai dengan tidak terlihat */
-    transform: translateY(20px); /* Mulai sedikit di bawah posisi akhir */
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transisi untuk animasi */
-    /* Tambahkan delay jika menggunakan data-delay */
+     .menu-icon {
+          font-size: 1.8em;
+     }
+
+
+     .nav-menu ul li a {
+          font-size: 1em;
+          padding: 8px 0; /* Kurangi padding link mobile */
+     }
+
+     .nav-menu ul li:not(:last-child) {
+          padding-bottom: 8px;
+          margin-bottom: 8px;
+     }
+
+
+     .section-title {
+          font-size: 1.6em; /* Lebih kecil lagi judul section */
+     }
+
+     .hero-title {
+          font-size: 1.8em; /* Lebih kecil lagi judul hero */
+     }
+
+     .cta-button {
+          padding: 8px 15px;
+          font-size: 0.9em;
+     }
+
+     .why-item, .service-card, .testimonial-item {
+         padding: var(--gap-small); /* Kurangi padding item mobile */
+     }
+
+     .why-item i {
+         font-size: 2.2em;
+     }
+
+     .why-item h3, .service-card h3 {
+         font-size: 1.2em;
+     }
+
+     .service-card img {
+         height: 150px; /* Kurangi tinggi gambar layanan */
+     }
+
+     .service-card .content {
+          padding: var(--gap-small);
+     }
+
+
+     .quote-section blockquote {
+          font-size: 1.3em;
+     }
+
+     .footer p {
+          font-size: 0.8em;
+     }
+
+     .social-icons a {
+         font-size: 1.1em;
+         margin: 0 6px;
+     }
 }
-
-/* Styling saat elemen terlihat (kelas ditambahkan oleh JavaScript) */
-.animate-on-scroll.is-visible,
-.fade-in.is-visible {
-    opacity: 1; /* Menjadi terlihat */
-    transform: translateY(0); /* Kembali ke posisi aslinya */
-}
-
-/* Menggunakan data-delay untuk menunda animasi */
-/* Contoh: .animate-on-scroll[data-delay="0.2s"] */
-.animate-on-scroll[data-delay] {
-    transition-delay: var(--delay, 0s); /* Menggunakan variabel CSS untuk delay */
-}
-
-/* JavaScript akan mengatur variabel --delay */
-/* Anda tidak perlu menulis aturan CSS spesifik untuk setiap delay */
-/* Cukup pastikan elemen memiliki atribut data-delay="X.Xs" */
-
-
-/* ====================================
-   Optional: Styling untuk elemen spesifik
-   ==================================== */
-/* Jika Anda punya elemen spesifik lain di home.html */
-/* Contoh: */
-/* .home-intro-text { */
-/*      font-size: 1.1em; */
-/*      text-align: center; */
-/*      margin-bottom: 40px; */
-/* } */
