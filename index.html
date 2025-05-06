@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PT. Fauza Wisata Ihsani Pemalang</title> <!-- Judul yang lebih ringkas -->
+    <title>PT. Fauza Wisata Ihsani Pemalang - Umrah & Haji</title> <!-- Judul yang lebih deskriptif -->
     <link rel="stylesheet" href="style.css">
     <!-- Sertakan font Poppins dari Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Sertakan Font Awesome jika Anda menggunakannya untuk ikon -->
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> <!-- Tambahkan beberapa ketebalan font -->
+    <!-- Sertakan Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header class="header">
-        <div class="logo-container"> <!-- Kontainer untuk logo dan teks PT -->
-             <img src="Logo1.jpg" alt="logo"> <!-- Hapus style="width: 150px; height: auto;" dari sini, atur di CSS -->
+        <div class="logo-container">
+             <img src="Logo1.jpg" alt="logo">
              <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
         </div>
-        <div class="menu-icon" id="menu-icon">☰</div>
+        <div class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></div> <!-- Menggunakan ikon Font Awesome -->
         <nav class="nav-menu" id="nav-menu">
             <ul>
                 <li><a href="home.html">Home</a></li>
@@ -36,60 +36,174 @@
         <img src="makkah3.jpg" alt="Gambar Mozaik 4">
         <img src="Makkah_Sanctuary_cedd16422b.jpeg" alt="Gambar Mozaik 5">
         <img src="muslim-people-with-photorealistic-animals-prepared-eid-al-adha-offering_23-2151431618.jpg" alt="Gambar Mozaik 6">
-        <!-- Tambahkan gambar-gambar lain yang ingin Anda tampilkan dalam mozaik di sini -->
+        <!-- Tambahkan gambar-gambar lain yang relevan -->
+        <img src="kaaba.jpg" alt="Gambar Mozaik 7"> <!-- Contoh gambar tambahan -->
+        <img src="arafah.jpg" alt="Gambar Mozaik 8"> <!-- Contoh gambar tambahan -->
     </div>
-    <!-- Hapus seluruh div class="slider" dan isinya jika Anda hanya ingin mozaik -->
-    <!-- <div class="slider"> ... </div> -->
 
-
-    <main> <!-- Pertahankan tag main -->
-        <section class="home"> <!-- Ini akan menjadi section hero -->
+    <main>
+        <section class="home">
             <div class="home-content">
+                <p class="hero-subtitle">Percayakan Ibadah Anda Bersama Kami</p> <!-- Subtitle -->
                 <h1>Welcome to PT. Fauza Wisata Ihsani Pemalang</h1>
                 <p>Umrah dan Haji Ke Baitullah.</p>
+                <a href="#services" class="cta-button primary-button">Lihat Layanan Kami</a> <!-- Tombol CTA di hero -->
             </div>
         </section>
 
-        <div class="illustration-container"> <!-- Kontainer untuk video -->
-            <video controls>
-                <source src="Conten 13.mp4" type="video/mp4">
-                Browser Anda tidak mendukung elemen video.
-            </video>
+         <!-- Section "Why Choose Us" -->
+        <section class="section why-choose-us">
+            <div class="container">
+                <h2>Mengapa Memilih Kami?</h2>
+                <div class="why-choose-us-grid">
+                    <div class="why-item animate-on-scroll">
+                        <i class="fas fa-check-circle"></i> <!-- Contoh ikon -->
+                        <h3>Terpercaya</h3>
+                        <p>Pengalaman bertahun-tahun dalam melayani jamaah umrah dan haji.</p>
+                    </div>
+                    <div class="why-item animate-on-scroll" data-delay="0.2s">
+                        <i class="fas fa-star"></i> <!-- Contoh ikon -->
+                        <h3>Pelayanan Prima</h3>
+                        <p>Memberikan pelayanan terbaik untuk kenyamanan ibadah Anda.</p>
+                    </div>
+                    <div class="why-item animate-on-scroll" data-delay="0.4s">
+                        <i class="fas fa-wallet"></i> <!-- Contoh ikon -->
+                        <h3>Harga Kompetitif</h3>
+                        <p>Menawarkan paket dengan harga yang sesuai dan transparan.</p>
+                    </div>
+                     <div class="why-item animate-on-scroll" data-delay="0.6s">
+                        <i class="fas fa-mosque"></i> <!-- Contoh ikon -->
+                        <h3>Pembimbing Berpengalaman</h3>
+                        <p>Dibimbing oleh pembimbing yang ahli dalam syariat dan berpengalaman.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <div class="illustration-container">
+             <div class="container"> <!-- Tambahkan kontainer untuk video -->
+                <video controls>
+                    <source src="Conten 13.mp4" type="video/mp4">
+                    Browser Anda tidak mendukung elemen video.
+                </video>
+             </div>
         </div>
 
-        <div class="services-highlight fade-in">
-            <div class="service">
-                <img src="makkah3.jpg" alt="Tour Package">
-                <h3>Tour Packages</h3>
-                <p>Paket wisata menarik selama umrah dan haji.</p>
+        <section class="section services-highlight" id="services"> <!-- Beri ID untuk tautan CTA -->
+            <div class="container">
+                <h2>Layanan Utama Kami</h2>
+                <div class="services-grid"> <!-- Menggunakan grid untuk layanan -->
+                     <div class="service animate-on-scroll">
+                        <img src="makkah3.jpg" alt="Tour Package">
+                        <h3>Paket Umrah</h3>
+                        <p>Berbagai pilihan paket umrah sesuai kebutuhan Anda.</p>
+                    </div>
+                    <div class="service animate-on-scroll" data-delay="0.2s">
+                        <img src="Makkah_Sanctuary_cedd16422b.jpeg" alt="Guided Tours">
+                        <h3>Paket Haji Khusus</h3>
+                        <p>Fasilitas dan bimbingan eksklusif untuk haji Anda.</p>
+                    </div>
+                    <div class="service animate-on-scroll" data-delay="0.4s">
+                        <img src="muslim-people-with-photorealistic-animals-prepared-eid-al-adha-offering_23-2151431618.jpg" alt="Accommodation">
+                        <h3>Tour Islami</h3>
+                        <p>Jelajahi destinasi Islami menarik lainnya.</p>
+                    </div>
+                </div>
             </div>
-            <div class="service">
-                <img src="Makkah_Sanctuary_cedd16422b.jpeg" alt="Guided Tours">
-                <h3>Guided Tours</h3>
-                <p>Pemandu berpengalaman untuk perjalanan Anda.</p>
+        </section>
+
+         <!-- Section Testimonials -->
+         <section class="section testimonials">
+            <div class="container">
+                <h2>Apa Kata Mereka?</h2>
+                <div class="testimonial-slider"> <!-- Gunakan slider jika banyak testimoni -->
+                    <div class="testimonial-item animate-on-scroll">
+                        <p>"Alhamdulillah, perjalanan umrah bersama PT. Fauza Wisata Ihsani sangat berkesan. Pelayanan dari awal hingga akhir sangat memuaskan."</p>
+                        <div class="testimonial-author">- Ahmad S.</div>
+                    </div>
+                     <div class="testimonial-item animate-on-scroll" data-delay="0.2s">
+                        <p>"Pembimbingnya sangat ramah dan berilmu, membuat ibadah haji terasa lebih khusyuk. Terima kasih Fauza Wisata!"</p>
+                        <div class="testimonial-author">- Fatimah R.</div>
+                    </div>
+                     <div class="testimonial-item animate-on-scroll" data-delay="0.4s">
+                        <p>"Akomodasi nyaman dan jadwal teratur. Sangat direkomendasikan bagi yang ingin beribadah dengan tenang."</p>
+                        <div class="testimonial-author">- Budi L.</div>
+                    </div>
+                    <!-- Tambahkan testimoni lainnya di sini -->
+                </div>
+                 <!-- Anda bisa menambahkan tombol navigasi slider di sini jika diperlukan -->
+                 <!-- <div class="slider-nav">
+                     <button class="prev-testimonial">❮</button>
+                     <button class="next-testimonial">❯</button>
+                 </div> -->
             </div>
-            <div class="service">
-                <img src="muslim-people-with-photorealistic-animals-prepared-eid-al-adha-offering_23-2151431618.jpg" alt="Accommodation">
-                <h3>Comfortable Accommodation</h3>
-                <p>Tersedia fasilitas akomodasi nyaman.</p>
+         </section>
+
+
+        <div class="quote-section fade-in"> <!-- Pertahankan bagian kutipan -->
+            <div class="container"> <!-- Bungkus kutipan dalam kontainer -->
+                 <p>"Bersama kami, perjalanan ibadah Anda akan menjadi lebih berarti."</p>
+                 <p>PT. Fauza Wisata Ihsani Pemalang</p>
             </div>
         </div>
 
-        <div class="quote-section fade-in">
-            <p>"Bersama kami, perjalanan ibadah Anda akan menjadi lebih berarti."</p>
-            <p>PT. Fauza Wisata Ihsani Pemalang</p>
-        </div>
+         <!-- Section Contact -->
+         <section class="section contact">
+            <div class="container">
+                <h2>Hubungi Kami</h2>
+                <div class="contact-grid">
+                    <div class="contact-info animate-on-scroll">
+                        <h3>Informasi Kontak</h3>
+                        <p><i class="fas fa-map-marker-alt"></i> Alamat: [Alamat Lengkap Anda]</p>
+                        <p><i class="fas fa-phone-alt"></i> Telepon: [Nomor Telepon Anda]</p>
+                        <p><i class="fas fa-envelope"></i> Email: [Email Anda]</p>
+                         <p><i class="fab fa-whatsapp"></i> WhatsApp: [Nomor WhatsApp Anda]</p>
+                    </div>
+                    <div class="contact-form animate-on-scroll" data-delay="0.2s">
+                         <h3>Kirim Pesan</h3>
+                         <!-- Formulir kontak sederhana -->
+                         <form action="#" method="post"> <!-- Ganti action="#" dengan URL proses form Anda -->
+                            <div class="form-group">
+                                <label for="name">Nama:</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                             <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                             <div class="form-group">
+                                <label for="message">Pesan:</label>
+                                <textarea id="message" name="message" rows="4" required></textarea>
+                            </div>
+                            <button type="submit" class="primary-button">Kirim Pesan</button>
+                         </form>
+                    </div>
+                </div>
+            </div>
+         </section>
 
-        <!-- Pindahkan tombol CTA ke dalam main atau section yang relevan jika diinginkan -->
-        <!-- <a href="home.html" class="cta-button">Explore Now</a> -->
 
-    </main> <!-- Tutup tag main -->
+    </main>
 
     <!-- Jika tombol CTA tetap di luar main, pastikan ada div atau section yang membungkusnya -->
-    <div style="text-align: center; margin-top: 20px; margin-bottom: 40px;">
-         <a href="home.html" class="cta-button">Explore Now</a>
-    </div>
+    <!-- Ini adalah tombol CTA di bagian bawah, bisa dipertimbangkan untuk dihapus jika sudah ada di hero -->
+    <!-- <div style="text-align: center; margin-top: 20px; margin-bottom: 40px;">
+         <a href="home.html" class="cta-button primary-button">Explore Now</a>
+    </div> -->
 
+
+    <footer class="footer">
+        <div class="container"> <!-- Bungkus footer content dalam container -->
+            <p>&copy; 2025 PT. Fauza Wisata Ihsani Pemalang. All rights reserved.</p> <!-- Tambahkan nama PT -->
+            <div class="social-icons"> <!-- Tambahkan ikon sosial media -->
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </footer>
 
     <script>
         // Script untuk toggle menu nav
@@ -100,20 +214,75 @@
             navMenu.classList.toggle('active');
         });
 
-        // Script slider tidak lagi diperlukan jika Anda menggunakan mozaik statis
-        // Hapus script ini jika Anda tidak menggunakan slider lagi
-        /*
-        let currentIndex = 0;
-        const slides = document.querySelectorAll('.slide');
-        function showSlide(index) { ... }
-        function changeSlide(n) { ... }
-        showSlide(currentIndex);
-        setInterval(() => { ... }, 3000);
-        */
+        // Tambahkan script untuk Scroll Reveal Animation (memerlukan library atau implementasi sendiri)
+        // Contoh sederhana (memerlukan library seperti ScrollReveal JS)
+        // Jika Anda ingin menggunakan ScrollReveal JS, tambahkan:
+        // <script src="https://unpkg.com/scrollreveal"></script>
+        // ScrollReveal().reveal('.animate-on-scroll', {
+        //     delay: 200,
+        //     distance: '50px',
+        //     origin: 'bottom',
+        //     easing: 'ease-in-out',
+        //     interval: 100
+        // });
+
+         // Contoh sederhana untuk animasi fade-in saat elemen terlihat (tanpa library)
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeIns = document.querySelectorAll('.fade-in, .animate-on-scroll'); // Targetkan kelas animasi
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target); // Berhenti mengamati setelah terlihat
+                    }
+                });
+            }, {
+                threshold: 0.1 // Persentase elemen yang terlihat untuk memicu
+            });
+
+            fadeIns.forEach(element => {
+                observer.observe(element);
+            });
+        });
+
+
+         // Script untuk slider testimoni sederhana (jika Anda menggunakannya)
+         // Memerlukan penambahan tombol navigasi di HTML
+         /*
+         const testimonials = document.querySelectorAll('.testimonial-item');
+         let currentTestimonial = 0;
+
+         function showTestimonial(index) {
+             testimonials.forEach((item, i) => {
+                 item.style.display = 'none';
+                 if (i === index) {
+                     item.style.display = 'block';
+                 }
+             });
+         }
+
+         function changeTestimonial(n) {
+             currentTestimonial = (currentTestimonial + n + testimonials.length) % testimonials.length;
+             showTestimonial(currentTestimonial);
+         }
+
+         // show first testimonial initially
+         showTestimonial(currentTestimonial);
+
+         // Add event listeners to buttons if you add them in HTML
+         // document.querySelector('.prev-testimonial').addEventListener('click', () => changeTestimonial(-1));
+         // document.querySelector('.next-testimonial').addEventListener('click', () => changeTestimonial(1));
+
+         // Auto rotate testimonials (optional)
+         // setInterval(() => {
+         //     changeTestimonial(1);
+         // }, 5000); // Change every 5 seconds
+         */
+
     </script>
 
-    <footer class="footer">
-        <p>© 2025 All rights reserved.</p>
-    </footer>
+    <!-- Anda bisa menambahkan script tambahan di sini jika diperlukan -->
+
 </body>
 </html>
