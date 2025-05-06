@@ -1,3 +1,47 @@
+ '<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PT. Fauza Wisata Ihsani Pemalang - Umrah & Haji</title> <!-- Judul yang lebih deskriptif -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Sertakan font Poppins dari Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"> <!-- Tambahkan beberapa ketebalan font -->
+    <!-- Sertakan Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="header">
+        <div class="logo-container">
+             <img src="Logo1.jpg" alt="logo">
+             <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
+        </div>
+        <div class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></div> <!-- Menggunakan ikon Font Awesome -->
+        <nav class="nav-menu" id="nav-menu">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="Artikel.html">Artikel</a></li>
+                <li><a href="LayananKami.html">Layanan Kami</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Area untuk Tampilan Mozaik Gambar -->
+    <div class="mosaic-gallery">
+        <img src="WhatsApp Image 2025-04-09 at 07.49.36.jpeg" alt="Gambar Mozaik 1">
+        <img src="madinah.jpeg" alt="Gambar Mozaik 2">
+        <img src="madinah 2.jpeg" alt="Gambar Mozaik 3">
+        <img src="makkah3.jpg" alt="Gambar Mozaik 4">
+        <img src="Makkah_Sanctuary_cedd16422b.jpeg" alt="Gambar Mozaik 5">
+        <img src="muslim-people-with-photorealistic-animals-prepared-eid-al-adha-offering_23-2151431618.jpg" alt="Gambar Mozaik 6">
+        <!-- Tambahkan gambar-gambar lain yang relevan -->
+        <img src="background 2 (3).jpeg" alt="Gambar Mozaik 7"> <!-- Contoh gambar tambahan -->
+        <img src="background 2 (4).jpeg" alt="Gambar Mozaik 8"> <!-- Contoh gambar tambahan -->
+    </div>
+
+
 <!-- Mulai dari <main> karena navbar dan footer tidak diubah -->
 <main>
     <!-- Hero Section -->
@@ -138,3 +182,54 @@
         </div>
     </section>
 </main>
+    <!-- Jika tombol CTA tetap di luar main, pastikan ada div atau section yang membungkusnya -->
+    <!-- Ini adalah tombol CTA di bagian bawah, bisa dipertimbangkan untuk dihapus jika sudah ada di hero -->
+    <!-- <div style="text-align: center; margin-top: 20px; margin-bottom: 40px;">
+         <a href="home.html" class="cta-button primary-button">Explore Now</a>
+    </div> -->
+
+ <script>
+        // Script untuk toggle menu nav
+        const menuIcon = document.getElementById('menu-icon');
+        const navMenu = document.getElementById('nav-menu');
+
+        menuIcon.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Script untuk mengatur slider
+        let currentIndex = 0; // Indeks slide saat ini
+        const slides = document.querySelectorAll('.slide');
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.remove('show'); // Hapus kelas 'show' dari semua slide
+                if (i === index) {
+                    slide.classList.add('show'); // Tambahkan kelas 'show' untuk slide yang aktif
+                }
+            });
+        }
+
+        function changeSlide(n) {
+            currentIndex = (currentIndex + n + slides.length) % slides.length; // Menghitung indeks slide berikutnya
+            showSlide(currentIndex); // Tampilkan slide baru
+        }
+
+        // Tampilkan slide pertama
+        showSlide(currentIndex);
+
+        // Tambahkan interval otomatis jika diinginkan
+        setInterval(() => {
+            changeSlide(1);
+        }, 3000); // Ganti slide setiap 3 detik
+    </script>
+
+    <footer class="footer">
+        <div class="container"> <!-- Bungkus footer content dalam container -->
+            <p>&copy; 2025 PT. Fauza Wisata Ihsani Pemalang. All rights reserved.</p> <!-- Tambahkan nama PT -->
+            <div class="social-icons"> <!-- Tambahkan ikon sosial media -->
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
