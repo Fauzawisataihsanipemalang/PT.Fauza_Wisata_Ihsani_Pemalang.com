@@ -5,128 +5,100 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Menggunakan font Poppins */
     line-height: 1.6;
-    color: var(--text-color);
-    background-color: #f4f4f4; /* Tetap menggunakan warna dari CSS pertama */
-    overflow-x: hidden;
-    position: relative;
-    padding-top: 70px; /* Sesuaikan dengan tinggi header fixed */
+    color: #333; /* Warna teks default */
+    background-color: #f4f4f4; /* Warna latar belakang body */
+    overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
+}
+
+.container {
+    max-width: 1200px; /* Lebar maksimum konten */
+    margin: 0 auto; /* Pusatkan container */
+    padding: 0 20px; /* Padding di sisi untuk responsivitas */
 }
 
 a {
-    text-decoration: none;
-    color: inherit; /* Warna link mengikuti parent, seperti di CSS pertama */
-    transition: color var(--transition-speed) ease;
-}
-
-/* Hover untuk link umum, jika tidak diatur secara spesifik */
-a:hover {
-    color: var(--primary-color);
+    text-decoration: none; /* Hapus garis bawah pada link */
+    color: inherit; /* Warna link mengikuti parent */
 }
 
 ul {
-    list-style: none;
+    list-style: none; /* Hapus bullet point pada list */
 }
 
 img {
-    max-width: 100%;
+    max-width: 100%; /* Gambar tidak melebihi lebar containernya */
     height: auto;
-    display: block;
-}
-
-/* ====================================
-   Layout Helper Classes
-   ==================================== */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.section {
-    padding: var(--section-padding);
-}
-
-.section h2 {
-    text-align: center;
-    margin-bottom: 40px; /* Menggunakan nilai dari CSS pertama */
-    font-size: 2.5em;
-    color: var(--secondary-color); /* Menggunakan variabel */
+    display: block; /* Menghilangkan margin bawah yang aneh pada gambar */
 }
 
 /* ====================================
    Header & Navigation
    ==================================== */
 .header {
-    background-color: var(--white);
-    color: var(--text-color); /* Menggunakan variabel */
-    padding: 15px 0; /* Menggunakan nilai dari CSS pertama */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Menggunakan nilai dari CSS pertama */
-    position: fixed; /* Menggunakan fixed */
-    width: 100%;
+    background-color: #fff; /* Latar belakang header */
+    color: #333; /* Warna teks header */
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan di bawah header */
+    position: sticky; /* Header tetap di atas saat scroll */
     top: 0;
-    left: 0;
-    z-index: 1000;
+    z-index: 1000; /* Pastikan header di atas elemen lain */
+    display: flex; /* Menggunakan flexbox untuk layout */
+    justify-content: space-between; /* Jarak antara logo dan menu */
+    align-items: center; /* Pusatkan item secara vertikal */
 }
 
 .header .container {
      display: flex;
      justify-content: space-between;
      align-items: center;
-     width: 100%;
+     width: 100%; /* Agar container flex mengambil lebar penuh header */
 }
+
 
 .logo-container {
     display: flex;
     align-items: center;
 }
 
-.logo-img { /* Mengganti .logo-container img menjadi .logo-img */
-    height: 40px; /* Menggunakan nilai dari CSS pertama */
-    margin-right: var(--gap-small);
-    border-radius: 50%;
-    object-fit: cover;
+.logo-container img {
+    height: 40px; /* Tinggi logo */
+    margin-right: 10px;
+    border-radius: 50%; /* Membuat logo bulat jika diinginkan */
 }
 
 .logo {
-    font-size: 1.2em; /* Menggunakan nilai dari CSS pertama */
-    font-weight: 600; /* Menggunakan nilai dari CSS pertama */
-    color: var(--secondary-color); /* Menggunakan variabel */
+    font-size: 1.2em; /* Ukuran teks logo */
+    font-weight: 600; /* Ketebalan font logo */
+    color: #0056b3; /* Warna logo */
 }
 
 .nav-menu ul {
-    display: flex;
-    align-items: center;
+    display: flex; /* Item menu berjejer horizontal */
 }
 
 .nav-menu ul li {
-    margin-left: var(--gap-medium); /* Menggunakan variabel */
+    margin-left: 20px; /* Jarak antar item menu */
 }
 
 .nav-menu ul li a {
-    color: var(--text-color); /* Menggunakan variabel */
+    color: #333; /* Warna link menu */
     font-weight: 500;
-    padding: 5px 0; /* Menggunakan nilai dari CSS pertama */
-    transition: color var(--transition-speed) ease;
+    padding: 5px 0;
+    transition: color 0.3s ease; /* Transisi warna saat hover */
 }
 
 .nav-menu ul li a:hover {
-    color: var(--primary-color); /* Menggunakan variabel */
+    color: #007bff; /* Warna link saat hover */
 }
-
-/* Active state untuk link navigasi */
-.nav-menu ul li a.active {
-    color: var(--primary-color);
-    font-weight: 600;
-}
-
 
 .menu-icon {
-    display: none;
-    font-size: 1.8em; /* Menggunakan nilai dari CSS pertama */
+    display: none; /* Icon menu disembunyikan di desktop */
+    font-size: 1.8em;
     cursor: pointer;
-    color: var(--text-color); /* Menggunakan variabel */
+    color: #333;
+}
     padding: 5px; /* Tambahkan padding untuk area klik */
 }
 
