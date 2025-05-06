@@ -5,70 +5,177 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - PT. Fauza Wisata Ihsani Pemalang</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <!-- Font Awesome untuk ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Link ke Font Poppins dari Google Fonts (jika belum ada di style.css) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <img src="Logo1.jpg" alt="logo" class="logo-img" style="width: 150px; height: auto;">
-        <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
-        <div class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></div>
-        <nav class="nav-menu" id="nav-menu">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="Artikel.html">Artikel</a></li>
-                <li><a href="layanan.html">Layanan Kami</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <script>
-        // Script untuk toggle menu nav
-        const menuIcon = document.getElementById('menu-icon');
-        const navMenu = document.getElementById('nav-menu');
 
-        menuIcon.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        }); </script>
-    <main class="container">
-        <section class="features">
-            <h2>PT. Fauza Wisata Ihsani Pemalang</h2>
-            <div class="feature-grid">
-                <div class="feature feature-large">
-                    <div class="animation-container">
-                        <i class="fas fa-user-shield animated-icon"></i>
+    <header class="header">
+        <div class="container"> <!-- Tambahkan container di dalam header -->
+            <div class="logo-container">
+                <img src="Logo1.jpg" alt="logo" class="logo-img"> <!-- Hapus style inline -->
+                <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
+            </div>
+            <div class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></div>
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="Artikel.html">Artikel</a></li>
+                    <li><a href="layanan.html">Layanan Kami</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section - Bisa disesuaikan dengan konten Home -->
+        <!-- Anda bisa menggunakan hero section seperti di index.html jika ingin -->
+        <!-- Atau buat section pembuka yang berbeda -->
+        <section class="hero">
+             <div class="container">
+                  <div class="home-content animate-on-scroll">
+                       <p class="hero-subtitle">Selamat Datang di</p>
+                       <h1 class="hero-title">PT. Fauza Wisata Ihsani Pemalang</h1>
+                       <p class="hero-description">Teman setia perjalanan ibadah dan wisata Anda ke tanah suci dan destinasi pilihan lainnya.</p>
+                       <a href="#layanan-kami" class="cta-button">Lihat Layanan Kami</a> <!-- Sesuaikan link -->
+                  </div>
+             </div>
+        </section>
+
+        <!-- Mosaic Gallery - Jika ingin menampilkan galeri mozaik di home -->
+         <!-- <section class="mosaic-gallery-section section">
+              <div class="container">
+                   <h2 class="animate-on-scroll">Galeri Perjalanan</h2>
+                   <div class="mosaic-gallery">
+                        <img src="gambar-galeri-1.jpg" alt="Galeri 1" class="animate-on-scroll">
+                        <img src="gambar-galeri-2.jpg" alt="Galeri 2" class="animate-on-scroll" data-delay="0.2s">
+                        <img src="gambar-galeri-3.jpg" alt="Galeri 3" class="animate-on-scroll" data-delay="0.4s">
+                        <img src="gambar-galeri-4.jpg" alt="Galeri 4" class="animate-on-scroll">
+                        <img src="gambar-galeri-5.jpg" alt="Galeri 5" class="animate-on-scroll" data-delay="0.2s">
+                        <img src="gambar-galeri-6.jpg" alt="Galeri 6" class="animate-on-scroll" data-delay="0.4s">
+                   </div>
+              </div>
+         </section> -->
+
+
+        <!-- Section Fitur/Keunggulan - Menggunakan struktur section dan container -->
+        <!-- Menggunakan kelas 'why-choose-us' agar sesuai dengan CSS yang sudah ada -->
+        <section class="why-choose-us section">
+            <div class="container">
+                <h2 class="animate-on-scroll">Mengapa Memilih Kami?</h2> <!-- Sesuaikan judul -->
+                <div class="why-choose-us-grid"> <!-- Menggunakan kelas grid yang sesuai -->
+                    <div class="why-item animate-on-scroll">
+                        <i class="fas fa-user-shield"></i> <!-- Hapus kelas animation-container & animated-icon jika tidak diperlukan CSS spesifik -->
+                        <h3>Keamanan Terjamin</h3>
+                        <p>Kami menjamin keamanan dan kenyamanan dalam setiap perjalanan Anda ke tanah suci, mulai dari keberangkatan hingga kepulangan.</p>
                     </div>
-                    <h3>Keamanan Terjamin</h3>
-                    <p>Kami menjamin keamanan dan kenyamanan dalam setiap perjalanan Anda ke tanah suci, mulai dari keberangkatan hingga kepulangan.</p>
-                </div>
-                <div class="feature">
-                    <div class="animation-container">
-                        <i class="fas fa-clock animated-icon"></i>
+                    <div class="why-item animate-on-scroll" data-delay="0.2s">
+                        <i class="fas fa-clock"></i>
+                        <h3>Waktu Fleksibel</h3>
+                        <p>Pilih waktu perjalanan yang sesuai dengan jadwal Anda. Kami siap membantu melakukan penyesuaian untuk kenyamanan Anda.</p>
                     </div>
-                    <h3>Waktu Fleksibel</h3>
-                    <p>Pilih waktu perjalanan yang sesuai dengan jadwal Anda. Kami siap membantu melakukan penyesuaian untuk kenyamanan Anda.</p>
-                </div>
-                <div class="feature">
-                    <div class="animation-container">
-                        <i class="fas fa-flag animated-icon"></i>
+                    <div class="why-item animate-on-scroll" data-delay="0.4s">
+                        <i class="fas fa-flag"></i>
+                        <h3>Paket Lengkap</h3>
+                        <p>Dari akomodasi, transportasi, hingga layanan selama perjalanan, kami menyediakan semua yang Anda butuhkan.</p>
                     </div>
-                    <h3>Paket Lengkap</h3>
-                    <p>Dari akomodasi, transportasi, hingga layanan selama perjalanan, kami menyediakan semua yang Anda butuhkan.</p>
-                </div>
-                <div class="feature">
-                    <div class="animation-container">
-                        <i class="fas fa-comments animated-icon"></i>
+                    <div class="why-item animate-on-scroll" data-delay="0.6s">
+                        <i class="fas fa-comments"></i>
+                        <h3>Dukungan 24/7</h3>
+                        <p>Tim kami siap membantu Anda kapan saja. Kami selalu siap menjawab pertanyaan dan kebutuhan Anda.</p>
                     </div>
-                    <h3>Dukungan 24/7</h3>
-                    <p>Tim kami siap membantu Anda kapan saja. Kami selalu siap menjawab pertanyaan dan kebutuhan Anda.</p>
                 </div>
             </div>
         </section>
+
+        <!-- Section Video / Ilustrasi - Jika ingin menampilkan video atau ilustrasi -->
+         <section class="illustration-container section">
+              <div class="container">
+                   <h2 class="animate-on-scroll">Tonton Video Kami</h2>
+                   <video controls poster="thumbnail-video.jpg" class="animate-on-scroll"> <!-- Tambahkan poster gambar thumbnail -->
+                        <source src="video-perusahaan.mp4" type="video/mp4"> <!-- Ganti dengan path video Anda -->
+                        <!-- Tambahkan source lain jika ada format video lain -->
+                        Your browser does not support the video tag.
+                   </video>
+              </div>
+         </section>
+
+        <!-- Section Layanan Highlight - Jika ingin menampilkan beberapa layanan unggulan -->
+        <section class="services-highlight section" id="layanan-kami"> <!-- Tambahkan ID untuk smooth scroll -->
+             <div class="container">
+                  <h2 class="animate-on-scroll">Layanan Unggulan Kami</h2>
+                  <div class="services-grid">
+                       <div class="service animate-on-scroll">
+                            <img src="umroh-image.jpg" alt="Paket Umroh"> <!-- Ganti dengan gambar layanan -->
+                            <h3>Paket Umroh</h3>
+                            <p>Nikmati perjalanan ibadah umroh yang khusyuk dan nyaman bersama kami.</p>
+                       </div>
+                       <div class="service animate-on-scroll" data-delay="0.2s">
+                            <img src="haji-image.jpg" alt="Paket Haji Plus"> <!-- Ganti dengan gambar layanan -->
+                            <h3>Paket Haji Plus</h3>
+                            <p>Dapatkan pengalaman haji yang istimewa dengan fasilitas dan pendampingan terbaik.</p>
+                       </div>
+                       <div class="service animate-on-scroll" data-delay="0.4s">
+                            <img src="tour-image.jpg" alt="Tour Muslim"> <!-- Ganti dengan gambar layanan -->
+                            <h3>Tour Muslim</h3>
+                            <p>Jelajahi destinasi wisata muslim menarik di seluruh dunia.</p>
+                       </div>
+                  </div>
+             </div>
+        </section>
+
+        <!-- Section Testimoni - Jika ingin menampilkan testimoni pelanggan -->
+         <section class="testimonials section">
+              <div class="container">
+                   <h2 class="animate-on-scroll">Apa Kata Mereka?</h2>
+                   <div class="testimonial-list">
+                        <div class="testimonial-item animate-on-scroll">
+                             <p>"Pelayanan PT. Fauza Wisata Ihsani Pemalang sangat memuaskan. Seluruh proses umroh berjalan lancar dan nyaman. Terima kasih!"</p>
+                             <div class="testimonial-author">- Ahmad S.</div>
+                        </div>
+                        <div class="testimonial-item animate-on-scroll" data-delay="0.2s">
+                             <p>"Sangat merekomendasikan biro travel ini. Timnya profesional dan sangat membantu. Pengalaman haji plus yang tak terlupakan."</p>
+                             <div class="testimonial-author">- Siti N.</div>
+                        </div>
+                        <div class="testimonial-item animate-on-scroll" data-delay="0.4s">
+                             <p>"Tour muslim ke Turki bersama Fauza Wisata Ihsani sangat menyenangkan. Itinerary tersusun rapi dan guide sangat informatif."</p>
+                             <div class="testimonial-author">- Budi H.</div>
+                        </div>
+                   </div>
+              </div>
+         </section>
+
+         <!-- Section Kutipan - Jika ingin menampilkan kutipan inspiratif -->
+          <section class="quote-section section">
+               <div class="container animate-on-scroll">
+                    <blockquote>
+                         Perjalanan ke tanah suci adalah panggilan hati, biarkan kami menjadi jembatan yang memudahkan langkah Anda.
+                    </blockquote>
+                    <footer>- PT. Fauza Wisata Ihsani Pemalang</footer>
+               </div>
+          </section>
+
     </main>
 
     <footer class="footer">
-        <p>© 2025 PT. Fauza Wisata Ihsani Pemalang. All rights reserved.</p>
+        <div class="container"> <!-- Tambahkan container di dalam footer -->
+            <p>© 2025 PT. Fauza Wisata Ihsani Pemalang. All rights reserved.</p>
+            <div class="social-icons">
+                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                 <!-- Tambahkan ikon sosial media lainnya jika ada -->
+            </div>
+        </div>
     </footer>
+
+    <!-- Link ke script.js di akhir body -->
+    <script src="script.js"></script>
+
 </body>
 </html>
