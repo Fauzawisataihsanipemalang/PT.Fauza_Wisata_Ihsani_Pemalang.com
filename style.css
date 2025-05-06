@@ -13,12 +13,12 @@ body {
     display: block; /* Menghilangkan spasi ekstra di bawah gambar */
 }
 
-/* --- Perbaikan Header (meskipun fokus selain navbar, kita buat sedikit lebih modern) --- */
+/* --- Perbaikan Header --- */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px 30px;
+    padding: 15px 20px; /* Padding horizontal sedikit dikurangi */
     background-color: #ffffff; /* Warna latar belakang header yang bersih */
     color: #333;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Bayangan yang lebih halus dan progresif */
@@ -28,6 +28,7 @@ body {
     left: 0;
     z-index: 1000; /* Menetapkan tinggi z-index untuk header */
     transition: background-color 0.3s ease; /* Animasi saat scroll */
+    box-sizing: border-box; /* Pastikan padding tidak menambah lebar */
 }
 
 /* Animasi header saat di-scroll */
@@ -36,27 +37,40 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Bayangan yang lebih kuat saat di-scroll */
 }
 
+.logo-container { /* Kontainer untuk logo dan teks PT */
+    display: flex;
+    flex-direction: column; /* Teks ditumpuk */
+    align-items: flex-start; /* Rata kiri */
+}
 
 .logo {
-    font-size: 1.8em;
+    font-size: 1.4em; /* Ukuran font logo sedikit lebih kecil */
     font-weight: 700; /* Bold yang lebih kuat */
-    letter-spacing: 1px;
+    letter-spacing: 0.5px; /* Letter spacing sedikit dikurangi */
     color: #007bff; /* Warna logo yang menarik */
+    margin-bottom: 2px; /* Ruang di bawah logo */
 }
+
+.company-name {
+    font-size: 0.8em; /* Ukuran font nama perusahaan lebih kecil */
+    color: #555; /* Warna teks nama perusahaan */
+    margin-top: 0;
+}
+
 
 .menu-icon {
     font-size: 28px; /* Ukuran ikon yang sedikit lebih besar */
     cursor: pointer;
-    display: none; /* Tersembunyi di tampilan besar */
+    display: block; /* Selalu tampil di semua ukuran layar */
     color: #333; /* Warna ikon */
 }
 
-/* --- Perbaikan Nav-menu (meskipun fokus selain navbar, kita buat sedikit lebih modern) --- */
+/* --- Nav-menu --- */
 .nav-menu {
     display: none; /* Sembunyikan menu secara default */
     position: absolute; /* Posisi absolut untuk mengapung di atas konten lainnya */
     top: 70px; /* Jarak dari bagian atas */
-    right: 30px; /* Jarak dari sisi kanan */
+    right: 20px; /* Sesuaikan posisi kanan agar tidak terlalu menjorok */
     background-color: #ffffff; /* Warna latar belakang menu yang bersih */
     border-radius: 8px; /* Sudut bulat menu */
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Bayangan yang lebih kuat */
@@ -64,6 +78,7 @@ body {
     opacity: 0; /* Mulai dengan transparan untuk animasi */
     transform: translateY(-10px); /* Mulai sedikit di atas untuk animasi */
     transition: opacity 0.3s ease, transform 0.3s ease; /* Animasi muncul */
+    min-width: 180px; /* Lebar minimum menu */
 }
 
 .nav-menu.active {
@@ -95,29 +110,7 @@ body {
     color: #007bff; /* Warna teks saat hover */
 }
 
-/* Media query untuk menampilkan menu ikon pada perangkat kecil */
-@media (max-width: 770px) {
-    .menu-icon {
-        display: block; /* Tampilkan ikon titik tiga pada perangkat kecil */
-    }
-
-    .nav-menu {
-        width: 200px; /* Atur lebar menu dropdown */
-        margin-top: 10px; /* Jarak atas untuk tampilan yang lebih baik */
-        right: 20px; /* Sesuaikan posisi kanan */
-        top: 65px; /* Sesuaikan posisi atas */
-    }
-
-    .nav-menu ul {
-        display: flex; /* Menu menggunakan flexbox */
-        flex-direction: column; /* Tiap item ditumpuk */
-    }
-
-    .nav-menu li {
-        text-align: left; /* Teks di kiri */
-    }
-}
-
+/* Media query untuk tampilan besar */
 @media (min-width: 769px) {
     .nav-menu {
         display: flex; /* Tampilkan menu sebagai flex pada perangkat besar */
@@ -125,6 +118,7 @@ body {
         opacity: 1; /* Pastikan opacity penuh di layar besar */
         transform: translateY(0); /* Pastikan transform normal di layar besar */
         box-shadow: none; /* Hapus bayangan di layar besar */
+        background-color: transparent; /* Hapus latar belakang di layar besar */
     }
 
     .nav-menu ul {
@@ -138,11 +132,13 @@ body {
     .nav-menu li a {
         padding: 5px 0; /* Padding vertikal untuk tautan */
         border-radius: 0; /* Hapus sudut bulat */
+        color: #333; /* Warna teks di layar besar */
     }
 
     .nav-menu li a:hover {
         background-color: transparent; /* Hapus latar belakang saat hover */
         border-bottom: 2px solid #007bff; /* Garis bawah saat hover */
+        color: #007bff; /* Warna teks saat hover */
     }
 
     .menu-icon {
@@ -150,75 +146,48 @@ body {
     }
 }
 
-/* --- Slider yang Lebih Elegan dengan Animasi --- */
-.slider {
-    position: relative;
-    max-width: 900px; /* Lebar maksimum slider yang sedikit lebih besar */
-    margin: 80px auto 40px auto; /* Pusatkan slider dan beri ruang */
-    overflow: hidden; /* Sembunyikan bagian luar slider */
-    border-radius: 10px; /* Sudut bulat pada slider */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Bayangan yang lebih kuat */
-    z-index: 1; /* Z-index lebih rendah agar slider di bawah menu */
+/* --- Slider dengan Tampilan Mozaik --- */
+/* Ini memerlukan perubahan struktur HTML.
+   Alih-alih satu div .slides dengan banyak .slide,
+   Anda akan memiliki kontainer .mosaic-slider dengan beberapa gambar di dalamnya.
+   Contoh HTML:
+   <div class="mosaic-slider">
+       <img src="image1.jpg" alt="Description 1">
+       <img src="image2.jpg" alt="Description 2">
+       <img src="image3.jpg" alt="Description 3">
+       ...
+   </div>
+*/
+.mosaic-slider {
+    display: grid; /* Menggunakan CSS Grid untuk tata letak mozaik */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* Kolom fleksibel */
+    gap: 10px; /* Jarak antar gambar */
+    max-width: 900px; /* Lebar maksimum mozaik */
+    margin: 80px auto 40px auto; /* Pusatkan dan beri ruang */
+    padding: 0 20px; /* Padding horizontal */
+    box-sizing: border-box; /* Pastikan padding tidak menambah ukuran */
 }
 
-.slides {
-    display: flex; /* Tampilkan slide secara horizontal */
-    transition: transform 0.6s ease-in-out; /* Animasi transisi yang lebih halus */
+.mosaic-slider img {
+    width: 100%; /* Gambar mengisi lebar grid item */
+    height: auto; /* Menjaga rasio aspek */
+    object-fit: cover; /* Memastikan gambar menutupi area tanpa terdistorsi */
+    border-radius: 5px; /* Sudut bulat pada gambar mozaik */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan halus */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Animasi saat hover */
+    cursor: pointer; /* Pointer saat di-hover */
 }
 
-.slide {
-    min-width: 100%; /* Setiap slide mengisi lebar penuh slider */
-    box-sizing: border-box; /* Menghindari padding yang menambah ukuran */
+.mosaic-slider img:hover {
+    transform: scale(1.05); /* Memperbesar sedikit saat di-hover */
+    opacity: 0.9; /* Sedikit transparan saat di-hover */
 }
 
-.slide img {
-    width: 100%; /* Gambar responsif */
-    height: auto; /* Menyesuaikan tinggi */
-    display: block; /* Menghilangkan spasi di bawah gambar */
-}
-
-.prev, .next {
-    position: absolute; /* Posisi absolut untuk tombol navigasi */
-    top: 50%; /* Pusatkan tombol di tengah */
-    transform: translateY(-50%); /* Koreksi posisi tombol */
-    color: white; /* Warna teks tombol */
-    font-size: 24px; /* Ukuran font tombol yang lebih besar */
-    padding: 12px; /* Padding tombol */
-    cursor: pointer; /* Pointer saat hover */
-    background-color: rgba(0, 0, 0, 0.6); /* Latar belakang transparan */
-    border: none; /* Hapus border */
-    border-radius: 50%; /* Tombol bulat */
-    transition: background-color 0.3s ease, opacity 0.3s ease; /* Animasi saat hover */
-    opacity: 0.8; /* Sedikit transparan saat tidak di-hover */
-}
-
-.prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.8); /* Latar belakang lebih gelap saat hover */
-    opacity: 1; /* Tidak transparan saat di-hover */
-}
-
-.prev {
-    left: 15px; /* Jarak dari sisi kiri */
-}
-
-.next {
-    right: 15px; /* Jarak dari sisi kanan */
-}
-
-/* Animasi Fade untuk Slide */
-.fade {
-    display: none; /* Sembunyikan semua slide secara default */
-    animation: fadeIn 1s ease-in-out; /* Animasi fade in */
-}
-
-.fade.show {
-    display: block; /* Tampilkan slide saat aktif */
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
+/* Slider navigasi (.prev, .next) dan kelas .fade, .show
+   tidak relevan lagi untuk tampilan mozaik ini.
+   Anda bisa menghapusnya atau menyimpannya jika Anda masih ingin
+   fitur slider tradisional di tempat lain. */
+/* .slider, .slides, .slide, .prev, .next, .fade, .show { display: none; } */
 
 
 /* --- Background Body dengan Gambar (jika diinginkan) --- */
@@ -523,6 +492,32 @@ video:hover {
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 768px) {
+     .header {
+        padding: 10px 15px; /* Padding header lebih kecil di layar kecil */
+    }
+
+    .logo {
+        font-size: 1.2em; /* Ukuran logo lebih kecil di layar kecil */
+    }
+
+    .company-name {
+        font-size: 0.7em; /* Ukuran nama perusahaan lebih kecil di layar kecil */
+    }
+
+    .menu-icon {
+         font-size: 24px; /* Ukuran ikon menu lebih kecil di layar kecil */
+    }
+
+    .nav-menu {
+        top: 55px; /* Sesuaikan posisi top menu dropdown */
+        right: 15px; /* Sesuaikan posisi right menu dropdown */
+        width: 160px; /* Lebar menu dropdown lebih kecil */
+    }
+
+    .nav-menu li {
+        padding: 10px 15px; /* Padding item menu dropdown lebih kecil */
+    }
+
     .hero-content h1 {
         font-size: 2.5em;
     }
@@ -563,6 +558,12 @@ video:hover {
 
     .feature {
         padding: 20px; /* Padding lebih kecil */
+    }
+
+     .mosaic-slider {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); /* Kolom lebih kecil untuk mozaik di layar kecil */
+        gap: 5px; /* Jarak antar gambar mozaik lebih kecil */
+        padding: 0 15px; /* Padding horizontal lebih kecil */
     }
 }
 
