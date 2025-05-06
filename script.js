@@ -1,128 +1,97 @@
-// Menangani toggle menu
-const menuToggle = document.getElementById("menu-toggle");
-if (menuToggle) { // Periksa apakah elemen ada
-    menuToggle.addEventListener("click", function () {
-        const navMenu = document.getElementById("nav-menu");
-        navMenu.classList.toggle("active");
-    });
-}
+// Pastikan DOM sudah sepenuhnya dimuat sebelum menjalankan script
+document.addEventListener('DOMContentLoaded', function() {
 
-// Mengelola navigasi link smooth scroll
-const links = document.querySelectorAll(".nav-link");
-links.forEach(link => {
-    link.addEventListener("click", function (e) {
-        e.preventDefault(); // Mencegah perilaku default
-        const targetId = this.getAttribute("href");
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) { // Periksa apakah elemen target ada
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-});
+    /* ====================================
+       Toggle Menu Navigasi (Mobile)
+       ==================================== */
+    const menuIcon = document.getElementById('menu-icon');
+    const navMenu = document.getElementById('nav-menu');
 
-// Pengaturan slider
-let currentIndex = 0; // Indeks slide saat ini
-const slides = document.querySelectorAll('.slide');
-
-if (slides.length > 0) { // Pastikan ada slide yang ditemukan
-    function showSlide(index) {
-        slides.forEach((slide, i) => {
-            slide.classList.remove('show'); // Hapus kelas 'show' dari semua slide
-            if (i === index) {
-                slide.classList.add('show'); // Tambahkan kelas 'show' untuk slide yang aktif
+    // Tambahkan event listener untuk klik pada ikon menu
+    if (menuIcon && navMenu) { // Pastikan elemen ditemukan
+        menuIcon.addEventListener('click', function() {
+            // Toggle class 'active' pada nav-menu
+            navMenu.classList.toggle('active');
+            // Opsional: Ubah ikon menu saat dibuka/ditutup (misal: dari bars ke times)
+            const icon = menuIcon.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times'); // Menggunakan ikon 'x'
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars'); // Kembali ke ikon 'bars'
             }
         });
     }
 
-    function changeSlide(n) {
-        currentIndex = (currentIndex + n + slides.length) % slides.length; // Menghitung indeks slide berikutnya
-        showSlide(currentIndex); // Tampilkan slide baru
-    }
 
-    // Tampilkan slide pertama
-    showSlide(currentIndex);
+    /* ====================================
+       Scroll Reveal Animation (Intersection Observer)
+       ==================================== */
+    // Temukan semua elemen yang memiliki kelas 'fade-in' atau 'animate-on-scroll'
+    const fadeIns = document.querySelectorAll('.fade-in, .animate-on-scroll');
 
-    // Tambahkan interval otomatis
-    setInterval(() => {
-        changeSlide(1);
-    }, 3000); // Ganti slide setiap 3 detik
-} else {
-    console.warn("Tidak ada slide ditemukan."); // Peringatan jika tidak ada slide
-}
-
-    <script>
-        // Script untuk toggle menu nav
-        const menuIcon = document.getElementById('menu-icon');
-        const navMenu = document.getElementById('nav-menu');
-
-        menuIcon.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+    // Buat Intersection Observer
+    const observer = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            // Jika elemen sedang terlihat (isIntersecting)
+            if (entry.isIntersecting) {
+                // Tambahkan kelas 'is-visible' untuk memicu animasi CSS
+                entry.target.classList.add('is-visible');
+                // Berhenti mengamati elemen ini setelah terlihat (opsional, agar animasi tidak berulang)
+                // observer.unobserve(entry.target);
+            } else {
+                 // Opsional: Hapus kelas is-visible saat elemen keluar dari viewport
+                 // agar animasi berulang saat scroll kembali
+                 // entry.target.classList.remove('is-visible');
+            }
         });
+    }, {
+        // Opsi Intersection Observer
+        threshold: 0.1 // 10% dari elemen harus terlihat untuk memicu
+        // rootMargin: '0px 0px -50px 0px' // Contoh: Pemicu 50px sebelum elemen sepenuhnya terlihat
+    });
 
-        // Tambahkan script untuk Scroll Reveal Animation (memerlukan library atau implementasi sendiri)
-        // Contoh sederhana (memerlukan library seperti ScrollReveal JS)
-        // Jika Anda ingin menggunakan ScrollReveal JS, tambahkan:
-        // <script src="https://unpkg.com/scrollreveal"></script>
-        // ScrollReveal().reveal('.animate-on-scroll', {
-        //     delay: 200,
-        //     distance: '50px',
-        //     origin: 'bottom',
-        //     easing: 'ease-in-out',
-        //     interval: 100
-        // });
+    // Amati setiap elemen yang ditemukan
+    fadeIns.forEach(element => {
+        observer.observe(element);
+    });
 
-         // Contoh sederhana untuk animasi fade-in saat elemen terlihat (tanpa library)
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeIns = document.querySelectorAll('.fade-in, .animate-on-scroll'); // Targetkan kelas animasi
+    /* ====================================
+       Smooth Scrolling (Opsional - jika ada link #section)
+       ==================================== */
+    // Contoh: Jika Anda memiliki link seperti <a href="#services">Layanan</a>
+    // Script ini akan membuat scroll ke section tersebut menjadi halus.
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault(); // Mencegah perilaku default link
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // Berhenti mengamati setelah terlihat
-                    }
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                // Scroll ke elemen target dengan perilaku smooth
+                targetElement.scrollIntoView({
+                    behavior: 'smooth'
                 });
-            }, {
-                threshold: 0.1 // Persentase elemen yang terlihat untuk memicu
-            });
 
-            fadeIns.forEach(element => {
-                observer.observe(element);
-            });
+                // Opsional: Tutup menu mobile setelah klik link (jika menu terbuka)
+                if (navMenu && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                     const icon = menuIcon.querySelector('i');
+                     icon.classList.remove('fa-times');
+                     icon.classList.add('fa-bars');
+                }
+            }
         });
+    });
 
 
-         // Script untuk slider testimoni sederhana (jika Anda menggunakannya)
-         // Memerlukan penambahan tombol navigasi di HTML
-         /*
-         const testimonials = document.querySelectorAll('.testimonial-item');
-         let currentTestimonial = 0;
+    /* ====================================
+       Slider Script (Dihapus karena menggunakan Mozaik)
+       ==================================== */
+    // Script slider yang sebelumnya ada di HTML telah dihapus karena Anda menggunakan mozaik.
+    // Jika di masa depan Anda ingin menambahkan slider di bagian lain,
+    // Anda bisa menempatkan script slider di sini.
 
-         function showTestimonial(index) {
-             testimonials.forEach((item, i) => {
-                 item.style.display = 'none';
-                 if (i === index) {
-                     item.style.display = 'block';
-                 }
-             });
-         }
-
-         function changeTestimonial(n) {
-             currentTestimonial = (currentTestimonial + n + testimonials.length) % testimonials.length;
-             showTestimonial(currentTestimonial);
-         }
-
-         // show first testimonial initially
-         showTestimonial(currentTestimonial);
-
-         // Add event listeners to buttons if you add them in HTML
-         // document.querySelector('.prev-testimonial').addEventListener('click', () => changeTestimonial(-1));
-         // document.querySelector('.next-testimonial').addEventListener('click', () => changeTestimonial(1));
-
-         // Auto rotate testimonials (optional)
-         // setInterval(() => {
-         //     changeTestimonial(1);
-         // }, 5000); // Change every 5 seconds
-         */
-
-    </script>
+}); // Akhir dari DOMContentLoaded
