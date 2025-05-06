@@ -1,75 +1,158 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id"> <!-- Gunakan lang="id" -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - PT. Fauza Wisata Ihsani Pemalang</title>
+    <title>Layanan Kami - PT. Fauza Wisata Ihsani Pemalang</title> <!-- Judul Halaman -->
+    <!-- Link ke CSS utama yang sama -->
     <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <!-- Link ke Font Awesome untuk ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Link ke Font Poppins dari Google Fonts (jika belum ada di style.css atau Anda ingin memastikan) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <img src="Logo1.jpg" alt="logo" class="logo-img" style="width: 150px; height: auto;">
-        <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
-        <div class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></div>
-        <nav class="nav-menu" id="nav-menu">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="Artikel.html">Artikel</a></li>
-                <li><a href="layanan.html">Layanan Kami</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <script>
-        // Script untuk toggle menu nav
-        const menuIcon = document.getElementById('menu-icon');
-        const navMenu = document.getElementById('nav-menu');
 
-        menuIcon.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        }); 
-    </script>
-    <main class="container">
-        <section class="features">
-            <h2>Layanan Kami</h2>
-            <div class="feature-grid">
-                <div class="feature feature-large">
-                    <div class="animation-container">
-                        <i class="fas fa-kaaba animated-icon"></i>
+    <header class="header">
+        <div class="container"> <!-- Tambahkan container di header -->
+            <div class="logo-container">
+                <img src="Logo1.jpg" alt="logo" class="logo-img">
+                <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
+            </div>
+            <div class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></div>
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="Artikel.html">Artikel</a></li>
+                    <li><a href="layanan.html" class="active">Layanan Kami</a></li> <!-- Tambahkan kelas active -->
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section untuk halaman Layanan -->
+        <section class="hero hero-layanan"> <!-- Gunakan kelas hero dan tambahkan hero-layanan -->
+             <div class="container">
+                  <div class="hero-content animate-on-scroll">
+                       <h1 class="hero-title">Layanan Unggulan Kami</h1> <!-- Judul hero section -->
+                       <p class="hero-description">Temukan berbagai pilihan layanan perjalanan ibadah dan wisata yang kami tawarkan untuk memenuhi kebutuhan Anda.</p>
+                  </div>
+             </div>
+        </section>
+
+        <!-- Section Daftar Layanan -->
+        <section class="services-list section"> <!-- Menggunakan nama kelas yang lebih deskriptif -->
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Layanan Kami</h2> <!-- Judul Section -->
+                <p class="section-description animate-on-scroll">Kami menyediakan berbagai layanan untuk memastikan perjalanan spiritual dan wisata Anda berjalan lancar dan berkesan.</p> <!-- Deskripsi Section -->
+
+                <div class="service-grid"> <!-- Gunakan kelas grid yang konsisten -->
+
+                    <!-- Layanan Umrah -->
+                    <div class="service-item animate-on-scroll"> <!-- Gunakan kelas item yang konsisten -->
+                        <div class="service-icon">
+                            <i class="fas fa-kaaba"></i> <!-- Ikon -->
+                        </div>
+                        <h3 class="service-title">Paket Umrah</h3> <!-- Judul Item -->
+                        <p class="service-description">Kami menyediakan paket Umrah dengan layanan lengkap dan aman, membantu Anda dalam melakukan ibadah dengan nyaman.</p> <!-- Deskripsi Item -->
+                         <a href="#" class="btn btn-small">Detail Layanan</a> <!-- Tombol opsional -->
                     </div>
-                    <h3>Umrah</h3>
-                    <p>Kami menyediakan paket Umrah dengan layanan lengkap dan aman, membantu Anda dalam melakukan ibadah dengan nyaman.</p>
-                </div>
-                <div class="feature">
-                    <div class="animation-container">
-                        <i class="fas fa-plane-departure animated-icon"></i>
+
+                    <!-- Layanan Haji Furada -->
+                    <div class="service-item animate-on-scroll" data-delay="0.2s">
+                        <div class="service-icon">
+                            <i class="fas fa-plane-departure"></i>
+                        </div>
+                        <h3 class="service-title">Haji Furada</h3>
+                        <p class="service-description">Paket Haji Furada dengan layanan personal dan eksklusif, membuat perjalanan Anda ke Tanah Suci lebih berarti.</p>
+                         <a href="#" class="btn btn-small">Detail Layanan</a>
                     </div>
-                    <h3>Haji Furada</h3>
-                    <p>Paket Haji Furada dengan layanan personal dan eksklusif, membuat perjalanan Anda ke Tanah Suci lebih berarti.</p>
-                </div>
-                <div class="feature">
-                    <div class="animation-container">
-                        <i class="fas fa-piggy-bank animated-icon"></i>
+
+                    <!-- Layanan Tabungan Umrah -->
+                    <div class="service-item animate-on-scroll" data-delay="0.4s">
+                        <div class="service-icon">
+                            <i class="fas fa-piggy-bank"></i>
+                        </div>
+                        <h3 class="service-title">Tabungan Umrah</h3>
+                        <p class="service-description">Program tabungan umrah yang terjangkau dan layak untuk membantu Anda mempersiapkan perjalanan spiritual.</p>
+                         <a href="#" class="btn btn-small">Detail Layanan</a>
                     </div>
-                    <h3>Tabungan Umrah</h3>
-                    <p>Program tabungan umrah yang terjangkau dan layak untuk membantu Anda mempersiapkan perjalanan spiritual.</p>
-                </div>
-                <div class="feature">
-                    <div class="animation-container">
-                        <i class="fas fa-headset animated-icon"></i>
+
+                    <!-- Layanan Pelayanan 24/7 -->
+                    <div class="service-item animate-on-scroll" data-delay="0.6s">
+                        <div class="service-icon">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <h3 class="service-title">Pelayanan 24/7</h3>
+                        <p class="service-description">Tanya atau butuh bantuan kapan saja? Tim kami siap membantu Anda 24 jam sehari, 7 hari seminggu.</p>
+                         <a href="#" class="btn btn-small">Hubungi Kami</a>
                     </div>
-                    <h3>Pelayanan 24/7</h3>
-                    <p>Tanya atau butuh bantuan kapan saja? Tim kami siap membantu Anda 24 jam sehari, 7 hari seminggu.</p>
+
+                    <!-- Tambahkan layanan lain jika ada -->
+                    <!--
+                    <div class="service-item animate-on-scroll" data-delay="0.8s">
+                         <div class="service-icon">
+                              <i class="fas fa-plane"></i>
+                         </div>
+                         <h3 class="service-title">Paket Wisata Halal</h3>
+                         <p class="service-description">Jelajahi destinasi menarik dengan paket wisata halal yang kami sediakan.</p>
+                          <a href="#" class="btn btn-small">Detail Layanan</a>
+                    </div>
+                    -->
+
                 </div>
             </div>
         </section>
+
+        <!-- Section Keunggulan / Mengapa Memilih Kami (Opsional) -->
+         <section class="why-choose-us section bg-light"> <!-- Tambahkan background jika perlu -->
+              <div class="container">
+                   <h2 class="section-title animate-on-scroll">Mengapa Memilih Kami?</h2>
+                   <div class="feature-list-simple"> <!-- Gunakan kelas list atau grid lain -->
+                        <div class="feature-item-simple animate-on-scroll">
+                             <i class="fas fa-award"></i>
+                             <h3>Berpengalaman & Terpercaya</h3>
+                             <p>Tim kami memiliki pengalaman bertahun-tahun dalam melayani jama'ah.</p>
+                        </div>
+                        <div class="feature-item-simple animate-on-scroll" data-delay="0.2s">
+                             <i class="fas fa-handshake"></i>
+                             <h3>Pelayanan Ramah & Profesional</h3>
+                             <p>Kami melayani dengan sepenuh hati dan profesionalisme tinggi.</p>
+                        </div>
+                        <div class="feature-item-simple animate-on-scroll" data-delay="0.4s">
+                             <i class="fas fa-shield-alt"></i>
+                             <h3>Keamanan & Kenyamanan Utama</h3>
+                             <p>Kami mengutamakan keamanan dan kenyamanan setiap jama'ah.</p>
+                        </div>
+                        <div class="feature-item-simple animate-on-scroll" data-delay="0.6s">
+                             <i class="fas fa-dollar-sign"></i>
+                             <h3>Harga Kompetitif</h3>
+                             <p>Menawarkan paket dengan harga terbaik tanpa mengurangi kualitas.</p>
+                        </div>
+                   </div>
+              </div>
+         </section>
+
+
     </main>
 
     <footer class="footer">
-        <p>© 2025 PT. Fauza Wisata Ihsani Pemalang. All rights reserved.</p>
+        <div class="container"> <!-- Tambahkan container di footer -->
+            <p>© 2025 PT. Fauza Wisata Ihsani Pemalang. All rights reserved.</p>
+            <div class="social-icons">
+                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
     </footer>
+
+    <!-- Link ke script.js di akhir body -->
+    <script src="script.js"></script>
+
 </body>
 </html>
