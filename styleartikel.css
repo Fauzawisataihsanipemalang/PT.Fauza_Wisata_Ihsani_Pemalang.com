@@ -1,195 +1,106 @@
-body {
-    margin: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* Font modern */
-    background-color: #f4f4f4; /* Warna latar belakang halaman */
+/* ====================================
+   Artikel Page Specific Styling
+   ==================================== */
+
+/* Styling spesifik untuk Hero halaman Artikel */
+.hero-artikel {
+     /* background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('artikel-hero-background.jpg') no-repeat center center/cover; */
+     /* Sesuaikan padding atau tinggi jika perlu */
 }
 
-.img {
-    max-width: 100%; /* Atur lebar gambar sesuai ukuran kontainer */
-    height: auto; /* Menjaga rasio aspek gambar */
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: #fefeff; /* Warna latar belakang header */
-    color: rgb(0, 0, 0);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan halus */
-    position: relative; /* Pastikan header memiliki konteks posisi */
-    z-index: 1000; /* Menetapkan tinggi z-index untuk header */
-}
-
-.logo {
-    font-size: 1.8em;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.menu-icon {
-    font-size: 26px; /* Ukuran ikon titik tiga */
-    cursor: pointer;
-    display: none; /* Tersembunyi di tampilan besar */
-}
-
-.nav-menu {
-    display: none; /* Sembunyikan menu secara default */
-    position: absolute; /* Posisi absolut untuk mengapung di atas konten lainnya */
-    top: 70px; /* Jarak dari bagian atas */
-    right: 30px; /* Jarak dari sisi kanan */
-    background-color: #424242; /* Warna latar belakang menu */
-    border-radius: 8px; /* Sudut bulat menu */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan */
-    z-index: 2000; /* Z-index tinggi agar menampilkan menu di atas konten lainnya */
-}
-
-.nav-menu.active {
-    display: block; /* Tampilkan menu saat aktif */
-}
-
-.nav-menu ul {
-    list-style: none; /* Menghilangkan bullet pada list */
-    padding: 0;
-    margin: 0;
-}
-
-.nav-menu li {
-    padding: 12px 20px; /* Jarak dalam setiap item menu */
-}
-
-.nav-menu li a {
-    color: white; /* Warna teks */
-    text-decoration: none;
-    transition: background-color 0.3s ease; /* Animasi saat hover */
-}
-
-.nav-menu li a:hover {
-    background-color: #303f9f; /* Warna latar belakang saat hover */
-    border-radius: 8px; /* Sudut bulat saat hover */
-}
-
-/* Media query untuk menampilkan menu ikon pada perangkat kecil */
-@media (max-width: 770px) {
-    .menu-icon {
-        display: block; /* Tampilkan ikon titik tiga pada perangkat kecil */
-    }
-
-    .nav-menu {
-        width: 200px; /* Atur lebar menu dropdown */
-        margin-top: 10px; /* Jarak atas untuk tampilan yang lebih baik */
-        opacity: 0; /* Sembunyikan menu dengan efek transparansi */
-        visibility: hidden; /* Sembunyikan menu agar tidak menghalangi klik */
-        transition: opacity 0.3s ease, visibility 0.3s ease; /* Animasi transparansi */
-    }
-
-    .nav-menu.active {
-        opacity: 1; /* Tampilkan menu saat aktif */
-        visibility: visible; /* Mengizinkan menu untuk klik */
-    }
-
-    .nav-menu ul {
-        display: flex; /* Menu menggunakan flexbox */
-        flex-direction: column; /* Tiap item ditumpuk */
-    }
-
-    .nav-menu li {
-        text-align: center; /* Teks di tengah */
-    }
-}
-
-@media (min-width: 769px) {
-    .nav-menu {
-        display: flex; /* Tampilkan menu sebagai flex pada perangkat besar */
-        position: static; /* Menetapkan posisi statis untuk tata letak horizontal */
-    }
-
-    .nav-menu ul {
-        display: flex; /* Menu horizontal */
-    }
-
-    .menu-icon {
-        display: none; /* Sembunyikan ikon titik tiga pada perangkat besar */
-    }
-}
-
-.news-container {
+/* Styling untuk Grid Artikel */
+.article-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px; /* Jarak antar kartu */
-    padding: 20px;
-    max-width: 1200px;
-    margin: auto; /* Centerkan konten */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid responsif */
+    gap: 30px;
+    margin-top: 40px;
 }
 
-/* Kartu Berita */
-.news-card {
-    background: #ffffff; /* Latar belakang putih */
-    border-radius: 10px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s; /* Transisi saat hover */
-    display: flex; /* untuk menampilkan konten dalam flexbox */
-    flex-direction: column; /* Konten ditampilkan vertikal */
+.article-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden; /* Pastikan gambar tidak keluar dari border-radius */
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    display: flex;
+    flex-direction: column; /* Tata elemen di dalam card secara vertikal */
 }
 
-/* Efek hover pada kartu berita */
-.news-card:hover {
-    transform: translateY(-5px); /* Sedikit angkat saat hover */
+.article-card:hover {
+     transform: translateY(-10px);
+     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-/* Gambar Berita */
-.news-image {
-    width: 100%; /* Gambar memenuhi lebar kartu */
-    height: auto; /* Jaga rasio aspek */
+.article-image {
+    width: 100%; /* Gambar mengisi lebar card */
+    height: 200px; /* Tinggi gambar tetap */
+    object-fit: cover; /* Memastikan gambar menutupi area tanpa distorsi */
+    display: block; /* Menghilangkan margin bawah default pada gambar */
 }
 
-/* Judul Berita */
-.news-title {
-    font-size: 1.5rem; /* Ukuran font judul */
-    color: #2980b9; /* Warna judul */
-    margin: 15px; /* Jarak dari sisi */
+.article-content {
+    padding: 20px; /* Padding di sekitar konten teks */
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Membuat konten mengisi ruang yang tersisa */
 }
 
-/* Deskripsi Berita */
-.news-description {
-    margin: 0 15px 15px; /* Jarak di atas dan bawah */
-    color: #333; /* Warna teks deskripsi */
+.article-title {
+    font-size: 1.3em;
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
 }
 
-/* Tautan "Baca Selengkapnya" */
-.read-more {
-    display: block;
-    text-align: center;
-    padding: 12px; /* Sedikit lebih banyak dibandingkan sebelumnya */
-    margin: 0 15px 15px; /* Jarak yang sama */
-    background: #2980b9; /* Warna latar belakang tombol */
-    color: white; /* Warna teks */
-    text-decoration: none; /* Tanpa garis bawah */
-    border-radius: 5px; /* Sudut bundar */
-    transition: background 0.3s; /* Animasi saat hover */
+.article-title a {
+     color: var(--secondary-color); /* Warna link judul */
+     text-decoration: none;
+     transition: color var(--transition-speed) ease;
 }
 
-/* Efek hover pada tautan "Baca Selengkapnya" */
-.read-more:hover {
-    background: #3498db; /* Warna saat hover */
+.article-title a:hover {
+     color: var(--primary-color); /* Warna link judul saat hover */
 }
 
-/* Mengatur footer */
-.footer {
-    text-align: center; /* Teks terpusat */
-    padding: 20px;
-    background-color: #fefeff; /* Agar seragam dengan header */
+.article-excerpt {
+    font-size: 0.95em;
+    color: #555;
+    line-height: 1.6;
+    flex-grow: 1; /* Membuat excerpt mengisi ruang yang tersisa */
+    margin-bottom: 15px; /* Jarak sebelum tombol */
 }
 
-/* Media query untuk responsivitas jika diperlukan */
-@media (max-width: 600px) {
-    .news-title {
-        font-size: 1.4rem; /* Ukuran judul sedikit lebih kecil di perangkat kecil */
-    }
+ /* Styling untuk tombol di dalam item artikel */
+ .article-card .btn {
+      margin-top: auto; /* Pusatkan tombol di bagian bawah jika menggunakan flex column */
+      align-self: flex-start; /* Ratakan tombol ke kiri */
+ }
 
-    .news-description {
-        font-size: 0.9rem; /* Ukuran teks deskripsi kecil */
-    }
+
+/* Media Queries untuk responsivitas pada halaman Artikel */
+@media (max-width: 768px) {
+     .article-grid {
+          grid-template-columns: 1fr; /* Satu kolom di mobile */
+          gap: 20px;
+     }
+
+     .article-card {
+          flex-direction: column; /* Pastikan tetap kolom di mobile */
+     }
+
+     .article-image {
+          height: 180px; /* Tinggi gambar sedikit lebih kecil di mobile */
+     }
+
+     .article-content {
+          padding: 15px;
+     }
+
+     .article-title {
+          font-size: 1.2em;
+     }
+
+     .article-excerpt {
+          font-size: 0.9em;
+     }
 }
-
