@@ -1,70 +1,166 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id"> <!-- Gunakan lang="id" -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - PT. Fauza Wisata Ihsani Pemalang</title>
-    <link rel="stylesheet" href="contact.css">
-    <script defer src="script.js"></script> <!-- Link ke JavaScript -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" /> <!-- FontAwesome icons -->
+    <title>Hubungi Kami - PT. Fauza Wisata Ihsani Pemalang</title> <!-- Judul Halaman -->
+    <!-- Link ke CSS utama yang sama -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Link ke Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Link ke Font Poppins dari Google Fonts (jika belum ada di style.css atau Anda ingin memastikan) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header class="header">
-        <img src="Logo1.jpg" alt="logo" class="logo-img" style="width: 150px; height: auto;">
-        <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
-        <div class="menu-icon" id="menu-icon">☰</div>
-        <nav class="nav-menu" id="nav-menu">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="Artikel.html">Artikel</a></li>
-                <li><a href="layanan.html">Layanan Kami</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container"> <!-- Tambahkan container di header -->
+            <div class="logo-container">
+                <img src="Logo1.jpg" alt="logo" class="logo-img">
+                <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
+            </div>
+            <div class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></div> <!-- Gunakan ikon Font Awesome -->
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="artikel.html">Artikel</a></li>
+                    <li><a href="layanan.html">Layanan Kami</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li> <!-- Tambahkan kelas active -->
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <main class="container">
-        <section class="contact">
-            <h2>Contact Us</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <i class="fas fa-phone-alt"></i>
-                    <div>
-                        <h3>WhatsApp</h3>
-                        <p><a href="https://wa.me/6287711616792" target="_blank">0877-1161-6792</a></p>
+    <main>
+        <!-- Hero Section untuk halaman Kontak -->
+        <section class="hero hero-contact"> <!-- Gunakan kelas hero dan tambahkan hero-contact -->
+             <div class="container">
+                  <div class="hero-content animate-on-scroll">
+                       <h1 class="hero-title">Hubungi Kami</h1> <!-- Judul hero section -->
+                       <p class="hero-description">Jangan ragu untuk menghubungi kami jika Anda memiliki pertanyaan atau membutuhkan bantuan.</p>
+                  </div>
+             </div>
+        </section>
+
+        <!-- Section Informasi Kontak -->
+        <section class="contact-info-section section"> <!-- Menggunakan nama kelas yang lebih deskriptif -->
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Informasi Kontak</h2> <!-- Judul Section -->
+                <p class="section-description animate-on-scroll">Kami siap melayani Anda melalui berbagai saluran komunikasi.</p> <!-- Deskripsi Section -->
+
+                <div class="contact-grid"> <!-- Gunakan kelas grid atau flexbox yang konsisten -->
+
+                    <!-- Item Kontak: WhatsApp -->
+                    <div class="contact-item-card animate-on-scroll"> <!-- Gunakan kelas item yang konsisten -->
+                        <div class="contact-icon-wrapper">
+                             <i class="fab fa-whatsapp"></i> <!-- Ikon -->
+                        </div>
+                        <div class="contact-details">
+                            <h3 class="contact-item-title">WhatsApp</h3> <!-- Judul Item -->
+                            <p><a href="https://wa.me/6287711616792" target="_blank" class="contact-link">0877-1161-6792</a></p> <!-- Link -->
+                        </div>
                     </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fab fa-instagram"></i>
-                    <div>
-                        <h3>Instagram</h3>
-                        <p><a href="https://instagram.com/fauzawisataihsani" target="_blank">@fauzawisataihsani</a></p>
+
+                    <!-- Item Kontak: Instagram -->
+                    <div class="contact-item-card animate-on-scroll" data-delay="0.2s">
+                         <div class="contact-icon-wrapper">
+                             <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 class="contact-item-title">Instagram</h3>
+                            <p><a href="https://instagram.com/fauzawisataihsani" target="_blank" class="contact-link">@fauzawisataihsani</a></p>
+                        </div>
                     </div>
-                </div>
-                <div class="contact-item">
-                    <i class="fas fa-map-marker-alt"></i>
-                    <div>
-                        <h3>Our Office</h3>
-                        <p>JL. Kolonel Sugiono No.123, depan RSI Al Ikhlas, Taman, Pemalang</p>
+
+                    <!-- Item Kontak: Alamat Kantor -->
+                    <div class="contact-item-card animate-on-scroll" data-delay="0.4s">
+                         <div class="contact-icon-wrapper">
+                             <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3 class="contact-item-title">Alamat Kantor</h3>
+                            <p>JL. Kolonel Sugiono No.123, depan RSI Al Ikhlas, Taman, Pemalang</p> <!-- Teks Alamat -->
+                            <a href="https://maps.google.com/?q=JL.+Kolonel+Sugiono+No.123,+depan+RSI+Al+Ikhlas,+Taman,+Pemalang" target="_blank" class="contact-link map-link">Lihat di Peta</a>
+                        </div>
                     </div>
+
+                    <!-- Tambahkan item kontak lain jika ada (misal: Email, Telepon) -->
+                     <div class="contact-item-card animate-on-scroll" data-delay="0.6s">
+                          <div class="contact-icon-wrapper">
+                              <i class="fas fa-envelope"></i>
+                         </div>
+                         <div class="contact-details">
+                             <h3 class="contact-item-title">Email</h3>
+                             <p><a href="mailto:info@fauzawisataihsani.com" class="contact-link">info@fauzawisataihsani.com</a></p>
+                         </div>
+                     </div>
+
+
                 </div>
             </div>
         </section>
+
+        <!-- Section Formulir Kontak (Opsional) -->
+         <section class="contact-form-section section bg-light"> <!-- Tambahkan background jika perlu -->
+              <div class="container">
+                   <h2 class="section-title animate-on-scroll">Kirim Pesan</h2>
+                   <p class="section-description animate-on-scroll">Isi formulir di bawah ini dan kami akan segera menghubungi Anda.</p>
+
+                   <form action="#" method="post" class="contact-form animate-on-scroll"> <!-- Ganti action="#" dengan URL proses formulir Anda -->
+                        <div class="form-group">
+                             <label for="name">Nama Lengkap</label>
+                             <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                             <label for="email">Email</label>
+                             <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                             <label for="phone">Nomor Telepon</label>
+                             <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                             <label for="subject">Subjek</label>
+                             <input type="text" id="subject" name="subject">
+                        </div>
+                        <div class="form-group">
+                             <label for="message">Pesan Anda</label>
+                             <textarea id="message" name="message" rows="6" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kirim Pesan</button>
+                   </form>
+              </div>
+         </section>
+
+         <!-- Section Peta Lokasi (Opsional) -->
+          <section class="map-section section">
+               <div class="container">
+                    <h2 class="section-title animate-on-scroll">Lokasi Kami</h2>
+                    <div class="map-container animate-on-scroll">
+                         <!-- Ganti iframe di bawah dengan embed peta Google Maps lokasi kantor Anda -->
+                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3960.744605507108!2d109.395871!3d-6.923955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwNTUnMjYuMiJTIDEwOcKwMjMnNDUuMSJF!5e0!3m2!1sen!2sid!4v1645100000000!5m2!1sen!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+               </div>
+          </section>
+
+
     </main>
 
-    <script>
-        // Script untuk toggle menu nav
-        const menuIcon = document.getElementById('menu-icon');
-        const navMenu = document.getElementById('nav-menu');
-
-        menuIcon.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-    </script>
-
     <footer class="footer">
-        <p>© 2025 PT. Fauza Wisata Ihsani Pemalang. All rights reserved.</p>
+        <div class="container"> <!-- Tambahkan container di footer -->
+            <p>© 2025 PT. Fauza Wisata Ihsani Pemalang. All rights reserved.</p>
+            <div class="social-icons">
+                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
     </footer>
+
+    <!-- Link ke script.js di akhir body -->
+    <script src="script.js"></script>
+
 </body>
 </html>
