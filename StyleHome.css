@@ -1,136 +1,591 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+/* ====================================
+   Import Font (Poppins)
+   ==================================== */
+/* Pastikan Anda sudah menambahkan link ke Google Fonts di tag <head> HTML */
+/* <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"> */
+
+/* ====================================
+   Variabel CSS (Opsional tapi disarankan)
+   ==================================== */
+:root {
+    --primary-color: #0056b3; /* Warna biru utama */
+    --secondary-color: #004085; /* Warna biru sekunder (lebih gelap) */
+    --accent-color: #ffc107; /* Warna aksen (kuning/emas) */
+    --text-color: #333; /* Warna teks umum */
+    --light-bg: #f8f9fa; /* Background terang */
+    --dark-bg: #343a40; /* Background gelap */
+    --white: #fff; /* Warna putih */
+    --border-radius: 8px; /* Radius sudut elemen */
+    --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan standar */
+    --transition-speed: 0.3s; /* Kecepatan transisi standar */
 }
 
+/* ====================================
+   Reset dan Dasar Styling
+   ==================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Menghilangkan margin bawah default pada gambar */
+}
+
+/* ====================================
+   Layout Helper Classes
+   ==================================== */
+.container {
+    max-width: 1200px; /* Lebar maksimum konten */
+    margin: 0 auto; /* Pusatkan container */
+    padding: 0 20px; /* Padding kiri dan kanan */
+}
+
+.section {
+    padding: 80px 0; /* Padding atas dan bawah untuk setiap section */
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5em;
+    color: var(--secondary-color);
+}
+
+/* ====================================
+   Header Styling
+   ==================================== */
 .header {
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    padding: 10px 0;
+    position: fixed; /* Membuat header tetap di atas */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Memastikan header berada di atas elemen lain */
+}
+
+.header .container {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-wrap: wrap; /* Agar logo dan menu bisa ke baris baru di mobile */
+}
+
+.logo-container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background-color: #2c3e50;
-    padding: 15px 30px;
-    color: white;
 }
 
 .logo-img {
-    width: 100px;
+    height: 50px; /* Tinggi logo */
+    margin-right: 15px;
 }
 
-.menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-    display: none;
-}
-
-.nav-menu {
-    display: flex;
+.logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--secondary-color);
 }
 
 .nav-menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+    display: flex; /* Menu item berdampingan */
 }
 
 .nav-menu ul li {
-    margin: 0 15px;
+    margin-left: 30px; /* Jarak antar menu item */
 }
 
 .nav-menu ul li a {
-    color: white;
-    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    padding: 5px 0;
+    position: relative; /* Untuk efek underline */
 }
 
-.nav-menu ul li a:hover {
-    text-decoration: underline;
+/* Efek underline pada hover */
+.nav-menu ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width var(--transition-speed) ease;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+.nav-menu ul li a:hover::after,
+.nav-menu ul li a.active::after { /* Tambahkan kelas active jika perlu menandai halaman saat ini */
+    width: 100%;
 }
 
+/* Menu Icon (untuk mobile) */
+.menu-icon {
+    display: none; /* Sembunyikan secara default di desktop */
+    font-size: 2em;
+    cursor: pointer;
+    color: var(--text-color);
+}
+
+
+/* ====================================
+   Hero Section Styling
+   ==================================== */
 .hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('D:\HTML Website\Gambar\hero-bg.jpg') no-repeat center center/cover;
-    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-background.jpg') no-repeat center center/cover; /* Ganti 'hero-background.jpg' */
+    color: var(--white);
     text-align: center;
-    padding: 100px 20px;
-    border-radius: 8px;
-    margin-bottom: 40px;
+    padding: 150px 20px 100px; /* Sesuaikan padding untuk jarak dari header tetap */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh; /* Tinggi minimum hero */
 }
 
-.hero-content h1 {
-    font-size: 2.5rem;
+.hero .container {
+    max-width: 800px; /* Lebar maksimum konten hero */
+}
+
+.hero-subtitle {
+    font-size: 1.2em;
     margin-bottom: 10px;
+    font-weight: 500;
 }
 
-.hero-content p {
-    font-size: 1.2rem;
+.hero-title {
+    font-size: 3em;
     margin-bottom: 20px;
+    font-weight: 700;
 }
 
-.cta-button {
-    background-color: #3498db;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: background-color 0.3s;
-}
-
-.cta-button:hover {
-    background-color: #2980b9;
-}
-
-.features {
-    text-align: center;
-    margin: 50px 0;
-}
-
-.features h2 {
-    font-size: 2rem;
+.hero-description {
+    font-size: 1.1em;
     margin-bottom: 30px;
 }
 
-.feature-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px; /* Ruang antar feature */
+.cta-button {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color var(--transition-speed) ease;
 }
 
-.feature {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 20px;
-    width: 300px; /* Ukuran yang konsisten */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s;
+.cta-button:hover {
+    background-color: #e0a800; /* Warna aksen lebih gelap saat hover */
+    color: var(--text-color); /* Pastikan warna teks tetap kontras */
 }
 
-.feature:hover {
-    transform: translateY(-5px);
+/* ====================================
+   Why Choose Us Section Styling (Menggantikan .features)
+   ==================================== */
+.why-choose-us-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Layout responsif grid */
+    gap: 30px; /* Jarak antar item grid */
 }
 
-.feature h3 {
-    margin-top: 15px;
-    margin-bottom: 10px;
-    color: #2c3e50; /* Warna teks yang kontras */
+.why-item {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
 }
 
-.feature p {
-    color: #666; /* Warna teks yang lebih lembut untuk isi */
-    line-height: 1.5;
+.why-item:hover {
+    transform: translateY(-10px); /* Efek angkat saat hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-@media (max-width: 768px) {
-    .feature-grid {
-        flex-direction: column;
-        align-items: center;
+.why-item i {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.why-item h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+/* ====================================
+   Mosaic Gallery Styling (Jika diaktifkan)
+   ==================================== */
+.mosaic-gallery {
+     display: grid;
+     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Grid dasar */
+     gap: 10px;
+}
+
+.mosaic-gallery img {
+     width: 100%;
+     height: 200px; /* Tinggi standar, bisa disesuaikan atau dibuat auto */
+     object-fit: cover; /* Pastikan gambar mengisi area tanpa distorsi */
+     border-radius: var(--border-radius);
+     box-shadow: var(--box-shadow);
+}
+
+/* Contoh layout mozaik yang lebih kompleks (opsional) */
+/* Anda bisa menambahkan aturan grid-area atau grid-column/row */
+/* .mosaic-gallery img:nth-child(1) { grid-area: 1 / 1 / 3 / 3; height: 410px; } */
+/* .mosaic-gallery img:nth-child(2) { grid-area: 1 / 3 / 2 / 4; } */
+/* .mosaic-gallery img:nth-child(3) { grid-area: 2 / 3 / 3 / 4; } */
+
+
+/* ====================================
+   Illustration/Video Section Styling
+   ==================================== */
+.illustration-container video {
+    width: 100%;
+    max-width: 800px; /* Lebar maksimum video */
+    display: block;
+    margin: 0 auto;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+}
+
+/* ====================================
+   Services Highlight Styling
+   ==================================== */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.service {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden; /* Pastikan gambar tidak keluar dari border-radius */
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.service:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.service img {
+    width: 100%;
+    height: 200px; /* Tinggi gambar layanan */
+    object-fit: cover;
+}
+
+.service h3 {
+    font-size: 1.4em;
+    margin: 15px 15px 10px;
+    color: var(--secondary-color);
+}
+
+.service p {
+    padding: 0 15px 20px;
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* ====================================
+   Testimonials Section Styling
+   ==================================== */
+.testimonial-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-item {
+    background-color: var(--white);
+    padding: 30px;
+    border-left: 5px solid var(--primary-color); /* Garis aksen */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    font-style: italic;
+}
+
+.testimonial-item p {
+    margin-bottom: 15px;
+    color: #555;
+}
+
+.testimonial-author {
+    font-weight: 600;
+    text-align: right;
+    color: var(--secondary-color);
+}
+
+/* ====================================
+   Quote Section Styling
+   =================================== */
+.quote-section {
+     background-color: var(--primary-color);
+     color: var(--white);
+     text-align: center;
+}
+
+.quote-section blockquote {
+     font-size: 1.8em;
+     margin-bottom: 20px;
+     line-height: 1.5;
+     font-style: italic;
+}
+
+.quote-section footer {
+     font-size: 1.1em;
+     font-weight: 500;
+}
+
+
+/* ====================================
+   Footer Styling
+   ==================================== */
+.footer {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 40px; /* Jarak dari konten terakhir */
+}
+
+.footer .container {
+     display: flex;
+     flex-direction: column;
+     align-items: center;
+}
+
+.footer p {
+    margin-bottom: 20px;
+}
+
+.social-icons a {
+    color: var(--white);
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color var(--transition-speed) ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color); /* Ubah warna saat hover */
+}
+
+
+/* ====================================
+   Responsive Design (Media Queries)
+   ==================================== */
+
+/* Untuk tablet dan layar yang lebih kecil */
+@media (max-width: 992px) {
+    .section {
+        padding: 60px 0;
+    }
+
+    .section h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    .hero {
+        padding: 120px 20px 80px;
+        min-height: 50vh;
+    }
+
+    .hero-title {
+        font-size: 2.5em;
+    }
+
+    .hero-description {
+        font-size: 1em;
+    }
+
+    .why-choose-us-grid,
+    .services-grid,
+    .testimonial-list {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Sesuaikan minmax */
+        gap: 20px;
     }
 }
+
+/* Untuk mobile */
+@media (max-width: 768px) {
+    .header .container {
+        flex-direction: row; /* Tetapkan arah baris */
+        justify-content: space-between; /* Pusatkan item di tengah */
+    }
+
+    .logo-container {
+        margin-bottom: 0; /* Hapus margin bawah di mobile */
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 100%; /* Muncul di bawah header */
+        left: 0;
+        right: 0;
+        background-color: var(--white);
+        box-shadow: var(--box-shadow);
+        padding: 10px 20px;
+        border-top: 1px solid #eee;
+        display: none; /* Sembunyikan secara default */
+        flex-direction: column; /* Menu item vertikal */
+        width: 100%; /* Lebar penuh */
+    }
+
+    .nav-menu.active {
+        display: flex; /* Tampilkan saat kelas 'active' ada */
+    }
+
+    .nav-menu ul {
+        flex-direction: column; /* Menu item vertikal */
+        width: 100%;
+    }
+
+    .nav-menu ul li {
+        margin: 10px 0; /* Jarak vertikal antar item */
+        width: 100%;
+    }
+
+     .nav-menu ul li a {
+          display: block; /* Buat link mengisi lebar penuh */
+          padding: 10px 0;
+          text-align: center;
+     }
+
+    .menu-icon {
+        display: block; /* Tampilkan ikon menu di mobile */
+    }
+
+    .section {
+        padding: 40px 0;
+    }
+
+    .section h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    .hero {
+        padding: 100px 20px 60px;
+        min-height: 40vh;
+    }
+
+    .hero-title {
+        font-size: 2em;
+    }
+
+    .hero-description {
+        font-size: 0.9em;
+    }
+
+    .cta-button {
+        padding: 10px 20px;
+        font-size: 1em;
+    }
+
+    .why-choose-us-grid,
+    .services-grid,
+    .testimonial-list {
+        grid-template-columns: 1fr; /* Satu kolom di mobile */
+        gap: 20px;
+    }
+
+    .why-item, .service, .testimonial-item {
+        padding: 20px;
+    }
+
+    .why-item i {
+        font-size: 2.5em;
+        margin-bottom: 15px;
+    }
+
+    .why-item h3 {
+        font-size: 1.3em;
+        margin-bottom: 10px;
+    }
+
+     .quote-section blockquote {
+          font-size: 1.5em;
+     }
+
+     .footer p {
+          margin-bottom: 15px;
+     }
+
+     .social-icons a {
+          font-size: 1.3em;
+          margin: 0 8px;
+     }
+}
+
+/* ====================================
+   Scroll Reveal Animation Styling
+   ==================================== */
+
+/* Styling dasar untuk elemen yang akan dianimasikan */
+.animate-on-scroll,
+.fade-in {
+    opacity: 0; /* Mulai dengan tidak terlihat */
+    transform: translateY(20px); /* Mulai sedikit di bawah posisi akhir */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Transisi untuk animasi */
+    /* Tambahkan delay jika menggunakan data-delay */
+}
+
+/* Styling saat elemen terlihat (kelas ditambahkan oleh JavaScript) */
+.animate-on-scroll.is-visible,
+.fade-in.is-visible {
+    opacity: 1; /* Menjadi terlihat */
+    transform: translateY(0); /* Kembali ke posisi aslinya */
+}
+
+/* Menggunakan data-delay untuk menunda animasi */
+/* Contoh: .animate-on-scroll[data-delay="0.2s"] */
+.animate-on-scroll[data-delay] {
+    transition-delay: var(--delay, 0s); /* Menggunakan variabel CSS untuk delay */
+}
+
+/* JavaScript akan mengatur variabel --delay */
+/* Anda tidak perlu menulis aturan CSS spesifik untuk setiap delay */
+/* Cukup pastikan elemen memiliki atribut data-delay="X.Xs" */
+
+
+/* ====================================
+   Optional: Styling untuk elemen spesifik
+   ==================================== */
+/* Jika Anda punya elemen spesifik lain di home.html */
+/* Contoh: */
+/* .home-intro-text { */
+/*      font-size: 1.1em; */
+/*      text-align: center; */
+/*      margin-bottom: 40px; */
+/* } */
