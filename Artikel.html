@@ -1,80 +1,127 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id"> <!-- Gunakan lang="id" -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - PT. Fauza Wisata Ihsani Pemalang</title>
-    <link rel="stylesheet" href="styleartikel.css">
-    <script defer src="script.js"></script> <!-- Link ke JavaScript -->
+    <title>Artikel Terbaru - PT. Fauza Wisata Ihsani Pemalang</title> <!-- Judul Halaman -->
+    <!-- Link ke CSS utama yang sama -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Link ke Font Awesome untuk ikon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Link ke Font Poppins dari Google Fonts (jika belum ada di style.css atau Anda ingin memastikan) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <header class="header">
-        <img src="Logo1.jpg" alt="logo" class="logo-img"style="width: 150px; height: auto;">
-        <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
-        <div class="menu-icon" id="menu-icon">☰</div>
-        <nav class="nav-menu" id="nav-menu">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="Artikel.html">Artikel</a></li>
-                <li><a href="layanan.html">Layanan Kami</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+        <div class="container"> <!-- Tambahkan container di header -->
+            <div class="logo-container">
+                <img src="Logo1.jpg" alt="logo" class="logo-img">
+                <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
+            </div>
+            <div class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></div> <!-- Gunakan ikon Font Awesome -->
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="artikel.html" class="active">Artikel</a></li> <!-- Tambahkan kelas active -->
+                    <li><a href="layanan.html">Layanan Kami</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <script>
-        // Script untuk toggle menu nav
-        const menuIcon = document.getElementById('menu-icon');
-        const navMenu = document.getElementById('nav-menu');
 
-        menuIcon.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
+    <main>
+        <!-- Hero Section untuk halaman Artikel -->
+        <section class="hero hero-artikel"> <!-- Gunakan kelas hero dan tambahkan hero-artikel -->
+             <div class="container">
+                  <div class="hero-content animate-on-scroll">
+                       <h1 class="hero-title">Artikel & Informasi Terkini</h1> <!-- Judul hero section -->
+                       <p class="hero-description">Temukan berbagai artikel informatif seputar Umrah, Haji, tips perjalanan, dan berita terbaru dari kami.</p>
+                  </div>
+             </div>
+        </section>
 
-        // Script untuk mengatur slider
-        let currentIndex = 0; // Indeks slide saat ini
-        const slides = document.querySelectorAll('.slide');
+        <!-- Section Daftar Artikel -->
+        <section class="articles-list section"> <!-- Menggunakan nama kelas yang lebih deskriptif -->
+            <div class="container">
+                <h2 class="section-title animate-on-scroll">Artikel Terbaru</h2> <!-- Judul Section -->
+                <p class="section-description animate-on-scroll">Baca artikel-artikel pilihan kami untuk menambah wawasan Anda seputar perjalanan ibadah.</p> <!-- Deskripsi Section -->
 
-        function showSlide(index) {
-            slides.forEach((slide, i) => {
-                slide.classList.remove('show'); // Hapus kelas 'show' dari semua slide
-                if (i === index) {
-                    slide.classList.add('show'); // Tambahkan kelas 'show' untuk slide yang aktif
-                }
-            });
-        }
-</script>
-<main class="news-container">
-    <article class="news-card">
-        <img src="flat-hajj-infographic-template_23-2149479217.avif" alt="Artikel 1" class="news-image">
-        <h2 class="news-title"><a href="artikel01.html">Petunjuk Singkat Umrah</a></h2>
-        <p class="news-description">Apa itu Umrah?
-            Umrah adalah beribadah karena Allah dengan Ihram, Thawaf di Baitullah, Sa'i antara Shafa dan Marwah, dan mencukur atau memendekkan rambut.</p>
-        <a href="artikel01.html" class="read-more">Baca Selengkapnya</a>
-    </article>
-    <article class="news-card">
-        <img src="download.jpeg " alt="Artikel 2" class="news-image">
-        <h2 class="news-title"><a href="artikel2.html">Keutamaan Umrah</a></h2>
-        <p class="news-description">Umrah memiliki derajat dan keutamaan yang agung, di antaranya</p>
-        <a href="artikel2.html" class="read-more">Baca Selengkapnya</a>
-    </article>
-    <article class="news-card">
-        <img src="people-hajj-pilgrimage-illustration_23-2148977851.avif" alt="Gambar Artikel 3" class="article-image">
-        <h2 class="news-title"><a href="artikel3.html">Waktu Terbaik untuk Melaksanakan Umrah</a></h2>
-        <p class="news-description">Umrah disyariatkan bagi orang muslim kapan saja tanpa ada batasan. Karena itu ada standar penting untuk membatasi waktu Umrah yang sesuai bagi tiap orang.</p>
-        <a href="artikel3.html" class="read-more">Baca Selengkapnya</a>
-    </article>
-    <article class="news-card">
-        <img src="makkah4.jpeg" alt="Artikel 4" class="news-image">
-        <h2 class="news-title"><a href="artikel4.html">Mengapa Harus Memilih Fauza Wisata Ihsani Pemalang?</a></h2>
-        <p class="news-description">Setiap umat Muslim tentu merindukan untuk dapat beribadah umroh dan mengunjungi tanah suci, mekah, dan madinah.Tapi anda tentu tahu bahwa merencanakan perjalanan umroh memerlukan perhitungan matang dalam menentukan jadwal keberangkatan, mengurus visa, dan berbagai kebutuhan lainnya.
-            Karena tentu anda ingin mendapatkan pengalaman umroh yang nyaman sehingga dapat meningkatkan kekhusyukan dalam beribadah.</p>
-        <a href="artikel4.html" class="read-more">Baca Selengkapnya</a>
-    </article>
-    <!-- Tambahkan lebih banyak artikel sesuai kebutuhan -->
-</main>
+                <div class="article-grid"> <!-- Gunakan kelas grid yang konsisten -->
+
+                    <!-- Artikel 1 -->
+                    <article class="article-card animate-on-scroll"> <!-- Gunakan kelas item yang konsisten -->
+                        <img src="flat-hajj-infographic-template_23-2149479217.avif" alt="Artikel 1" class="article-image">
+                        <div class="article-content">
+                            <h3 class="article-title"><a href="artikel01.html">Petunjuk Singkat Umrah</a></h3> <!-- Judul Item -->
+                            <p class="article-excerpt">Apa itu Umrah? Umrah adalah beribadah karena Allah dengan Ihram, Thawaf di Baitullah, Sa'i antara Shafa dan Marwah, dan mencukur atau memendekkan rambut.</p> <!-- Deskripsi Singkat Item -->
+                            <a href="artikel01.html" class="btn btn-small">Baca Selengkapnya</a> <!-- Tombol -->
+                        </div>
+                    </article>
+
+                    <!-- Artikel 2 -->
+                    <article class="article-card animate-on-scroll" data-delay="0.2s">
+                        <img src="download.jpeg" alt="Artikel 2" class="article-image">
+                         <div class="article-content">
+                            <h3 class="article-title"><a href="artikel2.html">Keutamaan Umrah</a></h3>
+                            <p class="article-excerpt">Umrah memiliki derajat dan keutamaan yang agung, di antaranya...</p>
+                            <a href="artikel2.html" class="btn btn-small">Baca Selengkapnya</a>
+                        </div>
+                    </article>
+
+                    <!-- Artikel 3 -->
+                    <article class="article-card animate-on-scroll" data-delay="0.4s">
+                        <img src="people-hajj-pilgrimage-illustration_23-2148977851.avif" alt="Gambar Artikel 3" class="article-image">
+                        <div class="article-content">
+                            <h3 class="article-title"><a href="artikel3.html">Waktu Terbaik untuk Melaksanakan Umrah</a></h3>
+                            <p class="article-excerpt">Umrah disyariatkan bagi orang muslim kapan saja tanpa ada batasan. Karena itu ada standar penting untuk membatasi waktu Umrah yang sesuai bagi tiap orang.</p>
+                            <a href="artikel3.html" class="btn btn-small">Baca Selengkapnya</a>
+                        </div>
+                    </article>
+
+                    <!-- Artikel 4 -->
+                    <article class="article-card animate-on-scroll" data-delay="0.6s">
+                        <img src="makkah4.jpeg" alt="Artikel 4" class="article-image">
+                        <div class="article-content">
+                            <h3 class="article-title"><a href="artikel4.html">Mengapa Harus Memilih Fauza Wisata Ihsani Pemalang?</a></h3>
+                            <p class="article-excerpt">Setiap umat Muslim tentu merindukan untuk dapat beribadah umroh... (Potong deskripsi agar tidak terlalu panjang di ringkasan)</p>
+                            <a href="artikel4.html" class="btn btn-small">Baca Selengkapnya</a>
+                        </div>
+                    </article>
+
+                    <!-- Tambahkan lebih banyak artikel sesuai kebutuhan dengan struktur yang sama -->
+                     <article class="article-card animate-on-scroll" data-delay="0.8s">
+                         <img src="contoh-gambar-artikel-5.jpg" alt="Artikel 5" class="article-image">
+                          <div class="article-content">
+                             <h3 class="article-title"><a href="artikel5.html">Tips Mempersiapkan Diri untuk Umrah</a></h3>
+                             <p class="article-excerpt">Persiapan fisik, mental, dan spiritual sangat penting sebelum berangkat Umrah...</p>
+                             <a href="artikel5.html" class="btn btn-small">Baca Selengkapnya</a>
+                         </div>
+                     </article>
+                    <!-- dst. -->
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
     <footer class="footer">
-        <p>© 2025 PT. Fauza Wisata Ihsani Pemalang. All rights reserved.</p>
+        <div class="container"> <!-- Tambahkan container di footer -->
+            <p>© 2025 PT. Fauza Wisata Ihsani Pemalang. All rights reserved.</p>
+             <div class="social-icons">
+                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
     </footer>
+
+    <!-- Link ke script.js di akhir body -->
+    <script src="script.js"></script>
+
 </body>
 </html>
