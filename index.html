@@ -79,8 +79,6 @@
                 </div>
             </div>
         </section>
-
-
         <div class="illustration-container">
              <div class="container"> <!-- Tambahkan kontainer untuk video -->
                 <video controls>
@@ -89,7 +87,6 @@
                 </video>
              </div>
         </div>
-
         <section class="section services-highlight" id="services"> <!-- Beri ID untuk tautan CTA -->
             <div class="container">
                 <h2>Layanan Utama Kami</h2>
@@ -112,7 +109,6 @@
                 </div>
             </div>
         </section>
-
          <!-- Section Testimonials -->
          <section class="section testimonials">
             <div class="container">
@@ -139,8 +135,6 @@
                  </div> -->
             </div>
          </section>
-
-
         <div class="quote-section fade-in"> <!-- Pertahankan bagian kutipan -->
             <div class="container"> <!-- Bungkus kutipan dalam kontainer -->
                  <p>"Bersama kami, perjalanan ibadah Anda akan menjadi lebih berarti."</p>
@@ -155,10 +149,10 @@
                 <div class="contact-grid">
                     <div class="contact-info animate-on-scroll">
                         <h3>Informasi Kontak</h3>
-                        <p><i class="fas fa-map-marker-alt"></i> Alamat: [Alamat Lengkap Anda]</p>
-                        <p><i class="fas fa-phone-alt"></i> Telepon: [Nomor Telepon Anda]</p>
-                        <p><i class="fas fa-envelope"></i> Email: [Email Anda]</p>
-                         <p><i class="fab fa-whatsapp"></i> WhatsApp: [Nomor WhatsApp Anda]</p>
+                        <p><i class="fas fa-map-marker-alt"></i> Alamat: Jl. Kolonel Sugiono No. 123 Depan RSI Al Ikhlas Taman Pemalang</p>
+                        <p><i class="fas fa-phone-alt"></i> Telepon: [0859-2629-0303]</p>
+                        <p><i class="fas fa-envelope"></i> Email: [ihsanifauzawisata@gmail.com]</p>
+                         <p><i class="fab fa-whatsapp"></i> WhatsApp: [0877-1161-6792]</p>
                     </div>
                     <div class="contact-form animate-on-scroll" data-delay="0.2s">
                          <h3>Kirim Pesan</h3>
@@ -199,88 +193,10 @@
             <div class="social-icons"> <!-- Tambahkan ikon sosial media -->
                 <a href="#"><i class="fab fa-facebook"></i></a>
                 <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Script untuk toggle menu nav
-        const menuIcon = document.getElementById('menu-icon');
-        const navMenu = document.getElementById('nav-menu');
-
-        menuIcon.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        });
-
-        // Tambahkan script untuk Scroll Reveal Animation (memerlukan library atau implementasi sendiri)
-        // Contoh sederhana (memerlukan library seperti ScrollReveal JS)
-        // Jika Anda ingin menggunakan ScrollReveal JS, tambahkan:
-        // <script src="https://unpkg.com/scrollreveal"></script>
-        // ScrollReveal().reveal('.animate-on-scroll', {
-        //     delay: 200,
-        //     distance: '50px',
-        //     origin: 'bottom',
-        //     easing: 'ease-in-out',
-        //     interval: 100
-        // });
-
-         // Contoh sederhana untuk animasi fade-in saat elemen terlihat (tanpa library)
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeIns = document.querySelectorAll('.fade-in, .animate-on-scroll'); // Targetkan kelas animasi
-
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // Berhenti mengamati setelah terlihat
-                    }
-                });
-            }, {
-                threshold: 0.1 // Persentase elemen yang terlihat untuk memicu
-            });
-
-            fadeIns.forEach(element => {
-                observer.observe(element);
-            });
-        });
-
-
-         // Script untuk slider testimoni sederhana (jika Anda menggunakannya)
-         // Memerlukan penambahan tombol navigasi di HTML
-         /*
-         const testimonials = document.querySelectorAll('.testimonial-item');
-         let currentTestimonial = 0;
-
-         function showTestimonial(index) {
-             testimonials.forEach((item, i) => {
-                 item.style.display = 'none';
-                 if (i === index) {
-                     item.style.display = 'block';
-                 }
-             });
-         }
-
-         function changeTestimonial(n) {
-             currentTestimonial = (currentTestimonial + n + testimonials.length) % testimonials.length;
-             showTestimonial(currentTestimonial);
-         }
-
-         // show first testimonial initially
-         showTestimonial(currentTestimonial);
-
-         // Add event listeners to buttons if you add them in HTML
-         // document.querySelector('.prev-testimonial').addEventListener('click', () => changeTestimonial(-1));
-         // document.querySelector('.next-testimonial').addEventListener('click', () => changeTestimonial(1));
-
-         // Auto rotate testimonials (optional)
-         // setInterval(() => {
-         //     changeTestimonial(1);
-         // }, 5000); // Change every 5 seconds
-         */
-
-    </script>
 
     <!-- Anda bisa menambahkan script tambahan di sini jika diperlukan -->
 
