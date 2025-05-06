@@ -1,101 +1,153 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id"> <!-- Gunakan lang="id" jika konten berbahasa Indonesia -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - PT. Fauza Wisata Ihsani Pemalang</title>
-    <link rel="stylesheet" href="styleabout.css">
-    <script defer src="script.js"></script>
+    <title>About Us - PT. Fauza Wisata Ihsani Pemalang</title>
+    <!-- Link ke CSS utama yang sama -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Link ke Font Awesome untuk ikon -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <!-- Link ke Font Poppins dari Google Fonts (jika belum ada di style.css atau Anda ingin memastikan) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header class="header">
-        <img src="Logo1.jpg" alt="logo" class="logo-img" style="width: 150px; height: auto;">
-        <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
-        <div class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></div>
-        <nav class="nav-menu" id="nav-menu">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="Artikel.html">Artikel</a></li>
-                <li><a href="layanan.html">Layanan Kami</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <script>
-        // Script untuk toggle menu nav
-        const menuIcon = document.getElementById('menu-icon');
-        const navMenu = document.getElementById('nav-menu');
 
-        menuIcon.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-        }); </script>
-    <!DOCTYPE html>
-    <html lang="id">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>About Us</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="styles.css"> <!-- Link ke file CSS Anda -->
-        <style>
-            /* Sertakan CSS yang sudah dimodifikasi di sini */
-        </style>
-    </head>
-    <body>
-    
-    <main class="about-container">
-        <section class="about-hero">
-            <h1 class="section-title">About Us</h1>
-            <p class="section-description">PT Fauza Wisata Ihsani Pemalang adalah penyedia layanan Umrah dan Hajj terkemuka yang berkomitmen untuk memberikan pengalaman spiritual yang tak terlupakan bagi setiap jama'ah.</p>
+    <header class="header">
+        <div class="container">
+            <div class="logo-container">
+                <img src="Logo1.jpg" alt="logo" class="logo-img">
+                <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
+            </div>
+            <div class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></div>
+            <nav class="nav-menu" id="nav-menu">
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li> <!-- Tambahkan kelas active -->
+                    <li><a href="Artikel.html">Artikel</a></li>
+                    <li><a href="layanan.html">Layanan Kami</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section untuk halaman About -->
+        <section class="hero hero-about"> <!-- Gunakan kelas hero dan tambahkan hero-about untuk styling spesifik -->
+             <div class="container">
+                  <div class="hero-content animate-on-scroll">
+                       <h1 class="hero-title">Tentang Kami</h1> <!-- Judul hero section -->
+                       <p class="hero-description">Mengenal lebih dekat PT. Fauza Wisata Ihsani Pemalang, penyedia layanan perjalanan ibadah dan wisata terpercaya.</p>
+                  </div>
+             </div>
         </section>
-    
-        <section class="our-mission">
-            <h2 class="section-subtitle"><span class="section-icon"><i class="fas fa-bullseye"></i></span>Our Mission</h2>
-            <p class="mission-description">
-                Kami berkomitmen untuk memberikan layanan terbaik kepada klien kami dengan membuat pengalaman Umrah dan Hajj Anda menjadi tak terlupakan.
-                melayani sepenuh hati, mengutamakan kenyamanan jama'ah dalam beribadah.
-            </p>
+
+        <!-- Section Pengantar / Deskripsi Singkat -->
+        <section class="about-intro section">
+             <div class="container animate-on-scroll">
+                  <p class="about-intro-text">PT Fauza Wisata Ihsani Pemalang adalah penyedia layanan Umrah dan Hajj terkemuka yang berkomitmen untuk memberikan pengalaman spiritual yang tak terlupakan bagi setiap jama'ah.</p>
+             </div>
         </section>
-    
-        <section class="our-story">
-            <h2 class="section-subtitle"><span class="section-icon"><i class="fas fa-book-open"></i></span>Our Story</h2>
-            <p class="story-description">
-                Didirikan pada tahun 2021, PT. Fauza Wisata Ihsani Pemalang telah berkomitmen untuk memberikan layanan perjalanan terbaik. Kami memahami bahwa perjalanan spiritual harus didukung oleh layanan yang berkualitas dan personal.
-            </p>
-            <p class="story-description">
-                Dengan tim yang berpengalaman dan profesional, kami menawarkan paket yang dirancang khusus untuk menjamin kenyamanan dan keamanan Anda. Kami percaya setiap perjalanan adalah pengalaman yang berharga.
-            </p>
-        </section>
-    
-        <section class="team-section">
-            <h2 class="section-subtitle"><span class="section-icon"><i class="fas fa-users"></i></span>Meet Our Team</h2>
-            <div class="team-horizontal">
-                <div class="team-member">
-                    <img src="pak haji imam.jpeg" alt="Team Member 1" />
-                    <h3 class="member-name">Haji Imam Tibrizi</h3>
-                    <p class="member-role">CEO & Founder</p>
-                </div>
-                <div class="team-member">
-                    <img src="WhatsApp Image 2025-04-28 at 12.59.41.jpeg" />
-                    <h3 class="member-name">Teguh Susanto</h3>
-                    <p class="member-role">Travel Consultant</p>
-                </div>
-                <div class="team-member">
-                    <img src="yhy.jpeg" alt="Team Member 4" />
-                    <h3 class="member-name">Muhamad Yahya</h3>
-                    <p class="member-role">Customer Support</p>
+
+        <!-- Section Misi -->
+        <section class="our-mission section">
+            <div class="container">
+                <h2 class="animate-on-scroll"><span class="section-icon"><i class="fas fa-bullseye"></i></span> Misi Kami</h2>
+                <div class="mission-content animate-on-scroll">
+                    <p>
+                        Kami berkomitmen untuk memberikan layanan terbaik kepada klien kami dengan membuat pengalaman Umrah dan Hajj Anda menjadi tak terlupakan.
+                        melayani sepenuh hati, mengutamakan kenyamanan jama'ah dalam beribadah.
+                    </p>
                 </div>
             </div>
         </section>
+
+        <!-- Section Sejarah / Kisah -->
+        <section class="our-story section">
+            <div class="container">
+                <h2 class="animate-on-scroll"><span class="section-icon"><i class="fas fa-book-open"></i></span> Sejarah Kami</h2>
+                <div class="story-content animate-on-scroll">
+                    <p>
+                        Didirikan pada tahun 2021, PT. Fauza Wisata Ihsani Pemalang telah berkomitmen untuk memberikan layanan perjalanan terbaik. Kami memahami bahwa perjalanan spiritual harus didukung oleh layanan yang berkualitas dan personal.
+                    </p>
+                    <p>
+                        Dengan tim yang berpengalaman dan profesional, kami menawarkan paket yang dirancang khusus untuk menjamin kenyamanan dan keamanan Anda. Kami percaya setiap perjalanan adalah pengalaman yang berharga.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Tim -->
+        <section class="team-section section">
+            <div class="container">
+                <h2 class="animate-on-scroll"><span class="section-icon"><i class="fas fa-users"></i></span> Tim Kami</h2>
+                <div class="team-grid"> <!-- Gunakan kelas grid yang sesuai -->
+                    <div class="team-member animate-on-scroll">
+                        <img src="pak haji imam.jpeg" alt="Haji Imam Tibrizi" />
+                        <h3 class="member-name">Haji Imam Tibrizi</h3>
+                        <p class="member-role">CEO & Founder</p>
+                    </div>
+                    <div class="team-member animate-on-scroll" data-delay="0.2s">
+                        <img src="WhatsApp Image 2025-04-28 at 12.59.41.jpeg" alt="Teguh Susanto" />
+                        <h3 class="member-name">Teguh Susanto</h3>
+                        <p class="member-role">Travel Consultant</p>
+                    </div>
+                    <div class="team-member animate-on-scroll" data-delay="0.4s">
+                        <img src="yhy.jpeg" alt="Muhamad Yahya" />
+                        <h3 class="member-name">Muhamad Yahya</h3>
+                        <p class="member-role">Customer Support</p>
+                    </div>
+                    <!-- Tambahkan anggota tim lainnya jika ada -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Nilai Perusahaan (Opsional) -->
+         <section class="our-values section">
+              <div class="container">
+                   <h2 class="animate-on-scroll"><span class="section-icon"><i class="fas fa-hand-holding-heart"></i></span> Nilai Kami</h2>
+                   <div class="values-grid"> <!-- Gunakan kelas grid atau layout lain -->
+                        <div class="value-item animate-on-scroll">
+                             <i class="fas fa-mosque"></i> <!-- Ganti ikon sesuai nilai -->
+                             <h3>Spiritualitas</h3>
+                             <p>Menjunjung tinggi nilai-nilai keagamaan dalam setiap pelayanan.</p>
+                        </div>
+                        <div class="value-item animate-on-scroll" data-delay="0.2s">
+                             <i class="fas fa-smile"></i>
+                             <h3>Pelayanan Prima</h3>
+                             <p>Memberikan pelayanan yang ramah, profesional, dan sepenuh hati.</p>
+                        </div>
+                        <div class="value-item animate-on-scroll" data-delay="0.4s">
+                             <i class="fas fa-check-circle"></i>
+                             <h3>Kepercayaan</h3>
+                             <p>Membangun hubungan yang didasari kejujuran dan amanah.</p>
+                        </div>
+                        <div class="value-item animate-on-scroll" data-delay="0.6s">
+                             <i class="fas fa-users-cog"></i>
+                             <h3>Inovasi</h3>
+                             <p>Terus beradaptasi dan berinovasi untuk kenyamanan jama'ah.</p>
+                        </div>
+                   </div>
+              </div>
+         </section>
+
     </main>
-    
-    </body>
-    </html>
-   
+
     <footer class="footer">
-        <p>© 2025 PT. Fauza Wisata Ihsani Pemalang. All rights reserved.</p>
+        <div class="container">
+            <p>© 2025 PT. Fauza Wisata Ihsani Pemalang. All rights reserved.</p>
+            <div class="social-icons">
+                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                 <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                 <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+        </div>
     </footer>
+
+    <!-- Link ke script.js di akhir body -->
+    <script src="script.js"></script>
+
 </body>
 </html>
