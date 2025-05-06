@@ -95,15 +95,15 @@ img {
 }
 
 .logo-img {
-    height: 45px; /* Ukuran logo sedikit lebih besar */
-    margin-right: 12px; /* Jarak lebih luas dari teks logo */
+    height: 35px; /* Ukuran logo sedikit lebih besar */
+    margin-right: 10px; /* Jarak lebih luas dari teks logo */
     border-radius: 50%;
     object-fit: cover; /* Pastikan gambar logo proporsional */
     border: 2px solid rgba(0, 123, 255, 0.1); /* Border halus opsional */
 }
 
 .logo {
-    font-size: 1.3em; /* Ukuran teks logo sedikit lebih besar */
+    font-size: 1.1em; /* Ukuran teks logo sedikit lebih besar */
     font-weight: 700; /* Lebih tebal */
     color: var(--secondary-color);
     letter-spacing: -0.5px; /* Jarak antar huruf */
