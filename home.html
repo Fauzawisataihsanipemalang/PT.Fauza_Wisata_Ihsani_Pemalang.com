@@ -1,181 +1,905 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - PT. Fauza Wisata Ihsani Pemalang</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome untuk ikon -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-    <!-- Link ke Font Poppins dari Google Fonts (jika belum ada di style.css) -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+/* ====================================
+   CSS Variables
+   ==================================== */
+:root {
+    --primary-color: #007bff; /* Warna biru utama */
+    --secondary-color: #0056b3; /* Warna biru sekunder (lebih gelap) */
+    --accent-color: #ffc107; /* Warna aksen (kuning/emas) */
+    --text-color: #333; /* Warna teks umum */
+    --text-color-light: #555; /* Warna teks lebih terang */
+    --light-bg: #f8f9fa; /* Background terang (mirip f4f4f4) */
+    --dark-bg: #333; /* Background gelap (dari footer pertama) */
+    --white: #fff; /* Warna putih */
+    --border-color: #ddd; /* Warna border umum */
+    --border-radius: 8px; /* Radius sudut elemen */
+    --border-radius-small: 5px; /* Radius sudut yang lebih kecil */
+    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan standar */
+    --transition-speed: 0.3s; /* Kecepatan transisi standar */
+    --section-padding: 60px 0; /* Menggunakan nilai dari CSS pertama */
+    --section-padding-mobile: 40px 0;
+    --gap-small: 10px; /* Menggunakan nilai dari CSS pertama */
+    --gap-medium: 20px;
+    --gap-large: 30px;
+}
 
-    <header class="header">
-        <div class="container"> <!-- Tambahkan container di dalam header -->
-            <div class="logo-container">
-                <img src="Logo1.jpg" alt="logo" class="logo-img"> <!-- Hapus style inline -->
-                <div class="logo">PT. Fauza Wisata Ihsani Pemalang</div>
-            </div>
-            <div class="menu-icon" id="menu-icon"><i class="fas fa-bars"></i></div>
-            <nav class="nav-menu" id="nav-menu">
-                <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="Artikel.html">Artikel</a></li>
-                    <li><a href="layanan.html">Layanan Kami</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+/* ====================================
+   Reset dan Dasar Styling
+   ==================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    <main>
-        <!-- Hero Section - Bisa disesuaikan dengan konten Home -->
-        <!-- Anda bisa menggunakan hero section seperti di index.html jika ingin -->
-        <!-- Atau buat section pembuka yang berbeda -->
-        <section class="hero">
-             <div class="container">
-                  <div class="home-content animate-on-scroll">
-                       <p class="hero-subtitle">Selamat Datang di</p>
-                       <h1 class="hero-title">PT. Fauza Wisata Ihsani Pemalang</h1>
-                       <p class="hero-description">Teman setia perjalanan ibadah dan wisata Anda ke tanah suci dan destinasi pilihan lainnya.</p>
-                       <a href="layanan.html" class="cta-button">Lihat Layanan Kami</a> <!-- Sesuaikan link -->
-                  </div>
-             </div>
-        </section>
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: #f4f4f4; /* Tetap menggunakan warna dari CSS pertama */
+    overflow-x: hidden;
+    position: relative;
+    padding-top: 70px; /* Sesuaikan dengan tinggi header fixed */
+}
 
-        <!-- Mosaic Gallery - Jika ingin menampilkan galeri mozaik di home -->
-         <!-- <section class="mosaic-gallery-section section">
-              <div class="container">
-                   <h2 class="animate-on-scroll">Galeri Perjalanan</h2>
-                   <div class="mosaic-gallery">
-                        <img src="gambar-galeri-1.jpg" alt="Galeri 1" class="animate-on-scroll">
-                        <img src="gambar-galeri-2.jpg" alt="Galeri 2" class="animate-on-scroll" data-delay="0.2s">
-                        <img src="gambar-galeri-3.jpg" alt="Galeri 3" class="animate-on-scroll" data-delay="0.4s">
-                        <img src="gambar-galeri-4.jpg" alt="Galeri 4" class="animate-on-scroll">
-                        <img src="gambar-galeri-5.jpg" alt="Galeri 5" class="animate-on-scroll" data-delay="0.2s">
-                        <img src="gambar-galeri-6.jpg" alt="Galeri 6" class="animate-on-scroll" data-delay="0.4s">
-                   </div>
-              </div>
-         </section> -->
+a {
+    text-decoration: none;
+    color: inherit; /* Warna link mengikuti parent, seperti di CSS pertama */
+    transition: color var(--transition-speed) ease;
+}
+
+/* Hover untuk link umum, jika tidak diatur secara spesifik */
+a:hover {
+    color: var(--primary-color);
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* ====================================
+   Layout Helper Classes
+   ==================================== */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section {
+    padding: var(--section-padding);
+}
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 40px; /* Menggunakan nilai dari CSS pertama */
+    font-size: 2.5em;
+    color: var(--secondary-color); /* Menggunakan variabel */
+}
+
+/* ====================================
+   Header & Navigation
+   ==================================== */
+.header {
+    background-color: var(--white);
+    color: var(--text-color); /* Menggunakan variabel */
+    padding: 15px 0; /* Menggunakan nilai dari CSS pertama */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Menggunakan nilai dari CSS pertama */
+    position: fixed; /* Menggunakan fixed */
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.header .container {
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     width: 100%;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img { /* Mengganti .logo-container img menjadi .logo-img */
+    height: 40px; /* Menggunakan nilai dari CSS pertama */
+    margin-right: var(--gap-small);
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.logo {
+    font-size: 1.2em; /* Menggunakan nilai dari CSS pertama */
+    font-weight: 600; /* Menggunakan nilai dari CSS pertama */
+    color: var(--secondary-color); /* Menggunakan variabel */
+}
+
+.nav-menu ul {
+    display: flex;
+    align-items: center;
+}
+
+.nav-menu ul li {
+    margin-left: var(--gap-medium); /* Menggunakan variabel */
+}
+
+.nav-menu ul li a {
+    color: var(--text-color); /* Menggunakan variabel */
+    font-weight: 500;
+    padding: 5px 0; /* Menggunakan nilai dari CSS pertama */
+    transition: color var(--transition-speed) ease;
+}
+
+.nav-menu ul li a:hover {
+    color: var(--primary-color); /* Menggunakan variabel */
+}
+
+/* Active state untuk link navigasi */
+.nav-menu ul li a.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
 
 
-        <!-- Section Fitur/Keunggulan - Menggunakan struktur section dan container -->
-        <!-- Menggunakan kelas 'why-choose-us' agar sesuai dengan CSS yang sudah ada -->
-        <section class="why-choose-us section">
-            <div class="container">
-                <h2 class="animate-on-scroll">Mengapa Memilih Kami?</h2> <!-- Sesuaikan judul -->
-                <div class="why-choose-us-grid"> <!-- Menggunakan kelas grid yang sesuai -->
-                    <div class="why-item animate-on-scroll">
-                        <i class="fas fa-user-shield"></i> <!-- Hapus kelas animation-container & animated-icon jika tidak diperlukan CSS spesifik -->
-                        <h3>Keamanan Terjamin</h3>
-                        <p>Kami menjamin keamanan dan kenyamanan dalam setiap perjalanan Anda ke tanah suci, mulai dari keberangkatan hingga kepulangan.</p>
-                    </div>
-                    <div class="why-item animate-on-scroll" data-delay="0.2s">
-                        <i class="fas fa-clock"></i>
-                        <h3>Waktu Fleksibel</h3>
-                        <p>Pilih waktu perjalanan yang sesuai dengan jadwal Anda. Kami siap membantu melakukan penyesuaian untuk kenyamanan Anda.</p>
-                    </div>
-                    <div class="why-item animate-on-scroll" data-delay="0.4s">
-                        <i class="fas fa-flag"></i>
-                        <h3>Paket Lengkap</h3>
-                        <p>Dari akomodasi, transportasi, hingga layanan selama perjalanan, kami menyediakan semua yang Anda butuhkan.</p>
-                    </div>
-                    <div class="why-item animate-on-scroll" data-delay="0.6s">
-                        <i class="fas fa-comments"></i>
-                        <h3>Dukungan 24/7</h3>
-                        <p>Tim kami siap membantu Anda kapan saja. Kami selalu siap menjawab pertanyaan dan kebutuhan Anda.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
+.menu-icon {
+    display: none;
+    font-size: 1.8em; /* Menggunakan nilai dari CSS pertama */
+    cursor: pointer;
+    color: var(--text-color); /* Menggunakan variabel */
+    padding: 5px; /* Tambahkan padding untuk area klik */
+}
 
-        <!-- Section Video / Ilustrasi - Jika ingin menampilkan video atau ilustrasi -->
-         <section class="illustration-container section">
-              <div class="container">
-                   <h2 class="animate-on-scroll">Tonton Video Kami</h2>
-                   <video controls poster="thumbnail-video.jpg" class="animate-on-scroll"> <!-- Tambahkan poster gambar thumbnail -->
-                        <source src="video-perusahaan.mp4" type="video/mp4"> <!-- Ganti dengan path video Anda -->
-                        <!-- Tambahkan source lain jika ada format video lain -->
-                        Your browser does not support the video tag.
-                   </video>
-              </div>
-         </section>
+/* Overlay untuk menu mobile */
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--transition-speed) ease, visibility var(--transition-speed) ease;
+}
 
-        <!-- Section Layanan Highlight - Jika ingin menampilkan beberapa layanan unggulan -->
-        <section class="services-highlight section" id="layanan-kami"> <!-- Tambahkan ID untuk smooth scroll -->
-             <div class="container">
-                  <h2 class="animate-on-scroll">Layanan Unggulan Kami</h2>
-                  <div class="services-grid">
-                       <div class="service animate-on-scroll">
-                            <img src="umroh-image.jpg" alt="Paket Umroh"> <!-- Ganti dengan gambar layanan -->
-                            <h3>Paket Umroh</h3>
-                            <p>Nikmati perjalanan ibadah umroh yang khusyuk dan nyaman bersama kami.</p>
-                       </div>
-                       <div class="service animate-on-scroll" data-delay="0.2s">
-                            <img src="haji-image.jpg" alt="Paket Haji Plus"> <!-- Ganti dengan gambar layanan -->
-                            <h3>Paket Haji Plus</h3>
-                            <p>Dapatkan pengalaman haji yang istimewa dengan fasilitas dan pendampingan terbaik.</p>
-                       </div>
-                       <div class="service animate-on-scroll" data-delay="0.4s">
-                            <img src="tour-image.jpg" alt="Tour Muslim"> <!-- Ganti dengan gambar layanan -->
-                            <h3>Tour Muslim</h3>
-                            <p>Jelajahi destinasi wisata muslim menarik di seluruh dunia.</p>
-                       </div>
-                  </div>
-             </div>
-        </section>
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
 
-        <!-- Section Testimoni - Jika ingin menampilkan testimoni pelanggan -->
-         <section class="testimonials section">
-              <div class="container">
-                   <h2 class="animate-on-scroll">Apa Kata Mereka?</h2>
-                   <div class="testimonial-list">
-                        <div class="testimonial-item animate-on-scroll">
-                             <p>"Pelayanan PT. Fauza Wisata Ihsani Pemalang sangat memuaskan. Seluruh proses umroh berjalan lancar dan nyaman. Terima kasih!"</p>
-                             <div class="testimonial-author">- Ahmad S.</div>
-                        </div>
-                        <div class="testimonial-item animate-on-scroll" data-delay="0.2s">
-                             <p>"Sangat merekomendasikan biro travel ini. Timnya profesional dan sangat membantu. Pengalaman haji plus yang tak terlupakan."</p>
-                             <div class="testimonial-author">- Siti N.</div>
-                        </div>
-                        <div class="testimonial-item animate-on-scroll" data-delay="0.4s">
-                             <p>"Tour muslim ke Turki bersama Fauza Wisata Ihsani sangat menyenangkan. Itinerary tersusun rapi dan guide sangat informatif."</p>
-                             <div class="testimonial-author">- Budi H.</div>
-                        </div>
-                   </div>
-              </div>
-         </section>
 
-         <!-- Section Kutipan - Jika ingin menampilkan kutipan inspiratif -->
-          <section class="quote-section section">
-               <div class="container animate-on-scroll">
-                    <blockquote>
-                         Perjalanan ke tanah suci adalah panggilan hati, biarkan kami menjadi jembatan yang memudahkan langkah Anda.
-                    </blockquote>
-                    <footer>- PT. Fauza Wisata Ihsani Pemalang</footer>
-               </div>
-          </section>
+/* ====================================
+   Hero Section (Home Page)
+   ==================================== */
+.hero {
+    /* background-image akan diatur oleh kelas spesifik seperti .hero-home */
+    position: relative;
+    color: var(--white);
+    text-align: center;
+    padding: 100px 0; /* Menggunakan nilai dari CSS pertama */
+    min-height: auto; /* Hapus min-height jika tidak diperlukan */
+    display: block; /* Kembali ke block jika tidak menggunakan flex di sini */
+    margin-top: -70px; /* Kompensasi padding-top di body */
+    background-size: cover;
+    background-position: center;
+}
 
-    </main>
+.hero::before { /* Overlay gelap */
+     content: '';
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.5);
+     z-index: 1;
+}
 
-    <footer class="footer">
-        <div class="container"> <!-- Tambahkan container di dalam footer -->
-            <p>© 2025 PT. Fauza Wisata Ihsani Pemalang. All rights reserved.</p>
-            <div class="social-icons">
-                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                 <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                 <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                 <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                 <!-- Tambahkan ikon sosial media lainnya jika ada -->
-            </div>
-        </div>
-    </footer>
+.home-content { /* Menggunakan kelas dari HTML Anda */
+    position: relative;
+    z-index: 2;
+    max-width: 900px; /* Tambahkan max-width opsional */
+    margin: 0 auto; /* Pusatkan konten */
+}
 
-    <!-- Link ke script.js di akhir body -->
-    <script src="script.js"></script>
+.hero-subtitle {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
 
-</body>
-</html>
+.hero-title {
+    font-size: 3em;
+    margin-bottom: var(--gap-medium);
+    font-weight: 700;
+}
+
+.hero-description {
+    font-size: 1.1em;
+    margin-bottom: var(--gap-large);
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px; /* Menggunakan nilai dari CSS pertama */
+    background-color: var(--primary-color); /* Menggunakan variabel */
+    color: var(--white); /* Menggunakan variabel */
+    border-radius: var(--border-radius-small);
+    font-size: 1em; /* Menggunakan nilai dari CSS pertama */
+    transition: background-color var(--transition-speed) ease;
+}
+
+.cta-button:hover {
+    background-color: var(--secondary-color); /* Menggunakan variabel */
+}
+
+/* Specific Hero Backgrounds (Untuk halaman home) */
+.hero-home {
+    background-image: url('background 2 (3).jpeg');
+}
+
+
+/* ====================================
+   Mosaic Gallery
+   ==================================== */
+.mosaic-gallery-section { /* Menambahkan wrapper section jika diperlukan */
+     padding: var(--section-padding);
+}
+
+.mosaic-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 5px; /* Menggunakan nilai dari CSS pertama */
+    margin-top: 20px; /* Menggunakan nilai dari CSS pertama */
+}
+
+.mosaic-gallery img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: var(--border-radius-small);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Menggunakan nilai dari CSS pertama */
+    transition: transform var(--transition-speed) ease;
+}
+
+.mosaic-gallery img:hover {
+    transform: scale(1.03);
+}
+
+/* Contoh untuk membuat beberapa gambar lebih besar (opsional) */
+.mosaic-gallery img:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.mosaic-gallery img:nth-child(4) {
+    grid-column: span 2;
+}
+
+
+/* ====================================
+   Why Choose Us Section
+   ==================================== */
+.why-choose-us {
+    background-color: var(--white); /* Menggunakan variabel */
+}
+
+.why-choose-us-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--gap-large);
+    text-align: center;
+}
+
+.why-item {
+    padding: var(--gap-medium);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--light-bg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.why-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.why-item i {
+    font-size: 3em;
+    color: var(--primary-color);
+    margin-bottom: var(--gap-medium);
+}
+
+.why-item h3 {
+    font-size: 1.5em;
+    margin-bottom: var(--gap-small);
+    color: var(--text-color);
+}
+
+.why-item p {
+    color: var(--text-color-light);
+}
+
+/* ====================================
+   Video Section
+   ==================================== */
+.illustration-container {
+     padding: var(--section-padding-mobile);
+     background-color: #eee;
+}
+
+.illustration-container video {
+     width: 100%;
+     max-width: 800px;
+     display: block;
+     margin: 0 auto;
+     border-radius: var(--border-radius);
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* ====================================
+   Services Highlight Section
+   ==================================== */
+.services-highlight {
+    background-color: var(--white);
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--gap-large);
+}
+
+.service { /* Kembali menggunakan .service */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background-color: var(--light-bg);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+    /* Jika Anda tidak menggunakan flexbox di HTML, hapus display: flex dll. */
+    /* display: flex; */
+    /* flex-direction: column; */
+}
+
+.service:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.service img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Jika Anda tidak menggunakan div .content */
+.service h3 {
+    font-size: 1.4em;
+    margin: 15px; /* Menggunakan nilai dari CSS pertama */
+    color: var(--text-color);
+}
+
+.service p {
+    margin: 0 15px 15px; /* Menggunakan nilai dari CSS pertama */
+    color: var(--text-color-light);
+}
+
+
+/* ====================================
+   Quote Section
+   ==================================== */
+.quote-section {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 50px 0; /* Menggunakan nilai dari CSS pertama */
+    text-align: center;
+}
+
+.quote-section blockquote {
+    font-size: 1.5em;
+    font-style: italic;
+    margin: 0 auto var(--gap-medium);
+    max-width: 800px;
+    position: relative;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.quote-section blockquote::before,
+.quote-section blockquote::after {
+    font-family: sans-serif;
+    font-size: 3em;
+    position: absolute;
+    opacity: 0.5;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.quote-section blockquote::before {
+    content: "\201C";
+    top: -20px;
+    left: -20px; /* Menggunakan nilai dari CSS pertama */
+}
+
+.quote-section blockquote::after {
+    content: "\201D";
+    bottom: -20px;
+    right: -20px; /* Menggunakan nilai dari CSS pertama */
+}
+
+
+.quote-section footer {
+    font-size: 1em;
+    margin-top: 10px;
+    opacity: 0.8;
+}
+
+/* ====================================
+   Testimonials Section
+   ==================================== */
+.testimonials {
+    background-color: #eee; /* Menggunakan warna dari CSS pertama */
+}
+
+.testimonial-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--gap-large);
+}
+
+.testimonial-item {
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Menggunakan nilai dari CSS pertama */
+    font-style: italic;
+    position: relative;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.testimonial-item:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.testimonial-item::before {
+     content: "\201C";
+     font-family: sans-serif;
+     font-size: 4em;
+     color: rgba(0, 123, 255, 0.2); /* Menggunakan warna dari CSS pertama */
+     position: absolute;
+     top: 10px;
+     left: 10px;
+}
+
+.testimonial-item p {
+    margin-bottom: 15px; /* Menggunakan nilai dari CSS pertama */
+    color: var(--text-color-light);
+}
+
+.testimonial-author {
+    text-align: right;
+    font-style: normal;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+/* ====================================
+   Contact Section (DIKEMBALIKAN)
+   ==================================== */
+.contact {
+    background-color: var(--white);
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.contact-info h3,
+.contact-form h3 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.contact-info p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    color: var(--text-color-light);
+}
+
+.contact-info i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--text-color);
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-small);
+    font-size: 1em;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #28a745; /* Warna spesifik dari CSS pertama */
+    color: var(--white);
+    border: none;
+    border-radius: var(--border-radius-small);
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color var(--transition-speed) ease;
+}
+
+.contact-form button:hover {
+    background-color: #218838; /* Warna spesifik dari CSS pertama */
+}
+
+
+/* ====================================
+   Footer
+   ==================================== */
+.footer {
+    background-color: var(--dark-bg);
+    color: var(--white);
+    padding: 30px 0;
+    text-align: center;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer p {
+    margin-bottom: 15px; /* Menggunakan nilai dari CSS pertama */
+    font-size: 0.9em;
+}
+
+.social-icons a {
+    color: var(--white);
+    font-size: 1.5em;
+    margin: 0 10px;
+    transition: color var(--transition-speed) ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+}
+
+
+/* ====================================
+   Animations (Scroll Reveal)
+   ==================================== */
+.animate-on-scroll,
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Menggunakan data-delay untuk menunda animasi */
+.animate-on-scroll[data-delay] {
+    transition-delay: var(--delay, 0s); /* Menggunakan variabel CSS untuk delay */
+}
+
+
+/* ====================================
+   Responsive Design (Media Queries)
+   ==================================== */
+
+/* Untuk tablet dan layar yang lebih kecil */
+@media (max-width: 992px) {
+    body {
+        padding-top: 60px;
+    }
+
+    .hero {
+        margin-top: -60px;
+        padding: 80px 0; /* Sesuaikan padding hero */
+    }
+
+    .section {
+        padding: 40px 0; /* Sesuaikan padding section */
+    }
+
+    .section h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+
+    .hero-title {
+        font-size: 2.5em;
+    }
+
+    .hero-description {
+        font-size: 1em;
+    }
+
+    .why-choose-us-grid,
+    .services-grid,
+    .testimonial-list,
+    .contact-grid { /* Tambahkan contact-grid */
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--gap-medium);
+    }
+
+    .why-item, .service, .testimonial-item, .contact-info, .contact-form { /* Tambahkan contact items */
+        padding: var(--gap-medium);
+    }
+
+    .why-item i {
+        font-size: 2.5em;
+        margin-bottom: var(--gap-small);
+    }
+
+    .why-item h3, .service h3, .contact-info h3, .contact-form h3 { /* Tambahkan contact headings */
+        font-size: 1.3em;
+        margin-bottom: var(--gap-small);
+    }
+
+     .quote-section blockquote {
+          font-size: 1.3em;
+     }
+
+     .footer p {
+          margin-bottom: var(--gap-small);
+     }
+
+     .social-icons a {
+          font-size: 1.3em;
+          margin: 0 8px;
+     }
+}
+
+/* Untuk mobile */
+@media (max-width: 768px) {
+    body {
+        padding-top: 60px;
+    }
+
+    .header .container {
+        flex-wrap: nowrap;
+    }
+
+    .menu-icon {
+        order: 1;
+        display: block;
+    }
+
+    .logo-container {
+        order: 2;
+        flex-grow: 1;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        padding-left: 20px;
+    }
+
+    .nav-menu {
+        order: 3;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: var(--white);
+        box-shadow: var(--box-shadow);
+        padding: 10px 20px;
+        border-top: 1px solid var(--border-color);
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        z-index: 999;
+    }
+
+    .nav-menu.active {
+        display: flex;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-menu ul li {
+        margin: 10px 0;
+        width: 100%;
+    }
+
+     .nav-menu ul li a {
+          display: block;
+          padding: 10px 0;
+          text-align: center;
+          font-size: 1.1em;
+          color: var(--text-color);
+          font-weight: 500;
+          transition: background-color 0.2s ease, color 0.2s ease;
+     }
+
+    .nav-menu ul li a:hover {
+         background-color: var(--light-bg);
+         color: var(--primary-color);
+    }
+
+     .nav-menu ul li::after { /* Hapus jika ada underline di mobile */
+          display: none;
+     }
+
+     .nav-menu ul li:not(:last-child) {
+          border-bottom: 1px solid var(--border-color);
+          padding-bottom: 10px;
+          margin-bottom: 10px;
+     }
+
+
+    .section {
+        padding: var(--section-padding-mobile);
+    }
+
+    .section h2 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    .hero {
+        margin-top: -60px;
+        padding: 60px 0; /* Menggunakan nilai dari CSS pertama */
+    }
+
+    .hero-title {
+        font-size: 2em;
+    }
+
+    .hero-description {
+        font-size: 1em;
+    }
+
+    .cta-button {
+        padding: 10px 20px; /* Menggunakan nilai dari CSS pertama */
+        font-size: 0.9em;
+    }
+
+    .why-choose-us-grid,
+    .services-grid,
+    .testimonial-list,
+    .contact-grid { /* Tambahkan contact-grid */
+        gap: var(--gap-medium);
+    }
+
+
+    .why-item, .service, .testimonial-item, .contact-info, .contact-form { /* Tambahkan contact items */
+         padding: 15px; /* Menggunakan nilai dari CSS pertama */
+    }
+
+
+    .why-item i {
+        font-size: 2.5em;
+    }
+
+    .why-item h3, .service h3, .contact-info h3, .contact-form h3 { /* Tambahkan contact headings */
+        font-size: 1.3em;
+    }
+
+    .service img {
+        height: 150px; /* Menggunakan nilai dari CSS pertama */
+    }
+
+     .quote-section blockquote {
+         font-size: 1.1em; /* Menggunakan nilai dari CSS pertama */
+     }
+
+     .contact-info p {
+         font-size: 1em;
+     }
+
+     .footer p {
+          font-size: 0.8em;
+     }
+
+     .social-icons a {
+         font-size: 1.3em; /* Menggunakan nilai dari CSS pertama */
+         margin: 0 8px;
+     }
+}
+
+/* Untuk smartphone */
+@media (max-width: 480px) {
+     .logo {
+          font-size: 0.9em; /* Menggunakan nilai dari CSS pertama */
+     }
+
+     .logo-container img {
+          height: 35px; /* Menggunakan nilai dari CSS pertama */
+          margin-right: 8px;
+     }
+
+     .mosaic-gallery {
+         grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+         gap: 5px;
+     }
+
+     .mosaic-gallery img:nth-child(1),
+     .mosaic-gallery img:nth-child(4) {
+          grid-column: span 1;
+          grid-row: span 1;
+     }
+
+     .hero {
+          padding: 60px 0; /* Menggunakan nilai dari CSS pertama */
+     }
+
+     .hero-title {
+          font-size: 1.8em;
+     }
+
+     .cta-button {
+          padding: 10px 20px;
+          font-size: 0.9em;
+     }
+
+     .why-item, .service, .testimonial-item, .contact-info, .contact-form { /* Tambahkan contact items */
+         padding: 15px;
+     }
+
+     .why-item i {
+         font-size: 2.5em;
+     }
+
+     .why-item h3, .service h3, .contact-info h3, .contact-form h3 { /* Tambahkan contact headings */
+         font-size: 1.3em;
+     }
+
+     .service img {
+         height: 150px;
+     }
+
+     .quote-section blockquote {
+         font-size: 1.1em;
+     }
+
+     .contact-info p {
+         font-size: 1em;
+     }
+
+     .social-icons a {
+         font-size: 1.3em;
+         margin: 0 8px;
+     }
+}
