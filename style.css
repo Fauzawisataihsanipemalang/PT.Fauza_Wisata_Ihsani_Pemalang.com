@@ -1,56 +1,80 @@
 body {
     margin: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* Font modern */
-    background-color: #f4f4f4; /* Warna latar belakang halaman */
+    font-family: 'Poppins', sans-serif; /* Font modern dan elegan */
+    background-color: #f4f7f6; /* Warna latar belakang halaman yang lembut */
+    line-height: 1.6; /* Jarak antar baris untuk keterbacaan */
+    color: #333; /* Warna teks utama */
+    overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
 }
 
 .img {
     max-width: 100%; /* Atur lebar gambar sesuai ukuran kontainer */
     height: auto; /* Menjaga rasio aspek gambar */
+    display: block; /* Menghilangkan spasi ekstra di bawah gambar */
 }
 
+/* --- Perbaikan Header (meskipun fokus selain navbar, kita buat sedikit lebih modern) --- */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background-color: #fefeff; /* Warna latar belakang header */
-    color: rgb(0, 0, 0);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan halus */
-    position: relative; /* Pastikan header memiliki konteks posisi */
+    background-color: #ffffff; /* Warna latar belakang header yang bersih */
+    color: #333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Bayangan yang lebih halus dan progresif */
+    position: fixed; /* Header tetap di atas saat di-scroll */
+    width: 100%;
+    top: 0;
+    left: 0;
     z-index: 1000; /* Menetapkan tinggi z-index untuk header */
+    transition: background-color 0.3s ease; /* Animasi saat scroll */
 }
+
+/* Animasi header saat di-scroll */
+.header.scrolled {
+    background-color: rgba(255, 255, 255, 0.95); /* Sedikit transparan saat di-scroll */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Bayangan yang lebih kuat saat di-scroll */
+}
+
 
 .logo {
     font-size: 1.8em;
-    font-weight: bold;
+    font-weight: 700; /* Bold yang lebih kuat */
     letter-spacing: 1px;
+    color: #007bff; /* Warna logo yang menarik */
 }
 
 .menu-icon {
-    font-size: 26px; /* Ukuran ikon titik tiga */
+    font-size: 28px; /* Ukuran ikon yang sedikit lebih besar */
     cursor: pointer;
     display: none; /* Tersembunyi di tampilan besar */
+    color: #333; /* Warna ikon */
 }
 
+/* --- Perbaikan Nav-menu (meskipun fokus selain navbar, kita buat sedikit lebih modern) --- */
 .nav-menu {
     display: none; /* Sembunyikan menu secara default */
     position: absolute; /* Posisi absolut untuk mengapung di atas konten lainnya */
     top: 70px; /* Jarak dari bagian atas */
     right: 30px; /* Jarak dari sisi kanan */
-    background-color: #424242; /* Warna latar belakang menu */
+    background-color: #ffffff; /* Warna latar belakang menu yang bersih */
     border-radius: 8px; /* Sudut bulat menu */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); /* Bayangan yang lebih kuat */
     z-index: 2000; /* Z-index tinggi agar menampilkan menu di atas konten lainnya */
+    opacity: 0; /* Mulai dengan transparan untuk animasi */
+    transform: translateY(-10px); /* Mulai sedikit di atas untuk animasi */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Animasi muncul */
 }
 
 .nav-menu.active {
     display: block; /* Tampilkan menu saat aktif */
+    opacity: 1; /* Tampilkan menu dengan penuh transparansi */
+    transform: translateY(0); /* Kembali ke posisi normal */
 }
 
 .nav-menu ul {
     list-style: none; /* Menghilangkan bullet pada list */
-    padding: 0;
+    padding: 10px 0; /* Padding di dalam menu */
     margin: 0;
 }
 
@@ -59,14 +83,16 @@ body {
 }
 
 .nav-menu li a {
-    color: white; /* Warna teks */
+    color: #333; /* Warna teks */
     text-decoration: none;
-    transition: background-color 0.3s ease; /* Animasi saat hover */
+    display: block; /* Membuat area klik lebih besar */
+    border-radius: 5px; /* Sudut bulat saat hover */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Animasi saat hover */
 }
 
 .nav-menu li a:hover {
-    background-color: #303f9f; /* Warna latar belakang saat hover */
-    border-radius: 8px; /* Sudut bulat saat hover */
+    background-color: #f0f0f0; /* Warna latar belakang saat hover */
+    color: #007bff; /* Warna teks saat hover */
 }
 
 /* Media query untuk menampilkan menu ikon pada perangkat kecil */
@@ -78,14 +104,8 @@ body {
     .nav-menu {
         width: 200px; /* Atur lebar menu dropdown */
         margin-top: 10px; /* Jarak atas untuk tampilan yang lebih baik */
-        opacity: 0; /* Sembunyikan menu dengan efek transparansi */
-        visibility: hidden; /* Sembunyikan menu agar tidak menghalangi klik */
-        transition: opacity 0.3s ease, visibility 0.3s ease; /* Animasi transparansi */
-    }
-
-    .nav-menu.active {
-        opacity: 1; /* Tampilkan menu saat aktif */
-        visibility: visible; /* Mengizinkan menu untuk klik */
+        right: 20px; /* Sesuaikan posisi kanan */
+        top: 65px; /* Sesuaikan posisi atas */
     }
 
     .nav-menu ul {
@@ -94,7 +114,7 @@ body {
     }
 
     .nav-menu li {
-        text-align: center; /* Teks di tengah */
+        text-align: left; /* Teks di kiri */
     }
 }
 
@@ -102,10 +122,27 @@ body {
     .nav-menu {
         display: flex; /* Tampilkan menu sebagai flex pada perangkat besar */
         position: static; /* Menetapkan posisi statis untuk tata letak horizontal */
+        opacity: 1; /* Pastikan opacity penuh di layar besar */
+        transform: translateY(0); /* Pastikan transform normal di layar besar */
+        box-shadow: none; /* Hapus bayangan di layar besar */
     }
 
     .nav-menu ul {
         display: flex; /* Menu horizontal */
+    }
+
+    .nav-menu li {
+        padding: 0 15px; /* Padding horizontal antar item menu */
+    }
+
+    .nav-menu li a {
+        padding: 5px 0; /* Padding vertikal untuk tautan */
+        border-radius: 0; /* Hapus sudut bulat */
+    }
+
+    .nav-menu li a:hover {
+        background-color: transparent; /* Hapus latar belakang saat hover */
+        border-bottom: 2px solid #007bff; /* Garis bawah saat hover */
     }
 
     .menu-icon {
@@ -113,17 +150,20 @@ body {
     }
 }
 
+/* --- Slider yang Lebih Elegan dengan Animasi --- */
 .slider {
     position: relative;
-    max-width: 800px; /* Lebar maksimum slider */
-    margin: auto; /* Pusatkan slider */
+    max-width: 900px; /* Lebar maksimum slider yang sedikit lebih besar */
+    margin: 80px auto 40px auto; /* Pusatkan slider dan beri ruang */
     overflow: hidden; /* Sembunyikan bagian luar slider */
+    border-radius: 10px; /* Sudut bulat pada slider */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Bayangan yang lebih kuat */
     z-index: 1; /* Z-index lebih rendah agar slider di bawah menu */
 }
 
 .slides {
     display: flex; /* Tampilkan slide secara horizontal */
-    transition: transform 0.5s ease-in-out; /* Animasi transisi */
+    transition: transform 0.6s ease-in-out; /* Animasi transisi yang lebih halus */
 }
 
 .slide {
@@ -134,6 +174,7 @@ body {
 .slide img {
     width: 100%; /* Gambar responsif */
     height: auto; /* Menyesuaikan tinggi */
+    display: block; /* Menghilangkan spasi di bawah gambar */
 }
 
 .prev, .next {
@@ -141,154 +182,434 @@ body {
     top: 50%; /* Pusatkan tombol di tengah */
     transform: translateY(-50%); /* Koreksi posisi tombol */
     color: white; /* Warna teks tombol */
-    font-size: 18px; /* Ukuran font tombol */
-    padding: 16px; /* Padding tombol */
+    font-size: 24px; /* Ukuran font tombol yang lebih besar */
+    padding: 12px; /* Padding tombol */
     cursor: pointer; /* Pointer saat hover */
-    background-color: rgba(0, 0, 0, 0.5); /* Latar belakang transparan */
+    background-color: rgba(0, 0, 0, 0.6); /* Latar belakang transparan */
     border: none; /* Hapus border */
-    border-radius: 3px; /* Sudut bulat tombol */
+    border-radius: 50%; /* Tombol bulat */
+    transition: background-color 0.3s ease, opacity 0.3s ease; /* Animasi saat hover */
+    opacity: 0.8; /* Sedikit transparan saat tidak di-hover */
+}
+
+.prev:hover, .next:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Latar belakang lebih gelap saat hover */
+    opacity: 1; /* Tidak transparan saat di-hover */
 }
 
 .prev {
-    left: 10px; /* Jarak dari sisi kiri */
+    left: 15px; /* Jarak dari sisi kiri */
 }
 
 .next {
-    right: 10px; /* Jarak dari sisi kanan */
+    right: 15px; /* Jarak dari sisi kanan */
 }
 
+/* Animasi Fade untuk Slide */
 .fade {
     display: none; /* Sembunyikan semua slide secara default */
+    animation: fadeIn 1s ease-in-out; /* Animasi fade in */
 }
 
 .fade.show {
     display: block; /* Tampilkan slide saat aktif */
 }
-body {
-            background-image: url('path/to/your/image.jpg'); /* Ganti dengan URL gambar Anda */
-            background-size: cover; /* Gambar menutupi seluruh area */
-            background-position: center; /* Memposisikan gambar di tengah */
-            background-repeat: no-repeat; /* Tidak mengulang gambar */
-            font-family: Arial, sans-serif; /* Menetapkan font untuk teks */
-        }
 
-        .content {
-            color: white; /* Warna teks agar kontras dengan latar belakang */
-            padding: 20px; /* Memberikan ruang di dalam konten */
-            text-align: center; /* Memusatkan teks */
-        }
-/* Hero Section */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+
+/* --- Background Body dengan Gambar (jika diinginkan) --- */
+/* body {
+    background-image: url('path/to/your/elegant-background-image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Gambar tetap saat di-scroll */
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+} */
+
+
+.content {
+    color: #333; /* Warna teks agar kontras dengan latar belakang */
+    padding: 20px; /* Memberikan ruang di dalam konten */
+    text-align: center; /* Memusatkan teks */
+    background-color: rgba(255, 255, 255, 0.9); /* Latar belakang sedikit transparan untuk konten */
+    margin-top: 80px; /* Ruang dari header tetap */
+}
+
+/* --- Hero Section yang Lebih Menarik --- */
 .hero {
-    background: url('hero-image.jpg') no-repeat center center/cover;
-    height: 150vh;
+    background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover; /* Ganti dengan gambar hero Anda */
+    height: 80vh; /* Tinggi hero section */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
+    position: relative; /* Diperlukan untuk overlay */
+    overflow: hidden; /* Mencegah elemen child meluap */
+}
+
+/* Overlay untuk memperjelas teks di atas gambar */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Overlay hitam transparan */
+    z-index: 1;
 }
 
 .hero-content {
-    background-color: rgba(0, 0, 0, 0.5);
+    position: relative;
+    z-index: 2; /* Pastikan konten di atas overlay */
+    max-width: 800px; /* Lebar maksimum konten hero */
     padding: 20px;
-    border-radius: 10px;
+    animation: fadeInUp 1s ease-out; /* Animasi muncul dari bawah */
 }
+
+.hero-content h1 {
+    font-size: 3em;
+    margin-bottom: 15px;
+    font-weight: 700;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Bayangan teks */
+}
+
+.hero-content p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    opacity: 0.9; /* Sedikit transparan */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Ilustrasi atau Gambar yang Menarik --- */
 .illustration-container {
     text-align: center;
-    margin: 20px 0; /* Ruang di atas dan bawah */
+    margin: 60px 0; /* Ruang di atas dan bawah */
+    padding: 0 20px; /* Padding horizontal */
 }
 
 .illustration-container img {
     width: 100%; /* Gambar mengikuti lebar kontainer */
-    max-width: 600px; /* Lebar maksimum gambar */
-    border-radius: 10px; /* Sudut bulat pada gambar */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan halus */
+    max-width: 700px; /* Lebar maksimum gambar */
+    border-radius: 15px; /* Sudut bulat yang lebih besar */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Bayangan yang lebih kuat */
+    transition: transform 0.3s ease; /* Animasi saat hover */
 }
 
-/* Highlight Layanan */
+.illustration-container img:hover {
+    transform: scale(1.03); /* Memperbesar sedikit saat di-hover */
+}
 
+
+/* --- Highlight Layanan dengan Animasi --- */
 .services-highlight {
     display: flex; /* Mengatur flexbox untuk tata letak */
     justify-content: space-around; /* Ruang antar elemen */
-    margin: 20px 0; /* Ruang di atas dan bawah */
+    margin: 60px 0; /* Ruang di atas dan bawah */
+    padding: 0 20px; /* Padding horizontal */
+    flex-wrap: wrap; /* Mengizinkan wrap pada layar kecil */
 }
-video {
-    max-width: 100%; /* Membuat video responsif */
-    height: auto; /* Mempertahankan rasio aspek */
-}
+
 .service {
     text-align: center;
-    max-width: 150px; /* Lebar maksimum setiap layanan */
+    max-width: 200px; /* Lebar maksimum setiap layanan yang sedikit lebih besar */
+    margin: 20px; /* Ruang antar layanan */
+    background-color: white; /* Latar belakang putih untuk setiap layanan */
+    padding: 25px; /* Padding di dalam kotak layanan */
+    border-radius: 10px; /* Sudut bulat */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Bayangan halus */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi saat hover */
+    animation: fadeInUp 0.8s ease-out; /* Animasi muncul */
+}
+
+.service:hover {
+    transform: translateY(-10px); /* Mengangkat sedikit saat di-hover */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15); /* Bayangan yang lebih kuat saat di-hover */
 }
 
 .service img {
-    width: 100%; /* Gambar mengikuti lebar kontainer */
-    border-radius: 10px; /* Sudut bulat pada gambar */
-    margin-bottom: 10px; /* Ruang di bawah gambar */
+    width: 80px; /* Ukuran ikon layanan */
+    height: 80px;
+    border-radius: 50%; /* Gambar ikon bulat */
+    margin-bottom: 15px; /* Ruang di bawah gambar */
+    border: 3px solid #007bff; /* Border warna */
+    padding: 5px; /* Padding di dalam border */
+    transition: transform 0.3s ease; /* Animasi pada gambar */
 }
 
-/* Gaya Kutipan */
-.quote-section {
-    background-color: rgba(255, 255, 255, 0.9); /* Latar belakang kutipan */
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center; /* Pusatkan teks */
-    margin-top: 20px; /* Ruang di atas */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Bayangan halus pada kutipan */
+.service:hover img {
+    transform: rotate(10deg); /* Rotasi kecil saat di-hover */
 }
+
+.service h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    color: #007bff; /* Warna judul layanan */
+}
+
+.service p {
+    font-size: 0.95em;
+    color: #555; /* Warna teks deskripsi */
+}
+
+/* --- Video yang Responsif dan Menarik --- */
+.video-section {
+    margin: 60px 0; /* Ruang di atas dan bawah */
+    text-align: center; /* Pusatkan video */
+    padding: 0 20px; /* Padding horizontal */
+}
+
+video {
+    max-width: 900px; /* Lebar maksimum video */
+    height: auto; /* Mempertahankan rasio aspek */
+    border-radius: 10px; /* Sudut bulat pada video */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Bayangan */
+    display: block; /* Menghilangkan spasi di bawah video */
+    margin: 0 auto; /* Pusatkan video */
+    transition: transform 0.3s ease; /* Animasi saat hover */
+}
+
+video:hover {
+    transform: scale(1.02); /* Memperbesar sedikit saat di-hover */
+}
+
+/* --- Gaya Kutipan yang Lebih Menarik --- */
+.quote-section {
+    background-color: #e9ecef; /* Latar belakang kutipan yang lebih lembut */
+    border-radius: 10px;
+    padding: 30px; /* Padding yang lebih besar */
+    text-align: center; /* Pusatkan teks */
+    margin: 60px auto; /* Ruang di atas dan bawah, pusatkan */
+    max-width: 800px; /* Lebar maksimum kutipan */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Bayangan halus pada kutipan */
+    position: relative; /* Diperlukan untuk pseudo-elemen */
+    animation: fadeIn 1s ease-out; /* Animasi muncul */
+}
+
+/* Pseudo-elemen untuk tanda kutip */
+.quote-section::before {
+    content: '“';
+    font-size: 4em;
+    color: rgba(0, 0, 0, 0.1); /* Warna tanda kutip transparan */
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-family: serif; /* Font serif untuk tanda kutip */
+}
+
+.quote-section::after {
+    content: '”';
+    font-size: 4em;
+    color: rgba(0, 0, 0, 0.1); /* Warna tanda kutip transparan */
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    font-family: serif; /* Font serif untuk tanda kutip */
+}
+
 
 .quote-section p {
-    margin: 5px 0; /* Ruang di atas dan bawah setiap paragraf */
+    margin: 10px 0; /* Ruang di atas dan bawah setiap paragraf */
     font-style: italic; /* Miringkan teks kutipan */
+    font-size: 1.1em; /* Ukuran font sedikit lebih besar */
+    color: #555; /* Warna teks */
 }
 
-/* Responsive */
-@media (max-width: 600px) {
+.quote-section p:last-child {
+    font-weight: bold; /* Nama atau sumber kutipan lebih tebal */
+    margin-top: 20px;
+    color: #333;
+}
+/* --- Call to Action (CTA) Button yang Lebih Menarik --- */
+.cta-button {
+    display: inline-block;
+    padding: 12px 25px; /* Padding yang lebih besar */
+    background-color: #007bff; /* Warna primer */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Animasi saat hover */
+    margin-top: 20px; /* Ruang di atas tombol */
+}
+
+.cta-button:hover {
+    background-color: #0056b3; /* Warna lebih gelap saat hover */
+    transform: translateY(-3px); /* Mengangkat sedikit saat di-hover */
+}
+
+/* --- Features Section yang Lebih Terstruktur dan Animatif --- */
+.features {
+    padding: 80px 20px; /* Padding yang lebih besar */
+    text-align: center;
+    background-color: #ffffff; /* Latar belakang putih */
+}
+
+.features h2 {
+    font-size: 2em;
+    margin-bottom: 40px; /* Ruang bawah judul */
+    color: #333;
+    position: relative;
+}
+
+/* Garis bawah dekoratif pada judul fitur */
+.features h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background-color: #007bff;
+    margin: 10px auto 0 auto;
+    border-radius: 2px;
+}
+
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Kolom yang lebih lebar */
+    gap: 30px; /* Jarak antar fitur yang lebih besar */
+}
+
+.feature {
+    background-color: #f8f9fa; /* Latar belakang fitur yang lembut */
+    padding: 30px; /* Padding yang lebih besar */
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    text-align: left; /* Teks rata kiri */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Animasi saat hover */
+    animation: fadeInUp 0.8s ease-out; /* Animasi muncul */
+}
+
+.feature:hover {
+    transform: translateY(-10px); /* Mengangkat sedikit saat di-hover */
+    box-shadow: 0 8m 15px rgba(0, 0, 0, 0.15); /* Bayangan yang lebih kuat saat di-hover */
+}
+
+.feature i { /* Contoh jika menggunakan ikon */
+    font-size: 2.5em;
+    color: #007bff; /* Warna ikon */
+    margin-bottom: 15px;
+    display: block; /* Membuat ikon menjadi blok */
+}
+
+.feature h3 {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.feature p {
+    font-size: 1em;
+    color: #555;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-content p {
+        font-size: 1em;
+    }
+
     .services-highlight {
         flex-direction: column; /* Mengatur menjadi kolom untuk perangkat kecil */
         align-items: center; /* Pusatkan konten */
     }
-}
-.cta-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #007BFF;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+
+    .service {
+        margin: 15px 0; /* Ruang antar layanan */
+        max-width: 250px; /* Lebar maksimum setiap layanan */
+    }
+
+    .illustration-container img {
+        max-width: 100%; /* Gambar mengikuti lebar kontainer */
+    }
+
+    video {
+        max-width: 100%; /* Video mengikuti lebar kontainer */
+    }
+
+    .quote-section {
+        padding: 20px; /* Padding lebih kecil */
+    }
+
+    .features {
+        padding: 40px 15px; /* Padding lebih kecil */
+    }
+
+    .feature-grid {
+        gap: 20px; /* Jarak antar fitur lebih kecil */
+    }
+
+    .feature {
+        padding: 20px; /* Padding lebih kecil */
+    }
 }
 
-.cta-button:hover {
-    background-color: #0056b3;
+/* --- Animasi Lain yang Bisa Ditambahkan --- */
+
+/* Animasi saat elemen muncul saat di-scroll (memerlukan JavaScript) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-/* Features Section */
-.features {
-    padding: 60px 20px;
-    text-align: center;
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.features h2 {
-    margin-bottom: 20px;
+/* Animasi untuk gambar atau elemen penting */
+.scale-in {
+    animation: scaleIn 0.8s ease-out;
 }
 
-.feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-.feature {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Animasi putar ringan */
+.rotate-on-hover:hover {
+    transform: rotate(5deg);
 }
 
-/* Footer */
-.footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #ffffff;
+/* Animasi latar belakang gradien yang bergerak */
+/* body {
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientAnimation 15s ease infinite;
 }
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+} */
