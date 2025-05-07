@@ -1,9 +1,4 @@
-/* Google Fonts - Poppins */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-/* ====================================
-   Global Reset & Base Styles
-   ==================================== */
 * {
     margin: 0;
     padding: 0;
@@ -75,13 +70,13 @@ img {
 .header .container {
      display: flex;
      justify-content: space-between;
-     align-items: center;
+     align-items: Right;
      width: 100%;
 }
 
 .logo-container {
     display: flex;
-    align-items: center;
+    align-items: lift;
 }
 
 .logo-container img {
