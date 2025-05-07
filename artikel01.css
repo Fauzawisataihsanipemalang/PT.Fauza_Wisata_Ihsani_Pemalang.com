@@ -1,119 +1,4 @@
-/* styles.css */
-body {
-    margin: 0;
-    font-family: 'Helvetica Neue', Arial, sans-serif; /* Font modern */
-    background-color: #f4f4f4; /* Warna latar belakang halaman */
-}
 
-.img {
-    max-width: 100%; /* Atur lebar gambar sesuai ukuran kontainer */
-    height: auto; /* Menjaga rasio aspek gambar */
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: #fefeff; /* Warna latar belakang header */
-    color: rgb(0, 0, 0);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Bayangan halus */
-    position: relative; /* Pastikan header memiliki konteks posisi */
-    z-index: 1000; /* Menetapkan tinggi z-index untuk header */
-}
-
-.logo {
-    font-size: 1.8em;
-    font-weight: bold;
-    letter-spacing: 1px;
-}
-
-.menu-icon {
-    font-size: 26px; /* Ukuran ikon titik tiga */
-    cursor: pointer;
-    display: none; /* Tersembunyi di tampilan besar */
-}
-
-.nav-menu {
-    display: none; /* Sembunyikan menu secara default */
-    position: absolute; /* Posisi absolut untuk mengapung di atas konten lainnya */
-    top: 70px; /* Jarak dari bagian atas */
-    right: 30px; /* Jarak dari sisi kanan */
-    background-color: #424242; /* Warna latar belakang menu */
-    border-radius: 8px; /* Sudut bulat menu */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Bayangan */
-    z-index: 2000; /* Z-index tinggi agar menampilkan menu di atas konten lainnya */
-}
-
-.nav-menu.active {
-    display: block; /* Tampilkan menu saat aktif */
-}
-
-.nav-menu ul {
-    list-style: none; /* Menghilangkan bullet pada list */
-    padding: 0;
-    margin: 0;
-}
-
-.nav-menu li {
-    padding: 12px 20px; /* Jarak dalam setiap item menu */
-}
-
-.nav-menu li a {
-    color: white; /* Warna teks */
-    text-decoration: none;
-    transition: background-color 0.3s ease; /* Animasi saat hover */
-}
-
-.nav-menu li a:hover {
-    background-color: #303f9f; /* Warna latar belakang saat hover */
-    border-radius: 8px; /* Sudut bulat saat hover */
-}
-
-/* Media query untuk menampilkan menu ikon pada perangkat kecil */
-@media (max-width: 770px) {
-    .menu-icon {
-        display: block; /* Tampilkan ikon titik tiga pada perangkat kecil */
-    }
-
-    .nav-menu {
-        width: 200px; /* Atur lebar menu dropdown */
-        margin-top: 10px; /* Jarak atas untuk tampilan yang lebih baik */
-        opacity: 0; /* Sembunyikan menu dengan efek transparansi */
-        visibility: hidden; /* Sembunyikan menu agar tidak menghalangi klik */
-        transition: opacity 0.3s ease, visibility 0.3s ease; /* Animasi transparansi */
-    }
-
-    .nav-menu.active {
-        opacity: 1; /* Tampilkan menu saat aktif */
-        visibility: visible; /* Mengizinkan menu untuk klik */
-    }
-
-    .nav-menu ul {
-        display: flex; /* Menu menggunakan flexbox */
-        flex-direction: column; /* Tiap item ditumpuk */
-    }
-
-    .nav-menu li {
-        text-align: center; /* Teks di tengah */
-    }
-}
-
-@media (min-width: 769px) {
-    .nav-menu {
-        display: flex; /* Tampilkan menu sebagai flex pada perangkat besar */
-        position: static; /* Menetapkan posisi statis untuk tata letak horizontal */
-    }
-
-    .nav-menu ul {
-        display: flex; /* Menu horizontal */
-    }
-
-    .menu-icon {
-        display: none; /* Sembunyikan ikon titik tiga pada perangkat besar */
-    }
-}
-/* Reset beberapa default browser */
 * {
     margin: 0;
     padding: 0;
@@ -121,74 +6,1066 @@ body {
 }
 
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
+    font-family: 'Poppins', sans-serif; /* Font Poppins */
+    line-height: 1.7; /* Sedikit tingkatkan line-height */
+    color: #444; /* Warna teks yang lebih lembut */
+    background-color: #f8f9fa; /* Warna latar belakang body yang lebih cerah */
+    overflow-x: hidden;
+    scroll-behavior: smooth; /* Mengaktifkan smooth scrolling */
 }
 
-.header {
-    background-color: #f4f4f5; /* Warna biru */
-    color: rgb(15, 15, 15);
-    padding: 20px;
-    text-align: center;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-.header h1 {
-    font-size: 2.5em;
-    margin-bottom: 15px;
-    width: 5px;
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease; /* Transisi halus untuk warna link */
 }
 
-.meta-info {
-    font-size: 0.9em;
-    margin-bottom: 15px;
+a:hover {
+    color: #007bff; /* Warna hover link */
 }
 
-.article-container {
-    max-width: 800px; /* Lebar maksimum untuk konten */
-    margin: 20px auto;
-    background: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+ul {
+    list-style: none;
 }
 
-.article-content {
-    margin-bottom: 20px;
-}
-
-.article-image {
-    width: 100%; /* Gambar responsif */
+img {
+    max-width: 100%;
     height: auto;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    display: block;
 }
 
-.article-text {
-    font-size: 1.1em;
-    margin-bottom: 20px;
-    line-height: 1.8;
-}
-
-.section-title {
-    font-size: 1.8em;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color: #007BFF; /* Menggunakan warna yang konsisten */
-}
-
-.footer {
+/* ====================================
+   Utility Classes
+   ==================================== */
+.text-center {
     text-align: center;
-    padding: 10px;
-    background-color: #f6f7f8;
-    color: rgb(12, 6, 6);
-    position: relative;
+}
+
+.mb-20 { margin-bottom: 20px; }
+.mb-30 { margin-bottom: 30px; }
+.mb-40 { margin-bottom: 40px; }
+.mb-60 { margin-bottom: 60px; }
+
+/* ====================================
+   Header & Navigation
+   ==================================== */
+.header {
+    background-color: #ffffff; /* Latar belakang putih bersih */
+    padding: 15px 0;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08); /* Bayangan yang lebih halus */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header .container {
+     display: flex;
+     justify-content: space-between;
+     align-items: Right;
+     width: 100%;
+}
+
+.logo-container {
+    display: flex;
+    align-items: lift;
+}
+
+.logo-container img {
+    height: 45px; /* Tinggi logo sedikit lebih besar */
+    margin-right: 12px;
+    border-radius: 8px; /* Sudut membulat pada logo */
+    object-fit: cover; /* Memastikan gambar logo pas */
+}
+
+.logo {
+    font-size: 1.3em; /* Ukuran teks logo */
+    font-weight: 700; /* Lebih tebal */
+    color: #007bff; /* Warna primer */
+    letter-spacing: -0.5px; /* Sedikit kurangi jarak antar huruf */
+}
+
+.nav-menu ul {
+    display: flex;
+    align-items: center; /* Pusatkan item vertikal */
+}
+
+.nav-menu ul li {
+    margin-left: 25px; /* Jarak antar item menu */
+}
+
+.nav-menu ul li:first-child {
+    margin-left: 0; /* Hapus margin pada item pertama */
+}
+
+.nav-menu ul li a {
+    color: #555; /* Warna link menu default */
+    font-weight: 500;
+    padding: 8px 0; /* Tambahkan padding vertikal */
+    position: relative; /* Untuk underline efek */
+}
+
+/* Underline efek pada hover */
+.nav-menu ul li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
     bottom: 0;
+    width: 0; /* Awalnya tidak ada underline */
+    height: 2px;
+    background-color: #007bff;
+    transition: width 0.3s ease;
+}
+
+.nav-menu ul li a:hover::after {
+    width: 100%; /* Underline muncul saat hover */
+}
+
+.menu-icon {
+    display: none;
+    font-size: 2em; /* Icon sedikit lebih besar */
+    cursor: pointer;
+    color: #333;
+}
+
+/* ====================================
+   Mosaic Gallery
+   ==================================== */
+.mosaic-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Ukuran minmax yang sedikit lebih besar */
+    gap: 8px; /* Jarak antar gambar */
+    margin-top: 30px; /* Jarak dari header */
+}
+
+.mosaic-gallery img {
     width: 100%;
-    margin-top: 20px;
+    height: 250px; /* Tinggi gambar yang seragam */
+    object-fit: cover;
+    border-radius: 8px; /* Sudut membulat */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan lebih halus */
+    transition: transform 0.4s ease, box-shadow 0.4s ease; /* Transisi yang lebih baik */
+    cursor: pointer; /* Indikasi bisa diklik (jika ada fitur zoom/lightbox) */
+}
+
+.mosaic-gallery img:hover {
+    transform: scale(1.05); /* Zoom sedikit lebih besar */
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Bayangan saat hover */
+}
+
+/* Contoh untuk membuat beberapa gambar lebih besar (opsional) */
+.mosaic-gallery img:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+    height: 516px; /* Sesuaikan tinggi agar pas dengan 2 baris + gap */
+}
+
+.mosaic-gallery img:nth-child(4) {
+    grid-column: span 2;
+    height: 250px; /* Tetapkan tinggi */
+}
+
+/* ====================================
+   Main Content Sections
+   ==================================== */
+main {
+    padding: 60px 0; /* Padding atas dan bawah untuk konten utama */
+}
+
+.section {
+    padding: 80px 0; /* Padding lebih besar untuk setiap section */
+    background-color: #ffffff; /* Default section background */
+    margin-bottom: 20px; /* Jarak antar section */
+}
+
+/* Background section bergantian */
+.section:nth-child(odd) {
+    background-color: #f8f9fa;
+}
+
+
+.section h2 {
+    text-align: center;
+    margin-bottom: 50px; /* Jarak bawah judul */
+    font-size: 2.8em; /* Ukuran judul lebih besar */
+    color: #007bff; /* Warna judul */
+    font-weight: 700;
+    position: relative;
+}
+
+/* Underline dekoratif pada judul section */
+.section h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -15px; /* Jarak dari teks judul */
+    transform: translateX(-50%);
+    width: 80px; /* Lebar underline */
+    height: 4px; /* Ketebalan underline */
+    background-color: #007bff;
+    border-radius: 2px;
+}
+
+
+/* ====================================
+   Hero Section (Home Page)
+   ==================================== */
+.hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('background 2 (3).jpeg'); /* Overlay gradien + gambar */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    padding: 120px 0; /* Padding lebih besar */
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center; /* Pusatkan konten vertikal */
+    min-height: 60vh; /* Tinggi minimum hero */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px; /* Lebar maksimum konten hero */
+    margin: 0 auto;
+}
+
+.hero-subtitle {
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+.hero-title {
+    font-size: 4em; /* Ukuran judul lebih besar */
+    margin-bottom: 25px;
+    font-weight: 800;
+    line-height: 1.2;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Bayangan teks */
+}
+
+.hero-description {
+    font-size: 1.2em;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px; /* Padding lebih besar */
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50px; /* Bentuk pill */
+    font-size: 1.1em;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3); /* Bayangan button */
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
+    transform: translateY(-3px); /* Efek angkat saat hover */
+    box-shadow: 0 6px 12px rgba(0, 123, 255, 0.4);
+}
+
+/* ====================================
+   Why Choose Us Section
+   ==================================== */
+.why-choose-us-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px; /* Jarak antar item lebih besar */
+    text-align: center;
+}
+
+.why-item {
+    padding: 30px; /* Padding lebih besar */
+    border: none; /* Hapus border */
+    border-radius: 10px; /* Sudut lebih membulat */
+    background-color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Bayangan lebih menonjol */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.why-item:hover {
+    transform: translateY(-10px); /* Efek angkat saat hover */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.why-item i {
+    font-size: 3.5em; /* Ukuran ikon lebih besar */
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.why-item h3 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.why-item p {
+    color: #666;
+    font-size: 1em;
+}
+
+/* ====================================
+   Video Section
+   ==================================== */
+.illustration-container {
+     padding: 60px 0; /* Padding lebih besar */
+     background-color: #f1f3f5; /* Warna latar yang berbeda */
+}
+
+.illustration-container video {
+     width: 100%;
+     max-width: 900px; /* Lebar maksimum video lebih besar */
+     display: block;
+     margin: 0 auto;
+     border-radius: 10px; /* Sudut lebih membulat */
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); /* Bayangan lebih kuat */
+}
+
+
+/* ====================================
+   Services Highlight Section
+   ==================================== */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ukuran minmax lebih besar */
+    gap: 40px;
+}
+
+.service {
+    border: none; /* Hapus border */
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #ffffff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Menggunakan flexbox untuk konten di dalam service */
+    flex-direction: column; /* Tata letak vertikal */
+}
+
+.service:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.service img {
+    width: 100%;
+    height: 220px; /* Tinggi gambar layanan */
+    object-fit: cover;
+}
+
+.service-content {
+    padding: 20px; /* Padding untuk teks dan judul */
+    flex-grow: 1; /* Memastikan konten mengisi ruang yang tersedia */
+}
+
+.service h3 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.service p {
+    color: #666;
+    font-size: 1em;
+}
+
+
+/* ====================================
+   Quote Section
+   ==================================== */
+.quote-section {
+    background: linear-gradient(to right, #007bff, #0056b3); /* Gradien latar belakang */
+    color: #fff;
+    padding: 70px 0; /* Padding lebih besar */
+    text-align: center;
+    position: relative;
+    overflow: hidden; /* Sembunyikan pseudo-elemen yang keluar */
+}
+
+/* Pseudo-elemen dekoratif */
+.quote-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.quote-section::after {
+    content: '';
+    position: absolute;
+    bottom: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+
+.quote-section blockquote {
+    font-size: 1.6em; /* Ukuran kutipan lebih besar */
+    font-style: italic;
+    margin: 0 auto 25px;
+    max-width: 900px; /* Lebar maksimum kutipan lebih besar */
+    position: relative;
+    z-index: 1; /* Pastikan teks di atas pseudo-elemen */
+    line-height: 1.6;
+}
+
+.quote-section blockquote::before {
+    content: "\201C";
+    font-size: 4em; /* Ukuran ikon kutipan lebih besar */
+    position: absolute;
+    top: -30px; /* Sesuaikan posisi */
+    left: -30px; /* Sesuaikan posisi */
+    opacity: 0.4; /* Opasitas lebih rendah */
+    color: rgba(255, 255, 255, 0.6);
+    font-family: sans-serif; /* Pastikan menggunakan font yang ada tanda kutipnya */
+    z-index: -1; /* Di belakang teks */
+}
+
+.quote-section blockquote::after {
+    content: "\201D";
+    font-size: 4em;
+    position: absolute;
+    bottom: -30px; /* Sesuaikan posisi */
+    right: -30px; /* Sesuaikan posisi */
+    opacity: 0.4;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: sans-serif;
+    z-index: -1;
+}
+
+
+.quote-section footer {
+    font-size: 1.1em;
+    margin-top: 15px;
+    opacity: 0.9;
+    font-weight: 500;
+}
+
+/* ====================================
+   Testimonials Section
+   ==================================== */
+.testimonials {
+    background-color: #f8f9fa; /* Latar belakang yang cerah */
+}
+
+.testimonial-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.testimonial-item {
+    background-color: #ffffff;
+    padding: 30px; /* Padding lebih besar */
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    font-style: italic;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.testimonial-item::before {
+     content: "\201C";
+     font-family: sans-serif;
+     font-size: 5em; /* Tanda kutip lebih besar */
+     color: rgba(0, 123, 255, 0.1); /* Warna tanda kutip lebih transparan */
+     position: absolute;
+     top: 10px;
+     left: 10px;
+     z-index: 0;
+}
+
+.testimonial-item p {
+    margin-bottom: 20px; /* Jarak bawah paragraf */
+    color: #555;
+    font-size: 1em;
+    line-height: 1.6;
+    position: relative; /* Pastikan teks di atas tanda kutip */
+    z-index: 1;
+}
+
+.testimonial-author {
+    text-align: right;
+    font-style: normal;
+    font-weight: 700; /* Lebih tebal */
+    color: #333;
+    font-size: 1em;
+}
+
+/* ====================================
+   Contact Section
+   ==================================== */
+.contact {
+    background-color: #ffffff;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Ukuran minmax lebih besar */
+    gap: 50px; /* Jarak antar kolom lebih besar */
+}
+
+.contact-info h3,
+.contact-form h3 {
+    font-size: 2em; /* Ukuran judul lebih besar */
+    margin-bottom: 25px;
+    color: #007bff;
+    font-weight: 700;
+}
+
+.contact-info p {
+    margin-bottom: 18px; /* Jarak bawah paragraf info */
+    font-size: 1.1em;
+    color: #555;
+    display: flex; /* Menggunakan flexbox untuk ikon dan teks */
+    align-items: center;
+}
+
+.contact-info i {
+    margin-right: 15px; /* Jarak ikon dari teks */
+    color: #007bff;
+    font-size: 1.3em; /* Ukuran ikon kontak */
+}
+
+.form-group {
+    margin-bottom: 25px; /* Jarak antar form group */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px; /* Jarak label dari input */
+    font-weight: 600; /* Lebih tebal */
+    color: #333;
+    font-size: 1em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px; /* Padding lebih besar */
+    border: 1px solid #ced4da; /* Warna border yang lebih lembut */
+    border-radius: 5px;
+    font-size: 1em;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group textarea:focus {
+    border-color: #007bff; /* Border biru saat fokus */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Bayangan saat fokus */
+    outline: none; /* Hapus outline default */
+}
+
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 150px; /* Tinggi minimum textarea */
+}
+
+.contact-form button {
+    display: inline-block;
+    padding: 12px 30px; /* Padding lebih besar */
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #218838;
+    transform: translateY(-2px);
+}
+
+
+/* ====================================
+   Footer
+   ==================================== */
+.footer {
+    background-color: #343a40; /* Latar belakang footer lebih gelap */
+    color: #e9ecef; /* Warna teks lebih terang */
+    padding: 40px 0; /* Padding lebih besar */
+    text-align: center;
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .footer p {
-    font-size: 0.9em;
+    margin-bottom: 20px; /* Jarak bawah teks copyright */
+    font-size: 1em;
+}
+
+.social-icons a {
+    color: #e9ecef;
+    font-size: 1.6em; /* Ukuran ikon sosial lebih besar */
+    margin: 0 12px; /* Jarak antar ikon sosial */
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: #007bff; /* Warna ikon saat hover */
+}
+
+
+/* ====================================
+   Animations (Scroll Reveal)
+   ==================================== */
+/* Pastikan ini tetap ada atau gunakan library JS seperti AOS */
+.fade-in,
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px); /* Geser sedikit lebih jauh */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Transisi lebih lambat dan halus */
+}
+
+.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Tambahkan delay untuk beberapa item */
+.animate-on-scroll[data-delay="0.1s"] { transition-delay: 0.1s; }
+.animate-on-scroll[data-delay="0.2s"] { transition-delay: 0.2s; }
+.animate-on-scroll[data-delay="0.3s"] { transition-delay: 0.3s; }
+.animate-on-scroll[data-delay="0.4s"] { transition-delay: 0.4s; }
+.animate-on-scroll[data-delay="0.5s"] { transition-delay: 0.5s; }
+/* Tambahkan lebih banyak delay jika diperlukan */
+
+
+/* ====================================
+   Responsive Design (Media Queries)
+   ==================================== */
+
+/* Untuk layar lebih kecil dari 992px (misalnya tablet landscape) */
+@media (max-width: 992px) {
+    .section h2 {
+        font-size: 2.5em;
+    }
+
+    .hero-title {
+        font-size: 3.5em;
+    }
+
+    .why-choose-us-grid,
+    .services-grid,
+    .testimonial-list,
+    .contact-grid {
+        gap: 30px; /* Kurangi jarak antar grid */
+    }
+
+    .mosaic-gallery img:nth-child(1) {
+        height: auto; /* Izinkan tinggi otomatis */
+    }
+}
+
+
+/* Untuk layar lebih kecil dari 768px (misalnya tablet dan mobile) */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 20px;
+    }
+
+    .header .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0;
+    }
+
+    .logo-container img {
+        height: 40px;
+        margin-right: 8px;
+    }
+
+    .logo {
+        font-size: 1.1em;
+    }
+
+    .nav-menu {
+        flex-basis: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.4s ease; /* Transisi lebih halus */
+        background-color: #ffffff;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+        position: absolute; /* Posisi absolut di bawah header */
+        top: 65px; /* Sesuaikan dengan tinggi header */
+        left: 0;
+        right: 0;
+        z-index: 999; /* Di bawah header */
+    }
+
+    .nav-menu.active {
+        height: auto;
+        padding-bottom: 15px; /* Tambahkan padding bawah */
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    .nav-menu ul li {
+        margin: 10px 0;
+    }
+
+     .nav-menu ul li a {
+          padding: 10px;
+          display: block;
+          color: #333; /* Warna link menu mobile */
+     }
+
+     .nav-menu ul li a::after {
+          display: none; /* Hapus underline di mobile */
+     }
+
+
+    .menu-icon {
+        display: block;
+        font-size: 1.8em;
+    }
+
+    .hero {
+        padding: 100px 0;
+        min-height: 50vh;
+    }
+
+    .hero-title {
+        font-size: 2.5em;
+    }
+
+    .hero-subtitle,
+    .hero-description {
+        font-size: 1em;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .section h2 {
+        font-size: 2.2em;
+        margin-bottom: 40px;
+    }
+
+    .section h2::after {
+        bottom: -10px;
+        width: 60px;
+        height: 3px;
+    }
+
+    .why-item,
+    .service,
+    .testimonial-item {
+        padding: 20px;
+    }
+
+    .why-item i {
+        font-size: 3em;
+    }
+
+    .why-item h3,
+    .service h3 {
+        font-size: 1.4em;
+    }
+
+    .service img {
+        height: 180px;
+    }
+
+    .quote-section {
+         padding: 50px 0;
+    }
+
+    .quote-section blockquote {
+        font-size: 1.3em;
+        margin: 0 auto 20px;
+    }
+
+    .quote-section blockquote::before,
+    .quote-section blockquote::after {
+        font-size: 3em;
+        top: -10px;
+        left: -10px;
+    }
+     .quote-section blockquote::after {
+          left: auto;
+          right: -10px;
+     }
+
+
+    .testimonial-item::before {
+         font-size: 4em;
+    }
+
+    .contact-info h3,
+    .contact-form h3 {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    .contact-info p {
+         font-size: 1em;
+         margin-bottom: 15px;
+    }
+
+    .contact-info i {
+         font-size: 1.2em;
+         margin-right: 10px;
+    }
+
+    .form-group {
+         margin-bottom: 20px;
+    }
+
+    .form-group label {
+         margin-bottom: 5px;
+    }
+
+    .form-group input[type="text"],
+    .form-group input[type="email"],
+    .form-group textarea {
+         padding: 10px 12px;
+    }
+
+    .contact-form button {
+         padding: 10px 25px;
+         font-size: 1em;
+    }
+
+    .footer p {
+        font-size: 0.9em;
+    }
+
+    .social-icons a {
+        font-size: 1.4em;
+        margin: 0 8px;
+    }
+}
+
+/* Untuk layar lebih kecil dari 480px (misalnya smartphone) */
+@media (max-width: 480px) {
+     .logo-container img {
+          height: 35px;
+     }
+
+     .logo {
+          font-size: 1em;
+     }
+
+     .menu-icon {
+          font-size: 1.6em;
+     }
+
+     .nav-menu {
+          top: 60px; /* Sesuaikan jika tinggi header berubah */
+     }
+
+
+     .mosaic-gallery {
+         grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+         gap: 5px;
+     }
+
+     .mosaic-gallery img:nth-child(1),
+     .mosaic-gallery img:nth-child(4) {
+          grid-column: span 1;
+          grid-row: span 1;
+          height: auto; /* Kembalikan tinggi otomatis */
+     }
+
+
+     .hero {
+          padding: 80px 0;
+          min-height: 40vh;
+     }
+
+     .hero-title {
+          font-size: 2em;
+     }
+
+     .hero-description {
+          font-size: 0.9em;
+          margin-bottom: 30px;
+     }
+
+     .cta-button {
+          padding: 10px 20px;
+          font-size: 1em;
+     }
+
+     .section {
+          padding: 40px 0;
+     }
+
+     .section h2 {
+          font-size: 1.8em;
+          margin-bottom: 30px;
+     }
+
+     .section h2::after {
+          width: 50px;
+          height: 3px;
+          bottom: -8px;
+     }
+
+
+     .why-item,
+     .service,
+     .testimonial-item {
+         padding: 15px;
+     }
+
+     .why-item i {
+         font-size: 2.5em;
+         margin-bottom: 15px;
+     }
+
+     .why-item h3,
+     .service h3 {
+         font-size: 1.3em;
+     }
+
+     .service img {
+         height: 150px;
+     }
+
+     .service-content {
+          padding: 15px;
+     }
+
+     .quote-section {
+          padding: 40px 0;
+     }
+
+     .quote-section blockquote {
+          font-size: 1.1em;
+          margin: 0 auto 15px;
+     }
+
+     .quote-section blockquote::before,
+     .quote-section blockquote::after {
+          font-size: 2.5em;
+          top: 0px;
+          left: 0px;
+     }
+
+     .quote-section blockquote::after {
+          left: auto;
+          right: 0px;
+     }
+
+
+     .quote-section footer {
+          font-size: 1em;
+     }
+
+
+     .testimonial-item::before {
+          font-size: 3.5em;
+          top: 5px;
+          left: 5px;
+     }
+
+     .testimonial-item p {
+          margin-bottom: 15px;
+     }
+
+     .testimonial-author {
+          font-size: 0.9em;
+     }
+
+     .contact-grid {
+          gap: 30px;
+     }
+
+     .contact-info h3,
+     .contact-form h3 {
+          font-size: 1.6em;
+          margin-bottom: 15px;
+     }
+
+     .contact-info p {
+          font-size: 0.9em;
+          margin-bottom: 10px;
+     }
+
+     .contact-info i {
+          font-size: 1.1em;
+          margin-right: 8px;
+     }
+
+     .form-group {
+          margin-bottom: 15px;
+     }
+
+     .form-group label {
+          font-size: 0.9em;
+     }
+
+     .form-group input[type="text"],
+     .form-group input[type="email"],
+     .form-group textarea {
+          padding: 8px 10px;
+          font-size: 0.9em;
+     }
+
+     .contact-form button {
+          padding: 10px 20px;
+          font-size: 0.9em;
+     }
+
+     .footer {
+          padding: 30px 0;
+     }
+
+     .footer p {
+          font-size: 0.8em;
+          margin-bottom: 15px;
+     }
+
+     .social-icons a {
+          font-size: 1.2em;
+          margin: 0 6px;
+     }
 }
