@@ -151,25 +151,6 @@
                          <p><i class="fab fa-whatsapp"></i> WhatsApp: [0877-1161-6792]</p>
                     </div>
                     <div class="contact-form animate-on-scroll" data-delay="0.2s">
-                         <h3>Kirim Pesan</h3>
-                         <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $to = "ihsanifauzawisata@gmail.com";
-    $subject = "Pesan dari Form Kontak";
-    $name = $_POST["name"];
-    $email = $_POST["email"];
-    $message = $_POST["message"];
-    
-    $headers = "From: $email" . "\r\n" .
-               "Reply-To: $email" . "\r\n" .
-               "X-Mailer: PHP/" . phpversion();
-
-    $fullMessage = "Nama: $name\nEmail: $email\nPesan:\n$message";
-    
-    mail($to, $subject, $fullMessage, $headers);
-    echo "Pesan berhasil dikirim!";
-}
-?>
 
                     </div>
                 </div>
